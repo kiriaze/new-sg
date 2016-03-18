@@ -2,7 +2,7 @@
   "name": "styleguide",
   "version": "1.0.0",
   "authors": [
-    "Constantine Kiriaze <hello@kiriaze.com>"
+    "BASIC <hello@basicagency.com>"
   ],
   "description": "Styleguide",
   "main": "gulpfile.js",
@@ -15,7 +15,7 @@
     "styleguide"
   ],
   "license": "GPL",
-  "homepage": "https://github.com/kiriaze/styleguide",
+  "homepage": "https://github.com/basicagency/styleguide",
   "ignore": [
     "**/.*",
     "node_modules",

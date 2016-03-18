@@ -16,17 +16,6 @@ var gulp           = require('gulp'),
 	fs             = require('fs'),
 	es             = require('event-stream');
 
-// Notes:
-// Consider https://github.com/assemble/assemble
-//
-// This styleguide works as a standalone
-// but can possibly be included within your project
-// and separated by example below
-// gulpfile.js in your main project:
-	// require('./gulp');
-	// require('./styleguide/gulp');
-
-
 // -------------------------------------------------------------
 // Config
 // -------------------------------------------------------------

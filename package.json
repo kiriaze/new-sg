@@ -1,9 +1,14 @@
 {
   "name": "styleguide",
   "version": "1.0.0",
-  "description": "A gulp flavored styleguide inspired by Huge's styleguide, utilizing jade & json on top of an easily extendable format. It comes preconfigured with Browserify, sourcemaps, libsass, optimization, bower, browser-sync, gh-pages and more.",
+  "description": "A living styleguide, despite what David says, it's a styleguide.",
+  "homepage": "https://github.com/basicagency",
   "main": "",
-  "author": "Constantine Kiriaze",
+  "author": "BASIC",
+  "contributors": {
+    "Constantine Kiriaze hello@kiriaze.com (http://kiriaze.com)"
+    "David david@david.com (http://david.com)"
+  },
   "license": "GPL",
   "dependencies": {
     "browser-sync": "^2.7.12",
@@ -20,13 +25,13 @@
     "gulp-filter": "^3.0.1",
     "gulp-flatten": "^0.2.0",
     "gulp-gh-pages": "0.5.2",
-    "gulp-jade": "^1.1.0",
+
     "gulp-load-plugins": "^1.0.0-rc.1",
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
-    "jade": "^1.11.0",
+
     "main-bower-files": "^2.9.0",
     "path": "^0.11.14",
     "run-sequence": "^1.1.2",

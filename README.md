@@ -1,7 +1,8 @@
-# Styleguide
-> Includes [BrowserSync](https://github.com/shakyShane/browser-sync) for fast live reloading across devices on code changes. [Jade](http://jade-lang.com) templating, [Sass](http://sass-lang.com/) and a simple grid implementation with [S-Grid](https://github.com/kiriaze/s-grid).
+# Styleguide-HB
+> Includes [BrowserSync](https://github.com/shakyShane/browser-sync) for fast live reloading across devices on code changes. [Handlebars](http://handlebars.com) templating, [Sass](http://sass-lang.com/) and a simple grid implementation with [S-Grid](https://github.com/kiriaze/s-grid).
 
-A gulp flavored styleguide inspired by Huge's styleguide, utilizing jade & json on top of an easily extendable format.
+Based off styleguide but uses handlebars instead of jade.
+
 It comes preconfigured with Browserify, sourcemaps, libsass, optimization, bower, browser-sync, gh-pages and more.
 
 Check the live example out at [https://kiriaze.github.io/styleguide](https://kiriaze.github.io/styleguide)!
@@ -24,39 +25,29 @@ Clone or Download Styleguide.
 	$ git clone git@github.com:kiriaze/styleguide.git
 
 
-### 2. Install
+### 2. Install / Run
 
-Change directory into cloned project & run Node Package Manager
+Change directory into cloned project & run Node Package Manager to install everything...and you're good to go.
 
-	$ cd styleguide && npm install --global gulp && npm install
+This will open up a server with your styleguide and start watching for changes, with automatic refreshes on all devices! **Easy peazy titty squeezy.**
 
-*This will install Gulp globally. Depending on your user account, you may need to configure your system to install packages globally without administrative privileges.*
+	$ cd styleguide && npm install
 
-If you have installed Node with sudo or root permission, You will need to fix permissions to the .npm folder with the following command:
-
-	sudo chown -R $(whoami) ~/.npm
-	sudo chown -R $(whoami) /usr/local/lib/node_modules
-
-### 3. Build
-
-Run Gulp and you're good to go. This will open up a server with your styleguide and start watching for changes, with automatic refreshes on all devices! **Easy peazy titty squeezy.**
-
-	$ gulp
+### 3. Deploy
 
 Want to push it to github pages?
 
 	gulp gh-pages
 
+Want to push it to server?
+
+	gulp deploy
+
+Or include a deploy.sh script in your repo and set up a webhook for auto deployment.
+
 **Boom goes the dynamite.**
 
 ### ToDo's
-- Move simpleForms.js out of forms module, and bower install it, then require it within forms module js file.
-- Rather than manually including/requiring js/scss within ./src/assets, have them auto compile/concat from within their respective modules directories and injected into ./dist, either into 1 file or separate files?
-- Consider https://github.com/assemble/assemble or replacing jade with handlebars, swig or something similar.
-- Possibility to save to json from front end on contenteditable elements - if logged in?, e.g. the Typography section.
 - Subsections - utilizing simpleAnchors.js
 - Different stylguide themes/layouts
 - Ability for modules to be used as pages
-- Still working on having the ablitity to be included within your project and separated with the gulpfile.js in your main project:
-	require('./gulp');
-	require('./styleguide/gulp');

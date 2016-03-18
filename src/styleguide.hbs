@@ -1,19 +1,17 @@
-extends templates/_layout
-block styles
-  link(href='./assets/css/vendor.css', rel='stylesheet')
-  link(href='./assets/css/styleguide.css', rel='stylesheet')
-  link(href='./assets/css/modules.css', rel='stylesheet')
-block meta
-  meta(name='description', content='')
-  meta(name='viewport', content='width=device-width, initial-scale=1')
-block content
-  include templates/_sidebar.jade
-  main#main
-    include modules.html
-  include templates/_footer.jade
-block scripts
-  //- bundle.js includes jquery, vendor.js doesn't
-  //- use vendor.js in other projects that already load jquery
-  script(src="./assets/js/bundle.js")
-  script(src="./assets/js/modules.js")
-  script(src="./assets/js/iframe.js")
+<link rel="stylesheet" href="./assets/css/vendor.css'" />
+<link rel="stylesheet" href="./assets/css/styleguide.css'" />
+<link rel="stylesheet" href="./assets/css/modules.css'" />
+
+{{> partials/_sidebar }}
+
+<main id="main">
+	{{> modules }}
+</main>
+
+{{> partials/_footer }}
+
+{{!-- bundle.js includes jquery, vendor.js doesn't --}}
+{{!-- use vendor.js in other projects that already load jquery --}}
+<script src="./assets/js/bundle.js"></script>
+<script src="./assets/js/modules.js"></script>
+<script src="./assets/js/iframe.js"></script>

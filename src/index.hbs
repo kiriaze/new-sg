@@ -1,18 +1,15 @@
-<link rel="stylesheet" href="./assets/css/styleguide.css'">
-
-<div class="styleguide-iframe-wrapper">
-	<iframe src="./styleguide.html" frameborder="0" height="100%" width="100%"></iframe>
-</div>
-
-<script src="./assets/js/styleguide.js"></script>
-
-
-
-{{> wrapper/head }}
+{{> head }}
 <main id="main">
-	{{> base/header }}
-		{{> content-blocks/hero }}
-		{{> content-blocks/typography }}
-	{{> base/footer }}
+	{{> header }}
+
+		<link rel="stylesheet" href="./assets/css/styleguide.css'">
+
+		<div class="styleguide-iframe-wrapper">
+			<iframe src="./styleguide.html" frameborder="0" height="100%" width="100%"></iframe>
+		</div>
+
+		<script src="./assets/js/styleguide.js"></script>
+
+	{{> footer }}
 </main>
-{{> wrapper/foot }}
+{{> foot }}

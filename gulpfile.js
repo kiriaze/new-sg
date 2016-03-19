@@ -23,6 +23,46 @@ var config = {
 
 	'serverport': 3000,
 
+
+
+
+
+	srcPaths: {
+		root    : 'src',
+
+		html    : 'src/**/*.html',
+		partials: 'src/partials/**/*.{js,json,hbs}',
+		helpers : 'src/assets/js/helpers/**/*.js',
+		data    : 'src/data/**/*.{js,json}',
+
+		styles  : 'src/assets/scss',
+		scripts : 'src/assets/js/**/*.js',
+		// js gulp order
+		order   : [
+			'**/**/modernizr.js',
+			'**/**/jquery.js',
+			'**/**/jquery.validate.js',
+			'**/**/*.js'
+		],
+		images  : 'src/assets/images/**/*.{png,jpg,jpeg,gif,svg,ico}',
+		video   : 'src/assets/video/**/*',
+		fonts   : 'src/assets/fonts/**/*'
+	},
+
+	destPaths: {
+		root    : 'dist',
+		styles  : 'dist/assets/css',
+		scripts : 'dist/assets/js',
+		images  : 'dist/assets/img',
+		video   : 'dist/assets/video',
+		fonts   : 'dist/assets/fonts'
+	},
+
+
+
+
+
+
 	'styles': {
 		'src' : 'src/assets/scss',
 		'dest': 'dist/assets/css'
@@ -312,38 +352,41 @@ gulp.task('clean', function() {
 	del(config.dist.root);
 });
 
-// json/jade in root of project / styleguide wrapper
+// json/hbs in root of project / styleguide wrapper
 gulp.task('styleguide', function() {
 
 	var data = JSON.parse(fs.readFileSync('_data.json'));
 
-	return gulp.src(config.src.root + '/*.jade')
-		.pipe(plugins.jade({
-			pretty: true,
-			locals: data
+	return gulp.src(config.srcPaths.root + '/*.hbs')
+		.pipe(plugins.hb({
+			partials: config.srcPaths.partials,
+			helpers: config.srcPaths.helpers,
+			data: config.srcPaths.data
 		})
 			.on('error', plugins.notify.onError(function (error) {
-				return 'An error occurred while compiling jade.\nLook in the console for details.\n' + error;
+				return 'An error occurred while compiling hbs.\nLook in the console for details.\n' + error;
 			}))
 		)
 		.pipe(gulp.dest(config.dist.root))
 });
 
-// json/jade styleguide modules
+// json/hbs styleguide modules
 gulp.task('modules', function() {
-	return gulp.src(config.src.root + '/modules/**/html.jade')
+	return gulp.src(config.srcPaths.root + '/modules/**.hbs')
 		.pipe(plugins.data(function(file) {
 			// console.log(file.path);
 			return JSON.parse(fs.readFileSync(path.dirname(file.path) + '/_data.json'));
 		}))
-		.pipe(plugins.jade({
-			pretty: true
+		.pipe(plugins.hb({
+			partials: config.srcPaths.partials,
+			helpers: config.srcPaths.helpers,
+			data: config.srcPaths.data
 		})
 			.on('error', plugins.notify.onError(function (error) {
-				return 'An error occurred while compiling jade.\nLook in the console for details.\n' + error;
+				return 'An error occurred while compiling hbs.\nLook in the console for details.\n' + error;
 			}))
 		)
-		.pipe(plugins.concat('modules.html'))
+		.pipe(plugins.concat('partials/modules.hbs'))
 		.pipe(gulp.dest(config.src.root))
 });
 
@@ -378,19 +421,19 @@ gulp.task('watch', function() {
 
 	// only modules
 	bs.watch([
-		config.src.root + '/modules/**/*.jade',
+		config.src.root + '/modules/**/*.hbs',
 		config.src.root + '/modules/**/*.json'
 	], function(event, file){
 		if ( event === 'change' ) {
-			// required to run jade after for update of modules.html
+			// required to run hbs after for update of modules.html
 			runSequence('modules', 'styleguide', bs.reload)
 		}
 	});
 
 	// styleguide structure
 	bs.watch([
-		config.src.root + '/*.jade',
-		config.src.root + '/templates/*.jade',
+		config.src.root + '/*.hbs',
+		config.src.root + '/templates/*.hbs',
 		'_data.json'
 	], function(event, file){
 		if ( event === 'change' ) {

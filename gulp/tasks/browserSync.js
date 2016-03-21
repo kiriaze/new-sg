@@ -4,8 +4,11 @@ var config      = require('../config'),
 	gulp        = require('gulp'),
 	browserSync = require('browser-sync');
 
-// Initialize browser-sync which starts a static server also allows for browsers to reload on filesave. Wait for jekyll and css build before building server.
-gulp.task('browser-sync', function() {
+// Initialize browser-sync which starts a static server across all devices.
+// List/kill browserSync server
+// lsof -i tcp:3000
+// kill -9 PID
+gulp.task('browserSync', function() {
 	browserSync({
 		server: {
 			baseDir: config.destPaths.root
@@ -17,3 +20,4 @@ gulp.task('browser-sync', function() {
 		// }
 	});
 });
+

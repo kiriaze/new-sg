@@ -1,16 +1,15 @@
-- var breakpoints = locals.breakpoints
-
 <header class="styleguide-header">
-  <span class="toggle-sidebar">Menu |</span>
-  <span class="styleguide-meta">{{{locals.clientName}}} Styleguide - v.{{{locals.version}}} | {{{locals.date}}}</span>
-  <nav class="styleguide-header-breakpoints">
-  	<ul>
-      <li>Sizes:</li>
-      {#each breakpoints}
-        <li>
-        	<a href="" class="breakpoint-toggle-{{{breakpoint.id}}}" data-breakpoint-size={{{breakpoint.id}}}></a>
-        </li>
-      {/each}
-  	</ul>
-  </nav>
+	<span class="toggle-sidebar">Menu |</span>
+	<span class="styleguide-meta">{{{locals.clientName}}} Styleguide - v.{{{locals.version}}} | {{{locals.date}}}</span>
+	<nav class="styleguide-header-breakpoints">
+		<ul>
+			<li>Sizes:</li>
+
+			{{#each breakpoints}}
+			<li>
+				<a href="" class="breakpoint-toggle-{{{breakpoint.id}}}" data-breakpoint-size={{{breakpoint.id}}}></a>
+			</li>
+			{{/each}}
+		</ul>
+	</nav>
 </header>

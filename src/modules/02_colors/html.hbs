@@ -1,0 +1,30 @@
+<h2 class="styleguide-module__title">{{name}}</h2>
+
+{{#each items.intro}}
+<p class="styleguide-module__paragraph">
+	{{this}}
+</p>
+{{/each}}
+
+<ul id="{{id}}">
+	{{#each items.colors}}
+	<li>
+		<div class="color #{{className}}"></div>
+		<p class="default">
+			.#{{className}}
+		</p>
+		<p class="designer">
+			<strong>#{{name}}</strong>
+			<br>
+			#{{rgb}}
+			<br>
+			#{{hex}}
+			<br>
+			.#{{className}}
+			<p class="minimal">
+				#{{hex}}
+			</p>
+		</p>
+	</li>
+	{{/each}}
+</ul>

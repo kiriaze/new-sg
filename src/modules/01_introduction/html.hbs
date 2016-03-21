@@ -1,6 +1,8 @@
-<h2 class="styleguide-module__title">{{{name}}}</h2>
+<h2 class="styleguide-module__title">{{name}}</h2>
 <div class="feedback">
-	{#each paragraph}
-    	<p class="styleguide-module__paragraph">{{{paragraph}}}</p>
-	{/each}
+	{{#each items}}
+		<p class="styleguide-module__paragraph">
+			{{this}}
+		</p>
+	{{/each}}
 </div>

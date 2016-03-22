@@ -19,15 +19,6 @@ var prism        = require('./plugins/prism.js');
 		navEl: '#nav'
 	});
 
-	// overwrite scrolling function of simpleAnchors because of iframe
-	$('[data-scroll-to]').on('click',function(){
-		var target = $(this).data('scroll-to'),
-			dest = $('[data-scroll-target=' + target + ']');
-		$('html, body').animate({
-			scrollTop: dest.offset().top
-		}, 800, 'easeInOutCubic');
-	});
-
 	// tooltips for icons and other elements
 	$('[data-tooltip]').hover(
 		function() {

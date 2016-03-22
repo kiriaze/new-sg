@@ -49,6 +49,7 @@ var $ = global.jQuery = require('jquery');
 			var origin		= window.location.origin,
 				hash		= $(this).attr('href');
 			$('.styleguide-iframe-wrapper').find('iframe').attr("src", origin + '/' + hash.substring(1));
+
 		});
 	}
 
@@ -93,11 +94,27 @@ var $ = global.jQuery = require('jquery');
 
 	// $('iframe').load(function() {
 	$('iframe').one('load', function() {
+
+		var iframe = this;
+
 		if ( ! $('.sidebar').length ) {
 			// hack, move the sidebar out of iframe
 			SG.elems.header.after(frames[0].$('.sidebar'));
 		}
+
 		SG.ajaxPageNav();
+
+		// overwrite scrolling function of simpleAnchors because of iframe
+		$('[data-scroll-to]').on('click',function(){
+
+			var target = $(this).data('scroll-to'),
+				dest   = $('iframe').contents().find('[data-scroll-target=' + target + ']');
+
+			frames[0].$('html, body').animate({
+				scrollTop: dest.offset().top
+			}, 800, 'easeInOutCubic');
+
+		});
 	});
 
 	$window.resize(function(event) {

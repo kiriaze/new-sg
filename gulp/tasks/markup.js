@@ -64,6 +64,7 @@ gulp.task('pages', function() {
 				return 'An error occurred while compiling hbs.\nLook in the console for details.\n' + error;
 			}))
 		)
+		// .pipe() // count dirs in pages/, and get the name and url from each to append to a .hbs and include that into sidebar.hbs for page navigation
 		.pipe(gulp.dest(config.destPaths.root))
 });
 

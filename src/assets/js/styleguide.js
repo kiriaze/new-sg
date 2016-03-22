@@ -20,6 +20,7 @@ var $ = global.jQuery = require('jquery');
 
 		SG.setElements();
 		SG.basics();
+		SG.sidebarToggle();
 		SG.breakpointToggle();
 
 	};
@@ -39,6 +40,11 @@ var $ = global.jQuery = require('jquery');
 
 	SG.basics = function() {
 
+
+
+	};
+
+	SG.sidebarToggle = function(){
 		SG.elems.toggleSidebar.on('click',function(){
 			SG.elems.body.add(SG.elems.html).toggleClass('sidebar-open');
 		});
@@ -62,7 +68,6 @@ var $ = global.jQuery = require('jquery');
 				sidebarToggle();
 			}
 		});
-
 	};
 
 	SG.breakpointToggle = function(){

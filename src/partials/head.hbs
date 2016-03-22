@@ -5,12 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>{{locals.clientName}} Styleguide</title>
+		<title>{{@root._data.clientName}} Styleguide</title>
 
 		<link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-		<!-- if index.html -->
-		<link rel="stylesheet" href="./assets/css/styleguide.css">
+		<!-- conditional stylesheets -->
+		{{{styles}}}
 
 		<!--[if (gte IE 6)&(lte IE 8)]>
 			<script type="text/javascript" src="/assets/js/lib/selectivizr.min.js"></script>
@@ -22,6 +22,6 @@
 
 	</head>
 
-	<body class="{{{locals.theme}}}" data-simpleforms-color="{{{locals.forms}}}">
+	<body class="{{@root._data.theme}}" data-simpleforms-color="{{@root._data.forms}}">
 
 		<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->

@@ -40,7 +40,7 @@ gulp.task('modules-js', function(){
 });
 
 // watches styleguide.js and iframe.js
-gulp.task('styleguide-js', function() {
+gulp.task('styleguide-js', function(){
 
 	// bundles
 	var files = [

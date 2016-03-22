@@ -9,21 +9,17 @@
 <ul id="{{id}}">
 	{{#each items.colors}}
 	<li>
-		<div class="color #{{className}}"></div>
-		<p class="default">
-			.#{{className}}
-		</p>
+		<div class="color {{className}}"></div>
+		<p class="default">.{{className}}</p>
 		<p class="designer">
-			<strong>#{{name}}</strong>
+			<strong>{{name}}</strong>
 			<br>
-			#{{rgb}}
+			{{rgb}}
 			<br>
 			#{{hex}}
 			<br>
 			.#{{className}}
-			<p class="minimal">
-				#{{hex}}
-			</p>
+			<p class="minimal">#{{hex}}</p>
 		</p>
 	</li>
 	{{/each}}

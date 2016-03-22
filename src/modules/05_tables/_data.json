@@ -4,8 +4,11 @@
   "items": {
       "tables": [
           {
-            "tableClass": "",
-            "head" : ["Heading", "Heading"],
+            "tableClass": "custom-table",
+            "head" : [
+              "Heading",
+              "Heading"
+            ],
             "body": [
                 {
                     "td": ["Table Cell", "Table Cell"]
@@ -29,7 +32,11 @@
                     "td": ["Table Cell", "Table Cell"]
                 }
             ],
-            "footer": []
+            "footer": [
+              {
+                "td": "Footer"
+              }
+            ]
           }
       ]
   }

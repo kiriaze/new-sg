@@ -1,19 +1,35 @@
 <h2 class="styleguide-module__title">{{name}}</h2>
-each table in items.tables
-  table.snippet(class=table.tableClass)
-    if table.head
-      thead
-        tr
-          each head in table.head
-            th=head
-    if table.body
-      tbody
-        each row in table.body
-          tr
-            each td in row.td
-              td=td
-    if table.footer
-      tfooter
-        tr
-          each td in table.footer
-            td=td
+
+{{#each items.tables}}
+	<table class="snippet {{this.tableClass}}">
+		{{#if head}}
+		<thead>
+			<tr>
+				{{#each head}}
+					<th>{{this}}</th>
+				{{/each}}
+			</tr>
+		</thead>
+		{{/if}}
+		{{#if body}}
+			<tbody>
+				{{#each body}}
+					<tr>
+						{{#each td}}
+							<td>{{this}}</td>
+						{{/each}}
+					</tr>
+				{{/each}}
+			</tbody>
+		{{/if}}
+		{{#if footer}}
+			<tfoot>
+				<tr>
+					{{#each footer}}
+						<td>{{this}}</td>
+					{{/each}}
+				</tr>
+			</tfoot>
+		{{/if}}
+	</table>
+{{/each}}

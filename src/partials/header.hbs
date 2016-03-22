@@ -1,13 +1,12 @@
 <header class="styleguide-header">
 	<span class="toggle-sidebar">Menu |</span>
-	<span class="styleguide-meta">{{{locals.clientName}}} Styleguide - v.{{{locals.version}}} | {{{locals.date}}}</span>
+	<span class="styleguide-meta">{{{@root._data.clientName}}} Styleguide - v.{{{@root._data.version}}} | {{{@root._data.date}}}</span>
 	<nav class="styleguide-header-breakpoints">
 		<ul>
 			<li>Sizes:</li>
-
-			{{#each breakpoints}}
+			{{#each @root._data.breakpoints}}
 			<li>
-				<a href="" class="breakpoint-toggle-{{{breakpoint.id}}}" data-breakpoint-size={{{breakpoint.id}}}></a>
+				<a href="javascript:;" class="breakpoint-toggle-{{id}}" data-breakpoint-size={{id}}></a>
 			</li>
 			{{/each}}
 		</ul>

@@ -1,12 +1,9 @@
-{{> head }}
-<main id="main">
-	{{> header }}
+{{> head styles='<link rel="stylesheet" href="./assets/css/styleguide.css" />'}}
 
-	<div class="styleguide-iframe-wrapper">
-		<iframe src="./styleguide.html" frameborder="0" height="100%" width="100%"></iframe>
-	</div>
+{{> header }}
 
-	<script src="./assets/js/styleguide.js"></script>
+<div class="styleguide-iframe-wrapper">
+	<iframe src="./styleguide.html" frameborder="0" height="100%" width="100%"></iframe>
+</div>
 
-</main>
-{{> foot }}
+{{> foot scripts='<script src="./assets/js/styleguide.js"></script>' }}

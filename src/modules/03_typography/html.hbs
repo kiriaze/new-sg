@@ -1,15 +1,20 @@
 <h2 class="styleguide-module__title">{{name}}</h2>
 
-if items.intro
-	each paragraph in items.intro
-		p.styleguide-module__paragraph!=paragraph
-.titles
-	each font in items.fonts
-		- var heading = '<h' + font.heading + ' class="' + font.className + '" contenteditable="true">' + font.title + '</h' + font.heading + '>'
-		span.styleguide-module__title--light #{font.fontName} - #{font.fontSize}
-		!{heading}
+{{#if items.paragraphs}}
+	{{#each items.paragraphs}}
+		<p class="styleguide-module__paragraph">{{text}}</p>
+	{{/each}}
+{{/if}}
+
+<div class="titles">
+	{{#each items.fonts}}
+		<span class="styleguide-module__title--light">{{fontName}} - {{fontSize}}</span>
+		<h{{heading}} class="{{className}}" contenteditable="true">{{title}}</h{{heading}}>
+	{{/each}}
+</div>
 <br>
 <h5 class="styleguide-module__title--small">{{items.paragraphsName}}</h5>
-each paragraph in items.paragraphs
-	span.styleguide-module__title--light #{paragraph.fontName} - #{paragraph.fontSize}
-	p(class=paragraph.className contenteditable="true")=paragraph.text
+{{#each items.paragraphs}}
+	<span class="styleguide-module__title--light">{{fontName}} - {{fontSize}}</span>
+	<p class="{{className}}" contenteditable="true">{{text}}</p>
+{{/each}}

@@ -16,6 +16,7 @@ gulp.task('styleguide', function() {
 
 	return gulp.src(config.srcPaths.root + '/*.html')
 		.pipe(plugins.hb({
+			debug: true, // might not go here
 			partials: config.srcPaths.partials,
 			helpers: config.srcPaths.helpers,
 			data: config.srcPaths.data
@@ -45,6 +46,25 @@ gulp.task('modules', function() {
 		)
 		.pipe(plugins.concat('modules.hbs'))
 		.pipe(gulp.dest(config.srcPaths.root + '/partials/layout'))
+});
+
+// pages
+gulp.task('pages', function() {
+
+	var data = JSON.parse(fs.readFileSync('_data.json'));
+
+	return gulp.src(config.srcPaths.root + '/pages/**/*.html')
+		.pipe(plugins.hb({
+			debug: true, // might not go here
+			partials: config.srcPaths.partials,
+			helpers: config.srcPaths.helpers,
+			data: config.srcPaths.data
+		})
+			.on('error', plugins.notify.onError(function (error) {
+				return 'An error occurred while compiling hbs.\nLook in the console for details.\n' + error;
+			}))
+		)
+		.pipe(gulp.dest(config.destPaths.root))
 });
 
 gulp.task('html', function() {

@@ -1,6 +1,10 @@
 #media {
 	[class*='columns-'] {
 		margin-bottom: 1rem;
+		img {
+			object-fit: cover;
+			width: 100%;
+		}
 	}
 }
 

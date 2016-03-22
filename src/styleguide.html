@@ -1,9 +1,8 @@
-{{> head }}
-
-<!-- if styleguide.html -->
-<link rel="stylesheet" href="./assets/css/vendor.css" />
-<link rel="stylesheet" href="./assets/css/styleguide.css" />
-<link rel="stylesheet" href="./assets/css/modules.css" />
+{{> head styles='
+	<link rel="stylesheet" href="./assets/css/vendor.css" />
+	<link rel="stylesheet" href="./assets/css/styleguide.css" />
+	<link rel="stylesheet" href="./assets/css/modules.css" />
+' }}
 
 {{> sidebar }}
 
@@ -15,8 +14,8 @@
 
 <!-- bundle.js includes jquery, vendor.js doesn't -->
 <!-- use vendor.js in other projects that already load jquery -->
+{{> foot scripts='
 <script src="./assets/js/bundle.js"></script>
 <script src="./assets/js/modules.js"></script>
 <script src="./assets/js/iframe.js"></script>
-
-{{> foot }}
+'}}

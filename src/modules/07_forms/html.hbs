@@ -1,43 +1,57 @@
 <h2 class="styleguide-module__title">{{name}}</h2>
-div(id=id)
-  h5 Default Form
-  form.snippet
-    fieldset
-      .row
-        .columns-1
-          input(type='text', placeholder='Placeholder')
-        .columns-1
-          input(type='text', value=items.disabled, disabled='')
-      .row
-        .columns-1
-          input(type='email', placeholder='Enter email addresss', required)
-        .columns-1
-          input(type='password', value='password', placeholder="Enter password")
-      .row
-        .columns-1
-          textarea(cols='30', rows='5', placeholder="Textarea text")
-        .columns-1
-          label Select field
-          select
-            option Option 01
-            option Option 02
-        .columns-1
-          label File input
-          input(type='file')
-      .row
-        .columns-1
-          label
-            input(type='radio', name='radio')
-            | Radio input
-          label
-            input(type='checkbox')
-            | Checkbox input
-      .row
-        button(type="submit", class="btn btn-invert") Submit
 
-hr
+<div id="{{id}}">
+	<h5>Default Form</h5>
+	<form action="" class="snippet">
+		<fieldset>
+			<div class="row">
+				<div class="columns-1">
+					<input type="text" placeholder="Placeholder">
+				</div>
+				<div class="columns-1">
+					<input type="text" value={{items.disabled}} disabled="">
+				</div>
+			</div>
+			<div class="row">
+				<div class="columns-1">
+					<input type="email" placeholder="Enter email addresss" required>
+				</div>
+				<div class="columns-1">
+					<input type="password" value="password" placeholder="Enter password" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="columns-1">
+					<textarea name="" id="" cols="30" rows="5" placeholder="Textarea text"></textarea>
+				</div>
+				<div class="columns-1">
+					<label for="">Select Field</label>
+					<select name="" id="">
+						<option value="">Option 1</option>
+						<option value="">Option 2</option>
+					</select>
+				</div>
+				<div class="columns-1">
+					<label for="">File Input</label>
+					<input type="file">
+				</div>
+			</div>
+			<div class="row">
+				<div class="columns-1">
+					<label for=""><input type="radio" name="radio">Radio Input</label>
+					<label for=""><input type="checkbox" name="checkbox">Checkbox Input</label>
+				</div>
+			</div>
+			<div class="row">
+				<button type="submit" class="btn btn-invert">Submit</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
 
-div.
+<hr>
+
+<div class="">
   <h5>SimpleForms</h5>
   <form action="" class="snippet simple-form row">
 
@@ -144,3 +158,4 @@ div.
     </fieldset>
 
   </form>
+</div>

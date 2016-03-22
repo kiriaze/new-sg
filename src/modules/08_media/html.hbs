@@ -1,19 +1,30 @@
 <h2 class="styleguide-module__title">{{name}}</h2>
-<div id="{{id}}">
 
+{{!-- Accessing parent index from 2D array {{@../index}} --}}
+
+<div id="{{id}}">
+	{{#each items}}
+	<div class="row">
+		{{#each this}}
+			{{#if videos.length}}
+				{{#each videos}}
+					<div class="columns-{{counter @../index}}">
+						<figure class="aspect video">
+							<a href="{{url}}" class="video-player"></a>
+							<img src="" alt="" class="video-thumb">
+							<span class="play-button"></span>
+						</figure>
+					</div>
+				{{/each}}
+			{{/if}}
+			{{#if images}}
+				{{#each images}}
+					<div class="columns-{{../images.length}}">
+						<img src="{{src}}" />
+					</div>
+				{{/each}}
+			{{/if}}
+		{{/each}}
+	</div>
+	{{/each}}
 </div>
-  each row in items.rows
-    .row
-      if row.videos
-        - var count = row.videos.length
-        each video in row.videos
-          div(class="columns-#{count}")
-            figure.aspect.video
-              a(href="#{video.url}", class="video-player")
-              img(src="", class="video-thumb")
-              .play-button
-      if row.images
-        - var count = row.images.length
-        each image in row.images
-          div(class="columns-#{count}")
-            img(src="#{image.src}")

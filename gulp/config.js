@@ -12,7 +12,7 @@ module.exports = {
 		html    : 'src/**/*.html',
 		partials: 'src/partials/**/*.{js,json,hbs}',
 		helpers : 'src/assets/js/helpers/**/*.js',
-		data    : 'src/_data.json', // global sg data
+		data    : '_data.json', // global sg data
 
 		styles  : 'src/assets/scss',
 		scripts : 'src/assets/js',
@@ -32,7 +32,7 @@ module.exports = {
 		root    : 'dist',
 		styles  : 'dist/assets/css',
 		scripts : 'dist/assets/js',
-		images  : 'dist/assets/img',
+		images  : 'dist/assets/images',
 		video   : 'dist/assets/video',
 		fonts   : 'dist/assets/fonts'
 	},

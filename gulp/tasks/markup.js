@@ -51,11 +51,30 @@ gulp.task('modules', function() {
 // pages
 gulp.task('pages', function() {
 
+	// hb json data
 	var data = JSON.parse(fs.readFileSync('_data.json'));
+
+	// Grab all page directories to create sg page nav
+	var content = [
+			'<li><a href="#styleguide.html">Global</a></li>'
+		],
+		finalContent,
+		// get dir names
+		files = fs.readdirSync('src/pages');
+	files.forEach(function(file){
+		// if not a hidden file
+		if ( ! /^\..*/.test(file) ) {
+			// console.log(file);
+			var pageNav = '<li><a href="#'+ file +'">'+ file +' Page</a></li>';
+			content.push(pageNav);
+		}
+	})
+	finalContent = content.join('\n');
+	fs.writeFile(config.srcPaths.root + '/partials/page-nav.hbs', finalContent);
 
 	return gulp.src(config.srcPaths.root + '/pages/**/*.html')
 		.pipe(plugins.hb({
-			debug: true, // might not go here
+			// debug: true, // might not go here
 			partials: config.srcPaths.partials,
 			helpers: config.srcPaths.helpers,
 			data: config.srcPaths.data
@@ -64,7 +83,7 @@ gulp.task('pages', function() {
 				return 'An error occurred while compiling hbs.\nLook in the console for details.\n' + error;
 			}))
 		)
-		// .pipe() // count dirs in pages/, and get the name and url from each to append to a .hbs and include that into sidebar.hbs for page navigation
+
 		.pipe(gulp.dest(config.destPaths.root))
 });
 

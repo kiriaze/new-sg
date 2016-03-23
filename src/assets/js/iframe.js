@@ -14,8 +14,8 @@ var prism        = require('./plugins/prism.js');
 		easing: 'easeInOutCubic',
 		autoBuild: true,
 		sections: '.styleguide-module__title',	// the elements auto build targets to generate links from
-		sectionEl: 'section class="module"',             // the elements auto build searchs for the section arg
-		wrapper: '#main',              // wrapper of all the auto build sections
+		sectionEl: 'section class="module"',    // the elements auto build searchs for the section arg
+		wrapper: '#main',              			// wrapper of all the auto build sections
 		navEl: '#nav'
 	});
 

@@ -61,7 +61,7 @@ var $ = global.jQuery = require('jquery');
 			});
 
 		});
-	}
+	};
 
 	SG.sidebarToggle = function(){
 		SG.elems.toggleSidebar.on('click',function(){

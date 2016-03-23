@@ -10,6 +10,7 @@ gulp.task('default', function() {
 		'mbf',
 		'modules',
 		'styleguide',
+		'pages',
 		'sass',
 		'sass-includes',
 		'styleguide-js',

@@ -60,4 +60,14 @@ gulp.task('watch', function() {
 		}
 	});
 
+	// pages
+	browserSync.watch([
+		config.srcPaths.root + '/pages/**/*.html',
+		'_data.json'
+	], function(event, file){
+		if ( event === 'change' ) {
+			runSequence('pages', browserSync.reload)
+		}
+	});
+
 });

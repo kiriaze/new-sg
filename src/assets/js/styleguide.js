@@ -44,11 +44,21 @@ var $ = global.jQuery = require('jquery');
 
 	SG.ajaxPageNav = function() {
 
-		$('#page-nav').find('a').on('click', function(){
-			// console.log(window.location);
+		$('#page-nav').find('a').on('click', function(e){
+
+			e.preventDefault();
+
 			var origin		= window.location.origin,
-				hash		= $(this).attr('href');
-			$('.styleguide-iframe-wrapper').find('iframe').attr("src", origin + '/' + hash.substring(1));
+				href		= $(this).attr('href');
+
+			$.get(origin + '/' + href, function(data) {
+				// console.log(data);
+				var newContent = $(data);
+				if ( href != '/styleguide.html' )
+					frames[0].$('#main').html(newContent);
+				else
+					frames[0].$('body').html(newContent);
+			});
 
 		});
 	}
@@ -92,7 +102,6 @@ var $ = global.jQuery = require('jquery');
 		SG.elems.body.addClass('loaded');
 	});
 
-	// $('iframe').load(function() {
 	$('iframe').one('load', function() {
 
 		var iframe = this;
@@ -105,7 +114,7 @@ var $ = global.jQuery = require('jquery');
 		SG.ajaxPageNav();
 
 		// overwrite scrolling function of simpleAnchors because of iframe
-		$('[data-scroll-to]').on('click',function(){
+		$('[data-scroll-to]').on('click',function(e){
 
 			var target = $(this).data('scroll-to'),
 				dest   = $('iframe').contents().find('[data-scroll-target=' + target + ']');

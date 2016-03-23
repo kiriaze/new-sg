@@ -56,35 +56,47 @@ gulp.task('pages', function() {
 
 	// Grab all page directories to create sg page nav
 	var content = [
-			'<li><a href="#styleguide.html">Global</a></li>'
+			'<li><a href="/styleguide.html">Global</a></li>'
 		],
 		finalContent,
 		// get dir names
 		files = fs.readdirSync('src/pages');
+
 	files.forEach(function(file){
 		// if not a hidden file
 		if ( ! /^\..*/.test(file) ) {
 			// console.log(file);
-			var pageNav = '<li><a href="#'+ file +'">'+ file +' Page</a></li>';
+			var pageNav = '<li><a href="'+ file +'">'+ file +' Page</a></li>';
 			content.push(pageNav);
 		}
 	})
+
+	// join them and output file
 	finalContent = content.join('\n');
 	fs.writeFile(config.srcPaths.root + '/partials/page-nav.hbs', finalContent);
 
-	return gulp.src(config.srcPaths.root + '/pages/**/*.html')
-		.pipe(plugins.hb({
-			// debug: true, // might not go here
-			partials: config.srcPaths.partials,
-			helpers: config.srcPaths.helpers,
-			data: config.srcPaths.data
-		})
+	// hb
+	var hbStream = plugins.hb()
+		// Partials
+		.partials(config.srcPaths.partials)
+		.partials(config.srcPaths.modules)
+		// like this {{> 04_buttons/html }}, although its empty markup
+
+		// Helpers
+		// .helpers(require('handlebars-layouts'))
+		.helpers(config.srcPaths.helpers)
+
+		// Data
+		.data(config.srcPaths.data)
+
+	return gulp
+		.src(config.srcPaths.root + '/pages/**/*.html')
+		.pipe(hbStream)
 			.on('error', plugins.notify.onError(function (error) {
 				return 'An error occurred while compiling hbs.\nLook in the console for details.\n' + error;
 			}))
-		)
-
 		.pipe(gulp.dest(config.destPaths.root))
+
 });
 
 gulp.task('html', function() {

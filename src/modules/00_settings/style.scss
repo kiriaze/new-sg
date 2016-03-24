@@ -113,15 +113,18 @@ $default:						#ebebeb;
 $light-grey:                    #f5f5f5;
 $dark-grey:                     #333;
 
-// theme colors
+// Project colors
 $primary-color:                 $red; // greens: #6CBD5B, #70D35B, $red, $aqua
-$accent-color:                  darken($primary-color, 10); // That is, 10% darker than the theme-color.
+$accent-color:                  darken($primary-color, 10); // That is, 10% darker than the primary-color.
 $secondary-color:               $navy;
 $tertiary-color:                $accent-color;
 
 // dark class
 $dark:							#434d5a;
 
+
+// Styleguide Sidebar Width
+$sidebar-width:					240px;
 
 
 //
@@ -157,6 +160,6 @@ $slideInDown:					true;
 		'../vendor/s-grid/grid',
 		'../vendor/s-animate/animate/animate';
 
-// @import	'defaults/mixins/mixins',
-// 		'defaults/core/core',
-// 		'defaults/patterns/patterns';
+@import	'defaults/mixins/mixins',
+		'defaults/core/core',
+		'defaults/patterns/patterns';

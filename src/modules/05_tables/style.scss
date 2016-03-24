@@ -1,40 +1,20 @@
 table {
 	width: 100%;
-	border-collapse: collapse;
-	border-spacing: 0;
+	max-width: 100%;
+
 	th,
 	td {
-		display: block;
-		width: 100%;
-		font-size: 12px;
-		padding: 1rem 0;
-		&:first-child {
-			padding-bottom: 0;
-		}
-		@include breakpoint($small) {
-			padding: 1rem;
-			min-width: 175px;
-			width: auto;
-			text-align: left;
-			display: table-cell;
-			&:first-child {
-				padding-bottom: 1rem;
-			}
-		}
+		padding: 1rem;
+		border-bottom: 1px solid $dark;
+		vertical-align: top;
 	}
-	thead {
-		display: none;
-		@include breakpoint($small) {
-			display: table-header-group;
-		}
+
+	th {
+		text-align: left;
 	}
-	tbody {
-		tr {
-			border-top: 1px solid darken($light-grey,10);
-			background-color: $white;
-			td {
-				color: lighten($dark-grey, 15%);
-			}
-		}
+
+	thead th {
+		border-bottom-width: 2px;
+		vertical-align: bottom;
 	}
 }

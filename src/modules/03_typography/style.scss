@@ -1,22 +1,73 @@
-@import url('//fonts.googleapis.com/css?family=Open+Sans:400,700|Libre+Baskerville:400');
+// @include font-face(Font Name, '../fonts/FontName/FontNameBold', 600);
+// @include font-face(Another Font, '../fonts/FontName/FontNameRegular', 400);
 
-.font-libre-baskerville {
-	font-family: 'Libre Baskerville', $body-font;
+// google fonts dont work in here with @import url(), include it in head file instead
+@import url(http://fonts.googleapis.com/css?family=Raleway:300);
+
+// @import './src/assets/fonts/ionicons/ionicons.min';
+// @include font-face(Ionicons, '../fonts/ionicons/ionicons', 400);
+
+// // custom path for bower foundation-icon-fonts
+// $fi-path: "../fonts";
+// @import "./src/assets/vendor/foundation-icon-fonts/foundation-icons";
+
+
+// file for overriding type styles easily
+
+@for $i from 1 through 6 {
+	h#{$i} {
+
+	}
 }
 
-h1, h2, h3, h4, h5, h6 {
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;
-	font-weight: normal;
-	margin-top: 0;
+// added by flexible content
+[class*='text-align-'] {
+	text-align: center;
 }
 
-.italic {
-	font-style: italic;
+@include breakpoint($medium) {
+	.text-align-left {
+		text-align: left !important;
+	}
+	.text-align-right {
+		text-align: right !important;
+	}
+	.text-align-center {
+		text-align: center !important;
+	}
 }
 
-.uppercase {
-	text-transform: uppercase;
+p {
+	&.lead {
+		display: block;
+		font-size: 1.3rem;
+		line-height: 150%;
+		margin: 0 0 3rem;
+	}
+	a {
+		font-weight: 500;
+		border-bottom: 1px solid lighten($dark-grey, 50);
+
+		&:hover {
+			color: $dark-grey;
+			border-color: $dark-grey;
+		}
+	}
+}
+
+hr {
+	display: inline-block;
+	border: none;
+	clear: both;
+	margin: 44px auto 54px;
+	margin-left: -32.5%;
+	position: relative;
+	width: 65%;
+	left: 50%;
+	border-bottom: 5px solid $light-grey;
+	.stripe:nth-child(even) & {
+		border-color: white;
+	}
 }
 
 .titles {
@@ -24,50 +75,6 @@ h1, h2, h3, h4, h5, h6 {
 		margin: 1rem 0 2.5rem 0;
 		line-height: $header-line-height;
 	}
-}
-
-h1 {
-	font-size: 40px;
-	line-height: 50px;
-}
-
-h2 {
-	font-size: 34px;
-}
-
-h3 {
-	font-size: 30px;
-}
-
-h4 {
-	font-size: 26px;
-}
-
-h5 {
-	font-size: 22px;
-}
-
-h6 {
-	font-size: 18px;
-}
-
-.text-align-center {
-	text-align: center;
-}
-
-.text-align-right {
-	text-align: right;
-}
-
-.text-align-left {
-	text-align: left;
-}
-
-p {
-	font-family: $body-font;
-	font-size: 16px;
-	line-height: 2;
-	margin: 2em 0;
 }
 
 .p3 {
@@ -99,8 +106,8 @@ p {
 		}
 	}
 	&:focus {
-	    outline: none;
-	    background: rgb(251, 251, 226);
+		outline: none;
+		background: rgb(251, 251, 226);
 		&:after {
 			width: 0;
 			content: '';

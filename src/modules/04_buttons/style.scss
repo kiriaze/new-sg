@@ -15,7 +15,7 @@ $btn-border-width: 2px;
 	width: $btn-width;
 	height: $btn-height;
 	line-height: $btn-height;
-	font-size: 10px;
+	@include font-size($small-font-size);
 	transition: all 0.3s,opacity 0.3s;
 
 	&.btn-black {

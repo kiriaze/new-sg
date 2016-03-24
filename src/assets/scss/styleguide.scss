@@ -101,6 +101,7 @@ hr {
 		}
 		li {
 			display: inline-block;
+			vertical-align: middle;
 			margin-left: 1rem;
 			a {
 				color: $dark-grey;
@@ -280,7 +281,7 @@ hr {
 
 // space out when multiple toggles in module
 pre + .styleguide-module__toggle-code {
-    margin-top: 2rem;
+	margin-top: 2rem;
 }
 
 .styleguide-list--buttons {

@@ -195,9 +195,6 @@ $map: (
 	#{$header},
 	.#{$header} {
 		@include font-size($size);
-		@include breakpoint($medium) {
-			@include font-size($size + $size/6);
-		}
 	}
 }
 
@@ -279,7 +276,6 @@ Lists
 ======================================================*/
 ul,
 ol {
-	font-size: initial;
 	li {
 		line-height: $list-line-height;
 		margin-bottom: $list-bottom-margin;

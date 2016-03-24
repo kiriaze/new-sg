@@ -1,0 +1,29 @@
+.btn {
+	@include btn($primary-color);
+
+	// theme specific
+	border-radius: 2px;
+	font-weight: 400;
+	letter-spacing: 1px;
+
+	padding: 0em 2em;
+	line-height: 3.5;
+
+	@include font-size(13);
+
+	&.small {
+		@include font-size(11);
+	}
+
+	&.large {
+		@include font-size(15);
+	}
+
+	&:hover {
+
+	}
+
+	.dark & {
+
+	}
+}

@@ -1,0 +1,22 @@
+/* border modifiers */
+
+.no-border {
+    border-top: 0 none !important;
+    border-bottom: 0 none !important;
+}
+
+.no-border-top {
+    border-top: 0 none !important;
+}
+
+.no-border-right {
+    border-right: 0 none !important;
+}
+
+.no-border-bottom {
+    border-bottom: 0 none !important;
+}
+
+.no-border-left {
+    border-left: 0 none !important;
+}

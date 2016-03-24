@@ -1,5 +1,6 @@
 section {
 	position: relative;
+	background-color: white;
 	padding-top: 3rem;
 	padding-bottom: 3rem;
 	background-repeat: no-repeat;
@@ -7,27 +8,6 @@ section {
 
 	// hack for gutters in grid/row of full width sections
 	overflow: hidden;
-
-	&.padding-top-medium {
-		padding-top: 20rem;
-	}
-	&.padding-top-large {
-		padding-top: 25rem;
-	}
-	&.padding-bottom-medium {
-		padding-bottom: 20rem;
-	}
-	&.padding-bottom-large {
-		padding-bottom: 25rem;
-	}
-	&.padding-medium {
-		padding-top: 15rem;
-		padding-bottom: 15rem;
-	}
-	&.padding-large {
-		padding-top: 20rem;
-		padding-bottom: 20rem;
-	}
 
 	@include breakpoint($small) {
 		padding-top: 5rem;
@@ -41,12 +21,6 @@ section {
 			.container {
 				padding-right: 25%;
 			}
-		}
-		&.padding-top-large {
-			padding-top: 25rem;
-		}
-		&.padding-bottom-large {
-			padding-bottom: 25rem;
 		}
 		&.half-width-left {
 			background-size: 50%;
@@ -72,70 +46,8 @@ section {
 		}
 	}
 
-	&.no-padding-top {
-		padding-top: 0;
-	}
-	&.no-padding-bottom {
-		padding-bottom: 0;
-	}
-	&.no-padding {
-		padding-top: 0;
-		padding-bottom: 0;
-	}
-
-	&.bg-cover {
-		position: relative;
-		background-size: cover;
-		background-position: center;
-		&.bg-contain {
-			background-size: contain;
-			background-position: bottom center;
-		}
-		.container {
-			z-index: 1;
-		}
-	}
-
-	&.bg-repeat {
-		background-repeat: repeat;
-	}
-	&.bg-repeat-x {
-		background-repeat: repeat-x;
-	}
-	&.bg-repeat-y {
-		background-repeat: repeat-y;
-	}
-	&.bg-top-left {
-		background-position: top left;
-	}
-	&.bg-top-center {
-		background-position: top center;
-	}
-	&.bg-top-right {
-		background-position: top right;
-	}
-	&.bg-bottom-left {
-		background-position: bottom left;
-	}
-	&.bg-bottom-center {
-		background-position: bottom center;
-	}
-	&.bg-bottom-right {
-		background-position: bottom right;
-	}
-	&.bg-left-center {
-		background-position: left center;
-	}
-	&.bg-right-center {
-		background-position: right center;
-	}
-
 	&.stripe:nth-child(even) {
 		background-color: $light-grey;
 	}
 
-}
-
-.no-margin {
-	margin: 0;
 }

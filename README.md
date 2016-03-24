@@ -29,7 +29,7 @@ Clone or Download Styleguide.
 
 Change directory into cloned project & run Node Package Manager to install everything...and you're good to go.
 
-This will open up a server with your styleguide and start watching for changes, with automatic refreshes on all devices! **Easy peazy titty squeezy.**
+This will open up a server with your styleguide and start watching for changes, with automatic refreshes on all devices! **Easy peazy lemmon squeezy.**
 
 	$ cd styleguide && npm install
 
@@ -47,7 +47,9 @@ Or include a deploy.sh script in your repo and set up a webhook for auto deploym
 
 **Boom goes the dynamite.**
 
+![Bump it.](https://media.giphy.com/media/DjVCpTvzAKLaE/giphy.gif)
+
 ### ToDo's
-- Subsections - utilizing simpleAnchors.js
-- Different stylguide themes/layouts
-- Ability for modules to be used as pages
+- [ ] Subsections - utilizing simpleAnchors.js
+- [ ] Different stylguide themes/layouts
+- [x] Pages integration

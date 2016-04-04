@@ -55,7 +55,7 @@ var $ = global.jQuery = require('jquery');
 				// console.log(data);
 				var newContent = $(data);
 				if ( href != '/styleguide.html' )
-					frames[0].$('#main').html(newContent);
+					frames[0].$('#module-wrapper').html(newContent);
 				else
 					frames[0].$('body').html(newContent);
 			});
@@ -71,7 +71,7 @@ var $ = global.jQuery = require('jquery');
 		var width = $window.width();
 
 		var sidebarToggle = function() {
-			if ( width > 768 ) {
+			if ( width > 1220 ) {
 				SG.elems.body.add(SG.elems.html).addClass('sidebar-open');
 			} else {
 				SG.elems.body.add(SG.elems.html).removeClass('sidebar-open');

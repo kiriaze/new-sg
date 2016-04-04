@@ -3,8 +3,8 @@ var config  = require('../config'),
 	ghPages = require('gulp-gh-pages');
 
 var options = {
-    remoteUrl: config.githubPages.remoteUrl,
-    branch: config.githubPages.branch
+	remoteUrl: config.githubPages.remoteUrl,
+	branch: config.githubPages.branch
 };
 
 gulp.task('gh-pages', function() {

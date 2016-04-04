@@ -9,8 +9,6 @@ gulp.task('prod', function(cb) {
 
 	cb = cb || function() {};
 
-	global.isProd = true;
-
 	runSequence(
 		'html',
 		'uncss',

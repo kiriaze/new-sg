@@ -10,14 +10,16 @@ var config      = require('../config'),
 // kill -9 PID
 gulp.task('browserSync', function() {
 	browserSync({
-		server: {
-			baseDir: config.destPaths.root
-		},
-		port: config.serverport
 		// Can't have both server and proxy, pick one.
 		// proxy: {
 		// 	target: 'http://site.dev'
 		// }
+		server: {
+			baseDir: config.destPaths.root
+		},
+		// disable notify popup
+		notify: false,
+		port: config.serverport
 	});
 });
 

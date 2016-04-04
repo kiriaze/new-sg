@@ -2,6 +2,20 @@
 	Background Properties
 */
 
+.bg-contain {
+	background-size: contain;
+}
+
+.bg-cover {
+	display: block;
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	.container {
+		z-index: 1;
+	}
+}
+
 .bg-repeat {
 	background-repeat: repeat;
 }
@@ -46,16 +60,6 @@
 	background-position: right center;
 }
 
-.bg-cover {
-	display: block;
-	position: relative;
-	background-size: cover;
-	background-position: center;
-	&.contain-bg {
-		background-size: contain;
-		background-position: bottom center;
-	}
-	.container {
-		z-index: 1;
-	}
+.bg-center {
+	background-position: center center;
 }

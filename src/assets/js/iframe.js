@@ -15,7 +15,7 @@ var prism        = require('./plugins/prism.js');
 		autoBuild: true,
 		sections: '.styleguide-module__title',	// the elements auto build targets to generate links from
 		sectionEl: 'section class="module"',    // the elements auto build searchs for the section arg
-		wrapper: '#main',              			// wrapper of all the auto build sections
+		wrapper: '#module-wrapper',				// wrapper of all the auto build sections
 		navEl: '#nav'
 	});
 
@@ -64,12 +64,22 @@ var prism        = require('./plugins/prism.js');
 	);
 
 	// overwrite scrollspy of simpleAnchors for iframe
-	$(window).scroll(function() {
+	var scrollTimer = null;
+	var $scrollTargets = $('[data-scroll-target]');
+
+	$(window).scroll(function(e) {
+		if ( scrollTimer ) {
+			clearTimeout(scrollTimer);   // clear any previous pending timer
+		}
+		scrollTimer = setTimeout(scrollSpry, 20);   // set new timer
+	});
+
+	function scrollSpry(){
 
 		var scrollPos = $(window).scrollTop();
+		scrollTimer = null;
 
-
-		$('[data-scroll-target]').each(function() {
+		$scrollTargets.each(function(e) {
 
 			var currLink = $(this).data('scroll-target');
 
@@ -82,10 +92,9 @@ var prism        = require('./plugins/prism.js');
 				$('[data-scroll-to="'+ currLink +'"]', parent.document.body).removeClass('active');
 			}
 
-
 		});
 
-	});
+	}
 
 	var codeSnippets = function(){
 		var codeToCreateSnippetClass = '.snippet',

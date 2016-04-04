@@ -5,44 +5,44 @@
         "fonts": [
             {
                 "heading": "1",
-                "fontName" : "Libre Baskerville",
+                "fontName" : "Open Sans",
                 "fontSize": "40px",
-                "className": "font-libre-baskerville uppercase",
+                "className": "open-sans uppercase",
                 "title": "The quick corrupt politician jumps over the lazy society."
             },
             {
                 "heading": "2",
-                "fontName" : "Libre Baskerville",
+                "fontName" : "Open Sans",
                 "fontSize": "34px",
-                "className": "font-libre-baskerville",
+                "className": "open-sans",
                 "title": "The quick corrupt politician jumps over the lazy society."
             },
             {
                 "heading": "3",
-                "fontName" : "Libre Baskerville",
+                "fontName" : "Open Sans",
                 "fontSize": "30px",
-                "className": "font-libre-baskerville",
+                "className": "open-sans",
                 "title": "The quick corrupt politician jumps over the lazy society."
             },
             {
                 "heading": "4",
-                "fontName" : "Libre Baskerville",
+                "fontName" : "Open Sans",
                 "fontSize": "26px",
-                "className": "font-libre-baskerville",
+                "className": "open-sans",
                 "title": "The quick corrupt politician jumps over the lazy society."
             },
             {
                 "heading": "5",
-                "fontName" : "Libre Baskerville",
+                "fontName" : "Open Sans",
                 "fontSize": "22px",
-                "className": "font-libre-baskerville",
+                "className": "open-sans",
                 "title": "The quick corrupt politician jumps over the lazy society."
             },
             {
                 "heading": "6",
-                "fontName" : "Libre Baskerville",
+                "fontName" : "Open Sans",
                 "fontSize": "18px",
-                "className": "font-libre-baskerville",
+                "className": "open-sans",
                 "title": "The quick corrupt politician jumps over the lazy society."
             }
         ],

@@ -1,6 +1,5 @@
 section {
 	position: relative;
-	background-color: white;
 	padding-top: 3rem;
 	padding-bottom: 3rem;
 	background-repeat: no-repeat;
@@ -12,24 +11,12 @@ section {
 	@include breakpoint($small) {
 		padding-top: 5rem;
 		padding-bottom: 5rem;
-		&.half-width {
-			.container {
-				padding-right: 50%;
-			}
-		}
-		&.three-quarter-width {
-			.container {
-				padding-right: 25%;
-			}
-		}
 		&.half-width-left {
-			background-size: 50%;
 			.container {
 				padding-right: 50%;
 			}
 		}
 		&.half-width-right {
-			background-size: 50%;
 			.container {
 				padding-left: 50%;
 			}

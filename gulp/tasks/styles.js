@@ -3,7 +3,7 @@
 var config         = require('../config'),
 	gulp           = require('gulp'),
 	// gulp-load-plugins will only load plugins prefixed with gulp
-	plugins		   = require('gulp-load-plugins')(),
+	$	     	   = require('gulp-load-plugins')(),
 	browserSync    = require('browser-sync'),
 	mainBowerFiles = require('main-bower-files');
 
@@ -13,13 +13,17 @@ gulp.task('sass', function() {
 	var files = [config.srcPaths.styles + '/styleguide.scss', config.srcPaths.styles + '/modules.scss'];
 
 	return gulp.src(files)
-		.pipe(plugins.sourcemaps.init())
-			.pipe(plugins.sass({
+		// the `changed` task needs to know the destination directory
+		// upfront to be able to figure out which files changed
+		.pipe($.changed(config.destPaths.styles)) // Ignore unchanged files
+		.pipe($.sourcemaps.init())
+			.pipe($.sass({
 				outputStyle: 'compressed' //  nested, expanded, compact, compressed
-			}).on('error', plugins.sass.logError))
-			.pipe(plugins.autoprefixer('last 2 versions'))
-			.pipe(plugins.sourcemaps.write('./'))
+			}).on('error', $.sass.logError))
+			.pipe($.autoprefixer('last 2 versions'))
+		.pipe($.sourcemaps.write('./'))
 		.pipe(gulp.dest(config.destPaths.styles))
-		.pipe(plugins.filter('**/*.css')) // filters out css so browsersync css injection can work with sourcemaps
-		.pipe(browserSync.reload({stream: true}));
+		.pipe($.filter('**/*.css')) // filters out css so browsersync css injection can work with sourcemaps
+		// .pipe(browserSync.reload({stream: true}));
+		.pipe(browserSync.stream());
 });

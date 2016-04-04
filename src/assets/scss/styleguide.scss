@@ -40,26 +40,57 @@ hr {
 	background-color: darken($light-grey,10);
 }
 
-#main {
-
+#module-wrapper {
+	background-color: white;
 }
 
 .module {
+	max-width: $xxxlarge;
+	margin: 0 auto;
 	border-bottom: 1px solid #ddd;
-	background-color: white;
 	padding: 3rem 1rem;
 	@include breakpoint($small) {
 		padding: 5rem;
 	}
 	@include breakpoint($large) {
 		padding: 5rem 15rem;
+		padding: 5rem 5rem;
 	}
-	> h2 {
-		margin-bottom: 2rem;
-	}
-	p a {
-		border-bottom: 1px solid $light-grey;
-		padding-bottom: .25rem;
+	&[data-scroll-target="typography"] {
+		p {
+			margin: 3rem 0;
+		}
+		.titles {
+			h1, h2, h3, h4, h5, h6 {
+				margin: 0 0 2.5rem 0;
+				line-height: $header-line-height;
+			}
+		}
+		[contenteditable="true"] {
+			position: relative;
+			transition: $transition;
+			&:after {
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				content: ' ';
+			}
+			&:hover {
+				background: rgb(251, 251, 226);
+				&:after {
+					font-size: 12px;
+					content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiUlEQVQ4y2NgGFKgs7OTl2zNEyZMmAgEDZMmTeogWTNQUwVQcyeIDaLnz5/PQYrmssmTJ1sC6QQg7gXiFlI0l4I0Q9lOQNuLiNYMVFwCxFZQtiPQgEKSNAM1WMM0k2wzTDPQ+Q5AdjEpfs6CRRPJmqEGvAC6IAlId4NcQk58vwDih0DbMxhGDgAAx6ZVXMd4yEMAAAAASUVORK5CYII=');
+				}
+			}
+			&:focus {
+				outline: none;
+				background: rgb(251, 251, 226);
+				&:after {
+					width: 0;
+					content: '';
+				}
+			}
+		}
 	}
 }
 
@@ -232,7 +263,7 @@ hr {
 			max-width: $small;
 		}
 		&[data-breakpoint-size='medium'] {
-			max-width: $medium;
+			max-width: $large;
 		}
 		&[data-breakpoint-size='large'] {
 			// max-width: $large;
@@ -245,6 +276,13 @@ hr {
 .styleguide-module__title {
 	font-family: $header-font;
 	font-weight: 700;
+	font-size: 3rem;
+	margin-bottom: 3rem;
+
+	// custom
+	// background: white;
+	// padding: 5rem;
+	// display: inline-block;
 }
 
 .styleguide-module__title--light {
@@ -253,7 +291,7 @@ hr {
 	font-size: 12px;
 	line-height: 12px;
 	font-weight: normal;
-	margin: 0;
+	margin: 0 0 1rem;
 	display: block;
 	clear: both;
 }
@@ -262,7 +300,6 @@ hr {
 	font-size: 20px;
 	line-height: 20px;
 	margin-bottom: 25px;
-	float: left;
 }
 
 .styleguide-module__toggle-code {

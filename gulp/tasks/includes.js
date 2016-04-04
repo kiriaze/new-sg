@@ -2,11 +2,9 @@
 
 var config 		   = require('../config'),
 	gulp           = require('gulp'),
-	// gulp-load-plugins will only load plugins prefixed with gulp
 	glob           = require('glob'),
 	path           = require('path'),
-	fs             = require('fs'),
-	plugins        = require('gulp-load-plugins')();
+	fs             = require('fs');
 
 
 // Hack the ability to import directories in Sass into newly created modules.scss file automatically

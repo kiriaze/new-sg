@@ -30,15 +30,7 @@ $colors: (
 	'black'				$black,
 	'primary-color'		$primary-color,
 	'secondary-color'	$secondary-color,
-	'tertiary-color'	$tertiary-color,
-	'accent-color'		$accent-color,
-	'background-color'	$background-color,
-	'product-bg-color'	$product-bg-color,
-	'line-color'		$line-color,
-	'headline-color'	$headline-color,
-	'body-copy-color'	$body-copy-color,
-	'secondary-copy-color'	$secondary-copy-color,
-	'cta-line-color'	$cta-line-color
+	'tertiary-color'	$tertiary-color
 );
 
 @each $newColor, $color in $colors {

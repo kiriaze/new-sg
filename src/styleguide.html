@@ -6,7 +6,7 @@
 
 {{> sidebar }}
 
-<main id="main">
+<main id="module-wrapper">
 	{{> layout/modules }}
 </main>
 
@@ -16,6 +16,7 @@
 <!-- use vendor.js in other projects that already load jquery -->
 {{> foot scripts='
 <script src="./assets/js/bundle.js"></script>
+<script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/modules.js"></script>
 <script src="./assets/js/iframe.js"></script>
 '}}

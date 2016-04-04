@@ -45,8 +45,6 @@ hr {
 }
 
 .module {
-	max-width: $xxxlarge;
-	margin: 0 auto;
 	border-bottom: 1px solid #ddd;
 	padding: 3rem 1rem;
 	@include breakpoint($small) {

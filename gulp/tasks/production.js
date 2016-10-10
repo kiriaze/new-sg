@@ -10,6 +10,7 @@ gulp.task('prod', function(cb) {
 	cb = cb || function() {};
 
 	runSequence(
+		'optimg',
 		'html',
 		'uncss',
 		'gzip',

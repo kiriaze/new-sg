@@ -17,9 +17,7 @@ gulp.task('browserSync', function() {
 		server: {
 			baseDir: config.destPaths.root
 		},
-		// disable notify popup
-		notify: false,
-		port: config.serverport
+		port: config.serverport,
+		notify: false
 	});
 });
-

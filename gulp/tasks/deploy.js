@@ -7,57 +7,6 @@ var config  = require('../config'),
 	argv    = require('minimist')(process.argv);
 
 
-
-/*******************************************************************************
- * Description:
- *
- *   Gulp file to push changes to remote servers (eg: staging/production)
- *
- * Usage:
- *
- *   gulp deploy-stage
- *   gulp deploy-prod
- *
- ******************************************************************************/
-
-gulp.task('deploy-stage', ['prod'], function() {
-
-	return gulp.src([config.destPaths.root])
-		.pipe(rsync({
-			root: config.destPaths.root,
-			// ssh: true,
-			hostname: config.staging.hostname,
-			username: config.staging.username,
-			password: config.staging.password,
-			destination: config.staging.destination,
-			recursive: true,
-			incremental: true,
-			progress: true,
-			exclude: config.staging.exclude
-		}));
-
-});
-
-gulp.task('deploy-prod', ['prod'], function() {
-
-	return gulp.src([config.destPaths.root])
-		.pipe(rsync({
-			root: config.destPaths.root,
-			// ssh: true,
-			hostname: config.production.hostname,
-			username: config.production.username,
-			password: config.production.password,
-			destination: config.production.destination,
-			recursive: true,
-			incremental: true,
-			progress: true,
-			exclude: config.production.exclude
-		}));
-
-});
-
-
-
 /*******************************************************************************
  * Description:
  *
@@ -87,28 +36,31 @@ gulp.task('deploy', ['prod'], function() {
 		exclude     : []
 	};
 
-	// Staging
-	if ( argv.staging ) {
+	var deployFlag = false;
 
-		rsyncConf.hostname		= config.staging.hostname;
-		rsyncConf.username		= config.staging.username;
-		rsyncConf.password		= config.staging.password;
-		rsyncConf.destination	= config.staging.destination;
-		rsyncConf.exclude		= config.staging.exclude;
+	// iterate over deploy array
+	for ( var prop in config.deploy ) {
 
-	// Production
-	} else if ( argv.production ) {
+		if ( argv[prop] ) {
 
-		rsyncConf.hostname		= config.production.hostname;
-		rsyncConf.username		= config.production.username;
-		rsyncConf.password		= config.production.password;
-		rsyncConf.destination	= config.production.destination;
-		rsyncConf.exclude		= config.production.exclude;
+			// console.log(argv[prop], prop);
 
-	// Missing/Invalid Target
-	} else {
-		throwError('deploy', gutil.colors.red('Missing or invalid target'));
+			rsyncConf.hostname		= config.deploy[prop].hostname;
+			rsyncConf.username		= config.deploy[prop].username;
+			rsyncConf.password		= config.deploy[prop].password;
+			rsyncConf.destination	= config.deploy[prop].destination;
+			rsyncConf.exclude		= config.deploy[prop].exclude;
+
+			deployFlag = true;
+
+			break;
+
+		}
+
 	}
+
+	if ( ! deployFlag )
+		throwError('deploy', gutil.colors.red('Missing or invalid target'));
 
 	return gulp.src([config.destPaths.root])
 		.pipe(gulpif(

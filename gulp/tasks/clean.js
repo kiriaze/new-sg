@@ -5,6 +5,6 @@ var config = require('../config'),
 	clean  = require('gulp-clean'),
 	del    = require('del');
 
-gulp.task('clean', function(cb) {
-	del([config.destPaths.root], cb);
+gulp.task('clean', function() {
+	del([config.destPaths.root]);
 });

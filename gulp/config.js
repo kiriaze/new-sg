@@ -15,11 +15,15 @@ module.exports = {
 		html    : src + '/**/*.html',
 		partials: src + '/partials/**/*.{js,json,hbs}',
 		helpers : src + '/assets/js/helpers/**/*.js',
-		data    : '_data.json', // global sg data
+		data    : {
+			'_data.json', // global sg data
+			modules: src + '/modules/**/_data.json', // modules data
+		},
 		modules : src + '/modules/**/*.hbs',
 
 		styles  : src + '/assets/scss',
 		scripts : src + '/assets/js',
+
 		// js gulp order
 		order   : [
 			'**/**/modernizr.js',
@@ -27,18 +31,23 @@ module.exports = {
 			'**/**/jquery.validate.js',
 			'**/**/*.js'
 		],
-		images  : src + '/assets/images/**/*.{png,jpg,jpeg,gif,svg,ico}',
-		video   : src + '/assets/video/**/*',
-		fonts   : src + '/assets/fonts/**/*'
+		images      : src + '/assets/images/**/*.{png,jpg,jpeg,gif,svg,ico}',
+		video       : src + '/assets/video/**/*',
+		vectors     : src + '/assets/images/vectors',
+		audio   	: src + '/assets/audio/**/*',
+		htmlHelpers	: src + '/assets/helpers/**/*',
+		fonts       : src + '/assets/fonts/**/*'
 	},
 
 	destPaths: {
-		root    : dist,
-		styles  : dist + '/assets/css',
-		scripts : dist + '/assets/js',
-		images  : dist + '/assets/images',
-		video   : dist + '/assets/video',
-		fonts   : dist + '/assets/fonts'
+		root        : dist,
+		styles      : dist + '/assets/css',
+		scripts     : dist + '/assets/js',
+		htmlHelpers : dist + '/assets/helpers',
+		images      : dist + '/assets/images',
+		audio  		: dist + '/assets/audio',
+		video       : dist + '/assets/video',
+		fonts       : dist + '/assets/fonts'
 	},
 
 	uncss: {
@@ -47,6 +56,12 @@ module.exports = {
 			// '#search-input',
 			// '#results-container'
 		]
+	},
+
+	html: {
+		// defaults to false since prism syntax highlighter
+		// for styleguide doesnt work with minified html
+		minify  : false
 	},
 
 	// Google pagespeed

@@ -12,6 +12,8 @@ gulp.task('json', function() {
 	// exclude _data.json files from getting copied over to data dir
 	return gulp.src([
 		config.srcPaths.root + '/modules/**/*.json',
+		config.srcPaths.root + '/pages/**/*.json',
+		'!' + config.srcPaths.root + '/pages/**/_data.json',
 		'!' + config.srcPaths.root + '/modules/**/_data.json'
 		])
 		.pipe($.flatten()) // remove directory structure, e.g. 01_introduction/file.json

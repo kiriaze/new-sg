@@ -10,7 +10,9 @@ var config         = require('../config'),
 // Init/install Bower
 gulp.task('bower', function() {
 	return $.bower(config.bowerDir)
-		.pipe(gulp.dest(config.bowerDir))
+		.pipe(gulp.dest(config.bowerDir).on('error', function(e){
+			console.log(e);
+		}))
 });
 
 // parted out mainbowerfiles into its own function
@@ -19,34 +21,38 @@ gulp.task('mbf', function () {
 	// when referencing it within wp or other cms builds
 	gulp.src(mainBowerFiles({includeDev: true}))
 		.pipe($.filter(['**/*.js', '!jquery.js']))
-		.pipe($.uglify().on('error', function(e){
-			console.log(e);
-		}))
+		// .pipe($.uglify().on('error', function(e){
+		// 	console.log(e);
+		// }))
 		.pipe($.concat('vendor.js'))
-		.pipe(gulp.dest('dist/assets/js/'));
+		.pipe(gulp.dest(config.destPaths.scripts));
 
 	// run the vendor build again but this time
 	// include jquery into bundled.js for reference
 	// within styleguide
 	gulp.src(mainBowerFiles({includeDev: true}))
 		.pipe($.filter(['**/*.js']))
-		.pipe($.uglify().on('error', function(e){
-			console.log(e);
-		}))
+		// .pipe($.uglify().on('error', function(e){
+		// 	console.log(e);
+		// }))
 		.pipe($.concat('bundle.js'))
-		.pipe(gulp.dest('dist/assets/js/'));
+		.pipe(gulp.dest(config.destPaths.scripts));
 
 	// testing custom plugins
 	gulp.src([config.srcPaths.scripts + '/plugins/**/*.js', '!prism.js'])
-		.pipe($.uglify().on('error', function(e){
-			console.log(e);
-		}))
+		// .pipe($.babel({
+		// 	presets: ['es2015']
+		// }))
+		// .pipe($.uglify().on('error', function(e){
+		// 	console.log(e);
+		// }))
 		.pipe($.concat('plugins.js'))
-		.pipe(gulp.dest('dist/assets/js/'));
+		.pipe(gulp.dest(config.destPaths.scripts));
 
 	// concat all bower css into vendor.css
 	gulp.src(mainBowerFiles({includeDev: true}))
 		.pipe($.filter('**/*.css'))
 		.pipe($.concat('vendor.css'))
-		.pipe(gulp.dest('dist/assets/css/'));
+		.pipe(gulp.dest(config.destPaths.styles));
+
 });

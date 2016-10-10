@@ -2,7 +2,6 @@
 	"id": "introduction",
 	"name": "Introduction",
 	"items" : [
-        "Hello! Welcome to your brands styleguide - a gulp/handlebars flavored living styleguide tool. Includes Browserify, sourcemaps, sass minification/concatenation, auto bower setup and concatenation of files, browser-sync, gh-pages and more.",
-        "Navigate on your left for pages and components. Each section holds markup and photoshop download toggles for your viewing pleasure."
+        "Welcome to Keen's live styleguide - a collection Keen's website typography, modules and styles. Navigate on your left for pages and components. Each section holds markup for your viewing pleasure."
     ]
 }

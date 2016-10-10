@@ -21,32 +21,28 @@ body {
 	font-family: $body-font;
 	font-size: 1.3rem;
 	line-height: $base-line-height;
-	-webkit-font-smooth: always;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.01);
 	text-size-adjust: none;
 	overflow-scrolling: touch;
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
-html,
-button,
-input,
-select,
-textarea {
-
+html, body, input, button, textarea {
+	// clean text look
+	-webkit-font-smooth: always;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 ::-moz-selection {
-	background: $primary-color;
-	color: white;
+	background: $selection-bg-color;
+	color: $selection-text-color;
 	text-shadow: none;
 }
 
 ::selection {
-	background: $primary-color;
-	color: white;
+	background: $selection-bg-color;
+	color: $selection-text-color;
 	text-shadow: none;
 }
 
@@ -139,7 +135,7 @@ pre {
 }
 
 code {
-	@include font-size(12);
+	font-size: 1.2rem;
 	line-height: 1.5;
 	margin: 0 2px;
 	padding: 0 5px;
@@ -147,100 +143,9 @@ code {
 	background-color: lighten($black, 90);
 }
 
-
-/*=====================================================
-
-Heading styles
-
-======================================================*/
-@for $i from 1 through 6 {
-
-	h#{$i} {
-
-		font-family: $header-font;
-		font-style: normal;
-		font-weight: normal;
-		font-stretch: normal;
-
-		word-wrap: break-word;
-		word-break: break-word;
-
-		line-height: $header-line-height;
-		margin-top: $header-top-margin;
-		margin-bottom: $header-bottom-margin;
-
-		small {
-			line-height: 0;
-		}
-
-	}
-
-}
-
-$map: (
-	h1: $h1-font-size,
-	h2: $h2-font-size,
-	h3: $h3-font-size,
-	h4: $h4-font-size,
-	h5: $h5-font-size,
-	h6: $h6-font-size
-);
-
-@each $header, $size in ($map) {
-	#{$header},
-	.#{$header} {
-		@include font-size($size);
-	}
-}
-
-.slab {
-	font-family: $slab;
-	// Needed b/c chrome still needs prefix
-	-webkit-font-feature-settings: "liga", "kern";
-	font-feature-settings:         "liga", "kern";
-
-	&.bold {
-		font-family: $slab;
-		font-weight: $bold;
-	}
-
-	&.italic {
-		font-family: $slab;
-	}
-}
-
-
-/*=====================================================
-
-Paragraph styles
-
-======================================================*/
-p {
-	font-family: $body-font;
-	@include font-size($paragraph-font-size);
-	line-height: $paragraph-line-height;
-	margin-bottom: $paragraph-bottom-margin;
-	word-wrap: break-word;
-	&.lead {
-		@include font-size($paragraph-lead-font-size);
-		margin-bottom: $paragraph-lead-bottom-margin;
-	}
-}
-
-a {
-	text-decoration: none;
-	line-height: inherit;
-	outline: 0;
-	color: $primary-color;
-	transition: $transition;
-	&:hover{
-		color: $dark-grey;
-	}
-}
-
 small,
 .small:not(a) {
-	@include font-size($small-font-size);
+	font-size: $small-font-size;
 }
 
 sub,
@@ -264,11 +169,294 @@ em {
 }
 
 
-/*=====================================================
 
-Lists
+/////////////////////////
+// Heading styles
+/////////////////////////
+@for $i from 1 through 6 {
 
-======================================================*/
+	h#{$i},
+	.h#{$i} {
+
+		font-family: $header-font;
+		font-style: normal;
+		font-weight: normal;
+		font-stretch: normal;
+
+		word-wrap: break-word;
+		word-break: break-word;
+
+		line-height: $header-line-height;
+		margin-top: $header-top-margin;
+		margin-bottom: $header-bottom-margin;
+
+		small {
+			line-height: 0;
+		}
+
+	}
+
+}
+
+/////////////////////////
+// Font Size
+/////////////////////////
+
+$fs: (
+	h1: $h1-font-size,
+	h2: $h2-font-size,
+	h3: $h3-font-size,
+	h4: $h4-font-size,
+	h5: $h5-font-size,
+	h6: $h6-font-size
+);
+
+$tablet-fs: (
+	h1: $h1-tablet-font-size,
+	h2: $h2-tablet-font-size,
+	h3: $h3-tablet-font-size,
+	h4: $h4-tablet-font-size,
+	h5: $h5-tablet-font-size,
+	h6: $h6-tablet-font-size
+);
+
+$desktop-fs: (
+	h1: $h1-desktop-font-size,
+	h2: $h2-desktop-font-size,
+	h3: $h3-desktop-font-size,
+	h4: $h4-desktop-font-size,
+	h5: $h5-desktop-font-size,
+	h6: $h6-desktop-font-size
+);
+
+@each $header, $size in ($fs) {
+	#{$header},
+	.#{$header},
+	%#{$header} {
+		font-size: $size;
+	}
+}
+
+@each $header, $size in ($tablet-fs) {
+	#{$header},
+	.#{$header},
+	%#{$header} {
+		@include breakpoint($screen-small) {
+			font-size: $size;
+		}
+	}
+}
+
+@each $header, $size in ($desktop-fs) {
+	#{$header},
+	.#{$header},
+	%#{$header} {
+		@include breakpoint($screen-medium) {
+			font-size: $size;
+		}
+	}
+}
+
+/////////////////////////
+// Line Height
+/////////////////////////
+
+$lh: (
+	h1: $h1-line-height,
+	h2: $h2-line-height,
+	h3: $h3-line-height,
+	h4: $h4-line-height,
+	h5: $h5-line-height,
+	h6: $h6-line-height
+);
+
+$tablet-lh: (
+	h1: $h1-tablet-line-height,
+	h2: $h2-tablet-line-height,
+	h3: $h3-tablet-line-height,
+	h4: $h4-tablet-line-height,
+	h5: $h5-tablet-line-height,
+	h6: $h6-tablet-line-height
+);
+
+$desktop-lh: (
+	h1: $h1-desktop-line-height,
+	h2: $h2-desktop-line-height,
+	h3: $h3-desktop-line-height,
+	h4: $h4-desktop-line-height,
+	h5: $h5-desktop-line-height,
+	h6: $h6-desktop-line-height
+);
+
+@each $header, $size in ($lh) {
+	#{$header},
+	.#{$header},
+	%#{$header} {
+		line-height: $size;
+	}
+}
+
+@each $header, $size in ($tablet-lh) {
+	#{$header},
+	.#{$header},
+	%#{$header} {
+		@include breakpoint($screen-small) {
+			line-height: $size;
+		}
+	}
+}
+
+@each $header, $size in ($desktop-lh) {
+	#{$header},
+	.#{$header},
+	%#{$header} {
+		@include breakpoint($screen-medium) {
+			line-height: $size;
+		}
+	}
+}
+
+
+/////////////////////////
+// Letter Spacing
+/////////////////////////
+
+$ls: (
+	h1: $h1-letter-spacing,
+	h2: $h2-letter-spacing,
+	h3: $h3-letter-spacing,
+	h4: $h4-letter-spacing,
+	h5: $h5-letter-spacing,
+	h6: $h6-letter-spacing
+);
+
+$tablet-ls: (
+	h1: $h1-tablet-letter-spacing,
+	h2: $h2-tablet-letter-spacing,
+	h3: $h3-tablet-letter-spacing,
+	h4: $h4-tablet-letter-spacing,
+	h5: $h5-tablet-letter-spacing,
+	h6: $h6-tablet-letter-spacing
+);
+
+$desktop-ls: (
+	h1: $h1-desktop-letter-spacing,
+	h2: $h2-desktop-letter-spacing,
+	h3: $h3-desktop-letter-spacing,
+	h4: $h4-desktop-letter-spacing,
+	h5: $h5-desktop-letter-spacing,
+	h6: $h6-desktop-letter-spacing
+);
+
+@each $header, $size in ($ls) {
+	#{$header},
+	.#{$header},
+	%#{$header} {
+		letter-spacing: $size;
+	}
+}
+
+@each $header, $size in ($tablet-ls) {
+	#{$header},
+	.#{$header},
+	%#{$header} {
+		@include breakpoint($screen-small) {
+			letter-spacing: $size;
+		}
+	}
+}
+
+@each $header, $size in ($desktop-ls) {
+	#{$header},
+	.#{$header},
+	%#{$header} {
+		@include breakpoint($screen-medium) {
+			letter-spacing: $size;
+		}
+	}
+}
+
+
+/////////////////////////
+// Paragraph styles
+/////////////////////////
+
+p {
+	font-size: $paragraph-font-size;
+
+	font-family: $body-font;
+	font-weight: $paragraph-font-weight;
+
+	line-height: $paragraph-line-height;
+	margin-bottom: $paragraph-bottom-margin;
+	word-wrap: break-word;
+
+	&.lead {
+		font-size: $paragraph-lead-font-size;
+		margin-bottom: $paragraph-lead-bottom-margin;
+	}
+}
+
+
+/////////////////////////
+// Emphasis and Styling
+/////////////////////////
+
+.text-regular,
+.text-normal {
+	font-weight: $fw-regular;
+}
+.text-medium {
+	font-weight: $fw-medium;
+}
+.text-bold {
+	font-weight: $fw-bold;
+}
+.text-uppercase {
+	text-transform: uppercase;
+}
+.text-italic {
+	font-style: italic;
+}
+.text-nowrap {
+	white-space: nowrap;
+}
+.text-truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.text-highlight,
+.highlight {
+	background-color: $highlight-bg-color;
+	color: $highlight-text-color;
+}
+
+.text-align-left {
+	text-align: left !important;
+}
+.text-align-right {
+	text-align: right !important;
+}
+.text-align-center {
+	text-align: center !important;
+}
+
+.decoration-none {
+	text-decoration: none;
+}
+.decoration-underline {
+	text-decoration: underline;
+}
+.decoration-line-through {
+	text-decoration: line-through;
+}
+
+
+/////////////////////////
+// Lists
+/////////////////////////
 ul,
 ol {
 	li {
@@ -315,56 +503,11 @@ dl dt {
 blockquote,
 q {
 	font-family: $body-font;
-	letter-spacing: 2px;
-	font-weight: 400;
-	border-left: 3px solid;
-	padding: 2%;
-	margin: 2%;
 	p {
-		@include font-size($blockquotes-font-size);
+		font-size: $blockquotes-font-size;
 	}
 	cite {
 		font-size: initial;
-		padding-top: 2%;
 		display: block;
 	}
-}
-
-
-/*=====================================================
-
-Emphasis and Styling
-
-======================================================*/
-
-.regular,
-.normal {
-	font-weight: $regular;
-}
-.bold {
-	font-weight: $bold;
-}
-.uppercase {
-	text-transform: uppercase;
-}
-.italic {
-	font-style: italic;
-}
-.nowrap {
-	white-space: nowrap;
-}
-.truncate {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-.decoration-none {
-	text-decoration: none;
-}
-.decoration-underline {
-	text-decoration: underline;
-}
-.decoration-line-through {
-	text-decoration: line-through;
 }

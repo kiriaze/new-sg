@@ -1,0 +1,38 @@
+{{!--
+Params:
+	classes
+	params
+	title
+	type
+	name
+	placeholder
+	required
+--}}
+<div class="input-labeled {{{classes}}}" {{{params}}}>
+	{{#if title}}
+		<label class="metadata" for="{{{name}}}">
+			{{{title}}}
+			{{#if info}}
+				<p class="info">{{info}}</p>
+			{{/if}}
+		</label>
+		{{#if tooltip}}
+			{{> 20_ui/tooltip/tooltip
+				this.classes
+				copy = this.tooltip
+			}}
+		{{/if}}
+	{{/if}}
+	{{> 07_forms/fields/input
+		this.classes
+		title		= title
+		type		= type
+		name		= name
+		value		= value
+		placeholder	= placeholder
+		required	= required
+		disabled    = disabled
+		error		= error
+		params      = this.childParams
+	}}
+</div>

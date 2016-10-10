@@ -1,0 +1,11 @@
+<div class="plus-minus-field {{{classes}}}" data-plus-minus-field {{{params}}}>
+	<button class="plus-minus-field--minus">
+		{{svg 'icon-minus-sm' classes='plus-icon' }}		
+	</button>
+	<span class="plus-minus-field--number">
+		<input type="text" value="1" maxlength="2" onkeypress='return event.charCode >= 49 && event.charCode <= 57 || !event.charCode' />
+	</span>
+	<button class="plus-minus-field--plus">
+		{{svg 'icon-plus-sm' classes='plus-icon' }}
+	</button>
+</div>

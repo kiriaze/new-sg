@@ -1,0 +1,93 @@
+.select-dd-swap-label {
+
+	position: relative;
+	float: right;
+	min-width: 24rem;
+	line-height: 5rem;
+	height: 5rem;
+
+	> label {
+
+		position: absolute;
+		left: auto;
+		right: 6rem;
+		padding: 0;
+		line-height: 4.9rem;
+		color: $med-grey;
+		z-index: 10;
+		white-space: nowrap;
+		pointer-events: none;
+		font-weight: $fw-semibold;
+		text-transform: none;
+
+		strong {
+			font-weight: $fw-bold;
+			color: $black;
+		}
+	}
+
+	.selectize-input {
+
+		position: relative;
+		height: 4.9rem;
+		padding: 0;
+		box-shadow: none;
+		border: none;
+		border-radius: 0;
+		background: transparent;
+
+		&:after {
+			line-height: 4.9rem;
+			right: 2.5rem !important;
+		}
+
+		div,
+		input {
+			visibility: hidden;
+			// color: $med-grey;
+			// height: 5rem !important;
+			// padding: 0 2rem !important;
+			// line-height: 5rem !important;
+			// letter-spacing: .05rem !important;
+		}
+	}
+
+	.selectize-dropdown-content {
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	}
+
+	.selectize-dropdown .selectize-dropdown-content div {
+		padding: 0 2.4rem 0 6rem;
+	}
+
+	.selectize-control.single .selectize-input {
+		
+		background: rgba(#fff, 0);
+		border-color: rgba($light-grey, 0);
+
+		@include transition(background, border-color);
+		transition-duration: 0.12s;
+
+		&.input-active {
+			background: rgba(#fff, 1);
+		}
+	}
+
+	.option {
+
+		@extend %h7;
+
+		height: 3.5rem;
+		line-height: 3.5rem;
+		padding: 0 2rem;
+		color: $med-grey;
+		background-color: $section-bg;
+		white-space: nowrap;
+
+		&:hover {
+			color: $black;
+			// background-color: $white;
+		}
+	}
+
+}

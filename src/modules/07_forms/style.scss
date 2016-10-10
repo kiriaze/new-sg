@@ -1,97 +1,332 @@
-@import "simple-forms";
+@import 'controls/plus-minus-field';
 
+@import 'fields/arrow-button-field';
+@import 'fields/arrow-button-field-tiny';
+@import 'fields/drag-drop-upload';
+@import 'fields/input';
+@import 'fields/input-labeled';
+@import 'fields/single-field-link';
+@import 'fields/single-field-submit';
+
+@import 'filters/favorites-sort-bar';
+@import 'filters/product-filter-bar';
+@import 'filters/sort-bar';
+
+@import 'selects/select-dd';
+@import 'selects/select-dd-swap-label';
+@import 'selects/select-shoe-width';
+@import 'selects/select-size';
+@import 'selects/selectize-defaults';
+
+@import 'toggle-buttons/checkbox-labeled';
+@import 'toggle-buttons/radio-labeled';
+
+///////////////////////////
+// Global Form Styles
+///////////////////////////
+
+%input-placeholder {
+	font-family: $body-font;
+	color: $dark-grey;
+}
+
+form,
 fieldset {
 	border: none;
+
 	label {
 		display: block;
 		padding: 0px;
 		margin: 0px;
-		margin-bottom: .5rem;
+		margin-bottom: .8rem;
 		color: $dark-grey;
 		font-family: $body-font;
 		font-weight: 300;
-		font-size: 14px;
+		font-size: 1.4rem;
 		font-weight: normal;
 	}
 
-	input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+	// maybe use just 'input' and then
+	// style the radio/checkboxes/file
+	// input types directly
+
+	input[type="text"],
+	input[type="password"],
+	input[type="color"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="email"],
+	input[type="month"],
+	input[type="number"],
+	input[type="range"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	input[type="week"],
+	input[type="zipcode"],
 	textarea {
-		background-color: $light-grey;
-		padding: 10px;
-		height: 45px;
-		line-height: 45px;
+		// margin-bottom: 1rem;
 		border-radius: 0;
-		border: 1px solid darken($light-grey,10);
-		&::-webkit-input-placeholder,
-		:-moz-placeholder,
-		&::-moz-placeholder,
-		&:-ms-input-placeholder {
-			font-family: $body-font;
-			color: $dark-grey;
+		background-color: white;
+		border: 1px solid $line-color;
+		outline: none;
+		font-family: $body-font;
+		font-size: 1.3rem;
+		font-weight: $fw-semibold;
+		color: $black;
+
+		-webkit-appearance: none;
+		background-clip: padding-box;
+
+		&::placeholder {
+			@extend %input-placeholder;
 		}
+
+		&::-moz-placeholder {
+			@extend %input-placeholder;
+		}
+
+		&::-ms-input-placeholder {
+			@extend %input-placeholder;
+		}
+
 	}
 
-	input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+	input[type="text"],
+	input[type="password"],
+	input[type="color"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="email"],
+	input[type="month"],
+	input[type="number"],
+	input[type="range"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	input[type="week"],
+	input[type="zipcode"] {
 		width: 100%;
-		background-clip: padding-box;
+		height: 4rem;
+		padding: 0 1.5rem;
 		z-index: 1;
-		outline: none;
-		-webkit-appearance: none;
-		transition: $transition;
-		&[type="checkbox"],
-		&[type="radio"] {
-			box-sizing: border-box;
-			padding: 0;
+
+		@include transition(color, background-color, border-color);
+	}
+
+	textarea {
+		width: 100%;
+		padding: 1rem 1.5rem;
+		resize: vertical;
+		min-height: 11rem; // 5 rows
+		line-height: 1.8rem;
+	}
+
+	// select {
+	// 	height: 36px;
+	// 	padding: 0 .5rem;
+	// 	font-family: sans-serif;
+	// 	letter-spacing: normal;
+	// 	text-transform: none;
+	// 	word-spacing: normal;
+	// 	word-wrap: normal;
+	// 	outline: none;
+	// 	-webkit-user-select: text;
+	// 	-webkit-font-smoothing: antialiased;
+	// 	appearance: none;
+	// 	z-index: 2;
+	// 	position: relative;
+	// 	border: 1px solid $line-color;
+	// 	background-color: #fff;
+	// 	border-radius: 0;
+	// 	background-clip: padding-box;
+	// 	overflow: hidden;
+	// }
+}
+
+// Validation
+
+.form-alert-block {
+	position: relative;
+	max-height: 0;
+	text-align: center;
+	overflow: hidden;
+	opacity: 0;
+
+	@include transition(max-height, opacity, padding);
+
+	&.is-visible {
+		max-height: 13rem;
+		opacity: 1;
+		+ * {
+			margin-top: 2.5rem;
 		}
 	}
 
-	textarea {
-		resize: vertical;
-		width: 100%;
-		min-height: 114px;
-		margin: 0px;
-		margin-bottom: 1.5rem;
-		line-height: 1;
-		outline: none;
-		-webkit-appearance: none;
-		background-clip: padding-box;
+
+	&--error {
+		color: $black;
+		background: rgba(202,34,52, .2);
 	}
 
-	input,
-	select,
-	textarea {
-		margin-bottom: 1rem;
-		font-size: 13px;
+	&--success {
+		background: #c5e7c2;
+		p {
+			color: $black;
+		}
 	}
 
-	input[type="radio"],
-	input[type="checkbox"] {
-		margin-right: 10px;
+	&--warning {
+		background-color: #fff6cc;
+		text-align: left;
+		margin-top: 1.5rem;
+
+		p {
+			color: $black;
+		}
 	}
 
-	input[type="button"],
-	.btn {
-		border: none;
-	}
-
-	select {
-		height: 36px;
-		padding: 0 .5rem;
-		font-family: sans-serif;
-		letter-spacing: normal;
-		text-transform: none;
-		word-spacing: normal;
-		word-wrap: normal;
-		outline: none;
-		-webkit-user-select: text;
-		-webkit-font-smoothing: antialiased;
-		appearance: none;
-		z-index: 2;
+	span {
 		position: relative;
-		border: 1px solid darken($light-grey, 30);
-		background-color: #fff;
-		border-radius: 0;
-		background-clip: padding-box;
+		padding: 1.5rem 2rem;
+	}
+}
+
+/////////////////////////////////////////////////////
+/// Custom Select - Selectize
+/////////////////////////////////////////////////////
+
+.selectize-control.custom-select {
+	height: 4rem;
+}
+
+.selectize-control * {
+	cursor: pointer !important;
+}
+
+.custom-select .selectize-input.items {
+	border: 1px solid $line-color;
+}
+
+.custom-select .selectize-input {
+	height: 4rem;
+	padding: 0;
+	box-shadow: none;
+	border-radius: 0;
+	background-color: $white;
+	line-height: 3.8rem;
+
+	div, input {
+		height: 4rem;
+		padding: 0 1.5rem;
+		font-family: $body-font;
+		font-weight: $fw-bold;
+		line-height: 4rem;
+		font-size: 1.3rem;
+		color: $black;
+	}
+
+	input {
+		pointer-events: none;
+
+		&::placeholder {
+			@extend %input-placeholder;
+		}
+		&::-moz-placeholder {
+			@extend %input-placeholder;
+		}
+		&::-ms-input-placeholder {
+			@extend %input-placeholder;
+		}
+	}
+}
+
+.selectize-dropdown {
+	.selectize-dropdown-content div {
+		padding: 0 1.5rem;
+		font-family: $body-font;
+		font-weight: 700;
+		font-size: 1.3rem;
+		line-height: 4rem;
+		color: $black;
+
+		@include transition(background);
+		transition-duration: 0.1s;
+
+		&.active {
+			background-color: transparent;
+		}
+		&:hover {
+			background-color: $primary-color;
+		}
+	}
+	.selectize-control.single .selectize-input.dropdown-active {
+		background-color: $primary-color;
+	}
+}
+
+.selectize-control.single .selectize-input:after {
+	content: '';
+	width: 1.1rem;
+	height: 100%;
+	background: inline('vectors/icon-carrot-down.svg') center / contain no-repeat;
+	position: absolute;
+	right: 1rem;
+	top: 0;
+	margin: 0;
+	border: none;
+	transform: scaleY(1);
+	transition: transform .1s $timingFunction;
+}
+.selectize-control.single .selectize-input.dropdown-active:after {
+	margin: 0;
+	transform: scaleY(-1);
+}
+
+
+.single-field-submit {
+	position: relative;
+
+	input {
+		@extend %h7;
+		width: 100%;
+		height: 5rem;
+		padding: 0 5rem 0 2rem;
+		background-color: $white !important;
+		border: 1px solid #4f4f4f !important;
+		color: $black !important;
+	}
+	button {
+		width: 5rem;
+		height: 100%;
+		text-indent: 5rem;
+		background-color: #1e1e1e;
+		position: absolute;
+		right: 0;
+		top: 0;
 		overflow: hidden;
+	}
+	.arrow {
+		width: 1.4rem;
+		height: 100%;
+		position: absolute;
+		left: 1.8rem;
+		top: 0;
+		fill: $primary-color;
+	}
+	&.dark {
+		input {
+			border: 1px solid #4f4f4f !important;
+			background-color: #1e1e1e !important;
+			color: $white !important;
+		}
+		button {
+			border: 1px solid #4f4f4f !important;
+			border-left: 0 !important;
+		}
 	}
 }

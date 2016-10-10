@@ -5,60 +5,101 @@
         "fonts": [
             {
                 "heading": "1",
-                "fontName" : "Open Sans",
-                "fontSize": "40px",
-                "className": "open-sans uppercase",
-                "title": "The quick corrupt politician jumps over the lazy society."
+                "fontName" : "Proxima Nova Black",
+                "fontSize": "40px / 53px / 85px",
+                "className": "hero-headline font-proxima-nova text-uppercase",
+                "title": "Home Hero Heading"
+            },
+            {
+                "heading": "1",
+                "fontName" : "Proxima Nova",
+                "fontSize": "65px",
+                "className": "font-proxima-nova text-uppercase",
+                "title": "h1 Heading"
             },
             {
                 "heading": "2",
-                "fontName" : "Open Sans",
-                "fontSize": "34px",
-                "className": "open-sans",
-                "title": "The quick corrupt politician jumps over the lazy society."
+                "fontName" : "Proxima Nova",
+                "fontSize": "65px",
+                "className": "font-proxima-nova text-uppercase",
+                "title": "h2 Heading"
+            },
+            {
+                "heading": "2",
+                "fontName" : "Proxima Nova",
+                "fontSize": "55px",
+                "className": "h2-alt font-proxima-nova text-uppercase",
+                "title": "h2 Heading alt"
             },
             {
                 "heading": "3",
-                "fontName" : "Open Sans",
+                "fontName" : "Proxima Nova",
+                "fontSize": "45px",
+                "className": "font-proxima-nova text-uppercase",
+                "title": "h3 Heading"
+            },
+            {
+                "heading": "3",
+                "fontName" : "Proxima Nova",
                 "fontSize": "30px",
-                "className": "open-sans",
-                "title": "The quick corrupt politician jumps over the lazy society."
+                "className": "h3-alt font-proxima-nova text-uppercase",
+                "title": "h3 Heading alt"
             },
             {
                 "heading": "4",
-                "fontName" : "Open Sans",
-                "fontSize": "26px",
-                "className": "open-sans",
-                "title": "The quick corrupt politician jumps over the lazy society."
+                "fontName" : "Proxima Nova",
+                "fontSize": "24px",
+                "className": "font-proxima-nova text-uppercase",
+                "title": "h4 Heading"
             },
             {
                 "heading": "5",
-                "fontName" : "Open Sans",
-                "fontSize": "22px",
-                "className": "open-sans",
-                "title": "The quick corrupt politician jumps over the lazy society."
+                "fontName" : "Proxima Nova",
+                "fontSize": "18px",
+                "className": "font-proxima-nova text-uppercase",
+                "title": "h5 Heading"
             },
             {
                 "heading": "6",
-                "fontName" : "Open Sans",
-                "fontSize": "18px",
-                "className": "open-sans",
-                "title": "The quick corrupt politician jumps over the lazy society."
+                "fontName" : "Proxima Nova",
+                "fontSize": "14px",
+                "className": "font-proxima-nova text-uppercase",
+                "title": "h6 Heading"
             }
+        ],
+        "other": [
+          {
+              "fontName" : "H7",
+              "fontSize": "12px",
+              "className": "font-proxima-nova h7",
+              "text": "h7 Heading"
+          },
+          {
+              "fontName" : "Metadata Copy",
+              "fontSize": "11px",
+              "className": "font-proxima-nova metadata",
+              "text": "Metadata Copy"
+          }
         ],
         "paragraphsName": "Paragraphs",
         "paragraphs": [
             {
                 "className": "",
-                "fontName": "Open Sans",
-                "fontSize": "16px",
+                "fontName": "Body Copy / Proxima Nova",
+                "fontSize": "13px / 14px / 15px",
                 "text": "SEO is a marketing tactic that costs five percent of overall budget but brings in more than 20 percent of revenue for many Fortune 500 companies, and yet very few of them prioritize it. Instead, while slowly changing, too many CMOS still favor paid search, which costs 20 percent and brings in… 20 percent. In search, businesses need to shift priorities. Now is the time."
             },
             {
-                "className": "p3 small-3",
-                "fontName": "Open Sans",
-                "fontSize": "16px",
-                "text": "Brand to be recognized at the 2014 “Made in NY” Awards for the company’s contribution to New York’s creative economy."
+                "className": "plp-tiles-copy",
+                "fontName": "PLP Tiles Body Copy / Proxima Nova",
+                "fontSize": "12px / 13px / 13px",
+                "text": "SEO is a marketing tactic that costs five percent of overall budget but brings in more than 20 percent of revenue for many Fortune 500 companies, and yet very few of them prioritize it. Instead, while slowly changing, too many CMOS still favor paid search, which costs 20 percent and brings in… 20 percent. In search, businesses need to shift priorities. Now is the time."
+            },
+            {
+                "className": "hero-blog-copy",
+                "fontName": "Hero & Blog Body Copy / Proxima Nova",
+                "fontSize": "14px / 15px / 18px",
+                "text": "SEO is a marketing tactic that costs five percent of overall budget but brings in more than 20 percent of revenue for many Fortune 500 companies, and yet very few of them prioritize it. Instead, while slowly changing, too many CMOS still favor paid search, which costs 20 percent and brings in… 20 percent. In search, businesses need to shift priorities. Now is the time."
             }
         ]
     }

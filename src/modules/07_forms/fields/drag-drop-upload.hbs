@@ -1,0 +1,14 @@
+<div class="drag-drop-upload" data-drag-drop-upload data-multiple-files="{{{multipleFiles}}}" data-max-files="{{{maxFiles}}}" data-remove-label="Remove">
+	{{#if title}}<span class="metadata">{{{title}}}</span>{{/if}}
+	<div class="wrapper">
+		<label>
+			<!-- 5 MB -->
+			<!-- <input type="hidden" name="MAX_FILE_SIZE" value="5242880" /> -->
+			<!-- <input type="file" multiple accept="image/*"> -->
+			<input type="file" multiple>
+			{{svg 'icon-plus'}}
+			<span class="metadata">{{{label}}}</span>
+		</label>
+	</div>
+	<ul class="preview-zone"></ul>
+</div>

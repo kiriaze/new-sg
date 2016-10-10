@@ -22,11 +22,12 @@
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
-	font-size: 1rem; // reset
+	font-size: 1.01rem; // reset
 	text-align: left; // reset
 }
 
 %horizontal-center {
+	position: absolute!important;
 	transform: translateX(-50%);
 	left: 50%;
 }
@@ -38,15 +39,6 @@
 	left: 50%;
 	top: 50%;
 	transform: translateX(-50%) translateY(-50%);
-}
-
-// attach to parent of desired container
-// e.g. .columns-2 .content {}
-%valign {
-	@include breakpoint($small) {
-		display: flex;
-		align-items: center;
-	}
 }
 
 %absolute-cover {

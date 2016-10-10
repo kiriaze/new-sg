@@ -1,0 +1,107 @@
+label.checkbox-labeled {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	text-align: left;
+
+	&.disabled {
+		input[type="checkbox"] {
+			+ span {
+				&:before {
+					content: '';
+					position: absolute;
+					top: 3px;
+					left: 3px;
+					width: 0.8rem;
+					height: 0.8rem;
+					border: none;
+					transition-property: border, background-color;
+					transition-duration: .1s;
+					transition-timing-function: linear;
+					pointer-events: none;
+					background-color: $line-color;
+				}
+			}
+		}
+	}
+
+	&.white {
+
+		.check {
+			fill: $black;
+		}
+
+		input[type="checkbox"] {
+			+ span {
+
+				&:before {
+					border: 2px solid $white;
+				}
+			}
+			&:checked + span:before {
+				background-color: $white;
+			}
+		}
+	}
+
+	input[type="checkbox"] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1.5rem;
+		height: 1.5rem;
+		opacity: 0;
+		cursor: pointer;
+
+		+ span {
+			display: block;
+			position: relative;
+			width: 100%;
+			line-height: 1.6rem;
+			word-break: break-word;
+			padding-left: 2.5rem;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 1.5rem;
+				height: 1.5rem;
+				border: 2px solid $black;
+				transition-property: border, background-color;
+				transition-duration: .1s;
+				transition-timing-function: linear;
+				pointer-events: none;
+			}
+		}
+		&:checked + span:before {
+			background-color: $black;
+		}
+		&:checked ~ .check {
+			opacity: 1;
+		}
+	}
+
+	.check {
+		position: absolute;
+		top: .3rem;
+		left: .3rem;
+		width: .9rem;
+		height: .9rem;
+		opacity: 0;
+		z-index: 1;
+		pointer-events: none;
+		fill: $primary-color;
+	}
+
+	&.light input[type="checkbox"] {
+		+ span:before {
+			border: 1px solid $med-grey;
+		}
+		&:checked + span:before {
+			background-color: $black;
+			border: 1px solid $black;
+		}
+	}
+}

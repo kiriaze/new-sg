@@ -1,0 +1,83 @@
+.favorites-sort-bar {
+
+	position: relative;
+	height: 6rem;
+	border-bottom: 1px solid $light-grey;
+	background: $module-bg;
+	z-index: 1;
+	white-space: nowrap;
+
+	.title {	
+		display: inline-block;
+		position: relative;
+		color: $med-grey;
+		height: 6rem;
+		line-height: 6rem;
+		vertical-align: top;
+	}
+
+	.vert-divider {
+		position: relative;
+		display: inline-block;
+		top: 0px;
+		left: 0px;
+		width: 0.1rem;
+		height: 4rem;
+		margin: 1rem 2rem;
+		background: $light-grey;
+	}
+
+	.btn-share {
+		
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		height: 6rem;
+		line-height: 6rem;
+
+		svg {
+			position: relative;
+			display: inline-block;
+			top: 0px;
+			left: 0px;
+			width: 1rem;
+			height: 1rem;
+
+			* {
+				fill: $black;
+			}
+		}
+
+		.metadata {
+			@extend %link-underline;
+			color: $black;
+			margin-left: 0.5rem;
+		}
+	}
+
+	.select-dd-swap-label {
+
+		height: 6rem;
+		line-height: 6rem;
+
+		> label {
+			line-height: 6rem;
+		}
+
+		.selectize-input {
+			height: 6rem;
+
+			&:after {
+				height: 5.8rem !important;
+			}
+		}
+	}
+
+	.custom-select .selectize-input.items.input-active {
+		border-color: rgba($light-grey, 0.6);
+	}
+
+	.button-filters {
+		margin-top: 1rem;
+	}
+}

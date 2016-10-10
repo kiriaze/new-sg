@@ -1,0 +1,8 @@
+<div class="arrow-button-field-tiny {{{classes}}}" {{{params}}}>
+	{{#unless noForm}}<form action="" method="" class="search">{{/unless}}
+        <input type="{{#if type}}{{{type}}}{{else}}text{{/if}}" placeholder="{{{placeholder}}}" maxlength="5" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || !event.charCode' {{inputParams}}>
+	    <button>				        
+	    	{{svg 'arrow-right' classes='icon arrow'}}
+	    </button>
+	{{#unless noForm}}</form>{{/unless}}
+</div>

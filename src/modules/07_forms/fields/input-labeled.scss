@@ -1,0 +1,82 @@
+.input-labeled,
+.textarea-labeled {
+	text-align: left;
+	margin-bottom: 2rem;
+
+	&.disabled {
+		input {
+			background: $section-bg;
+			border: none;
+		}
+	}
+
+	&.no-gap {
+		margin-bottom: 0;
+	}
+
+	&.small-gap {
+		margin-bottom: 1rem;
+	}
+
+	.info {
+		color: $med-grey;
+		text-transform: none;
+		font-size: $metadata-font-size;
+	}
+
+	.metadata {
+		color: $dark-grey;
+		vertical-align: top;
+		display: inline-block;
+		margin-bottom: 0.8rem;
+	}
+
+	&.required label:after {
+		content: ' *';
+		font-size: $metadata-font-size;
+		color: $error-color;
+	}
+
+	.valid,
+	.error {
+		border-width: 2px;
+	}
+
+	.error {
+		@extend %metadata;
+		vertical-align: top;
+		display: inline-block;
+		color: $error-color;
+		border-color: $error-color;
+
+		&:not(.valid) {
+
+			&:before {
+				content: '*';
+				position: relative;
+				display: inline-block;
+				margin: 0 0.7rem;
+			}
+		}
+	}
+
+	.valid {
+		border-color: $success-color;
+	}
+
+	&--credit-card {
+
+		position: relative;
+		&:after {
+			content: '';
+			position: absolute;
+			top: 2.7rem;
+			right: 1rem;
+			width: 3.8rem;
+			height: 2.5rem;
+			background: url(../images/account-dashboard/mobile/logo-visa.png) no-repeat top left;
+			background-size: cover;
+		}
+
+	}
+}

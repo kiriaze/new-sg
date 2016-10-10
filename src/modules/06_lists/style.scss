@@ -5,6 +5,26 @@ ul {
 	padding: 0;
 }
 
+.list {
+	li {
+		@extend %hero-blog-copy;
+
+		padding-left: 2.5rem;
+		position: relative;
+
+		&:before {
+			content: '';
+			width: .6rem;
+			height: .6rem;
+			background-color: $dark-grey;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 1rem;
+		}
+	}
+}
+
 .list-styleguide {
 	li {
 		line-height: 1.5rem;

@@ -1,0 +1,20 @@
+{{!--
+Params:
+	classes
+	params
+	title
+	name
+	required
+--}}
+<div class="select-shoe-width {{{classes}}}" {{{params}}} data-select-dd-swap-label>
+	<label class="metadata plp-tiles-copy" for="{{{name}}}">{{{title}}} <strong></strong></label>
+	<select class="custom-select"
+	{{#if placeholder}}placeholder="{{{placeholder}}}"{{/if}}
+	{{#if required}}required{{/if}}
+	{{#if error}}data-msg-required="{{{error}}}"{{/if}}>
+		{{#if placeholder}}<option value="">{{{placeholder}}}</option>{{/if}}
+		{{#each items}}
+			<option value="{{key}}" class="h7" {{#if_eq @index compare=../is-active}} selected{{/if_eq}}>{{{label}}}</option>
+		{{/each}}
+	</select>
+</div>

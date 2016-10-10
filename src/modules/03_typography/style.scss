@@ -1,33 +1,410 @@
-// @include font-face(Font Name, '../fonts/FontName/FontNameBold', 600);
-// @include font-face(Another Font, '../fonts/FontName/FontNameRegular', 400);
+// set main body color
+body {
+	color: $black;
+}
 
-// google fonts dont work in here with @import url(), include it in head file instead
-@import url(http://fonts.googleapis.com/css?family=Raleway:300);
+/////////////////////////////////
+// Inverted Text Colors
+/////////////////////////////////
+%dark,
+.dark {
+	color: $white;
+}
 
-// @import './src/assets/fonts/ionicons/ionicons.min';
-// @include font-face(Ionicons, '../fonts/ionicons/ionicons', 400);
+%dark-text,
+.dark-text {
+	color: $black;
+}
 
-// // custom path for bower foundation-icon-fonts
-// $fi-path: "../fonts";
-// @import "./src/assets/vendor/foundation-icon-fonts/foundation-icons";
+////////////////////////////
+// reset script addendum
+///////////////////////////
+h1, h2, h3, h4, h5, h6,
+ol, ul, li,
+a, div, span, p, img,
+td, table, tbody, hr, iframe,
+button, input, textarea, select {
+
+	background: transparent;
+	border: 0 none;
+	margin: 0;
+	padding: 0;
+
+	// hyphenation
+	hyphens: manual;
+
+	// dragging
+
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+	user-drag: none;
+
+	// kerning
+	font-feature-settings: "kern";
+	-webkit-appearance: none;
+	border-radius: 0;
+
+	// disable click rectangle
+	&:not(input) {
+		-webkit-touch-callout: none;
+	}
+}
+
+li {
+	list-style: none inside;
+}
+
+a,
+a:visited,
+a:focus,
+a:active,
+a:hover,
+input,
+input:visited,
+input:focus,
+input:active,
+input:hover,
+button,
+button:visited,
+button:focus,
+button:active,
+button:hover{
+	outline: 0 none !important;
+}
+
+button {
+	cursor: pointer;
+}
 
 
-// file for overriding type styles easily
+hr,
+%hr {
+	border-top: 1px solid $line-color;
+}
+
+.strikethrough {
+	text-decoration: line-through;
+}
+
+/////////////////////////////////
+// Headline Styles
+/////////////////////////////////
 
 @for $i from 1 through 6 {
-	h#{$i} {
-
+	h#{$i},
+	.h#{$i},
+	%h#{$i} {
+		font-family: $header-font;
+		text-transform: uppercase;
 	}
 }
 
-.p3 {
-	font-size: 15px;
-	line-height: 1.8;
-	color: #666;
+h1,
+.h1,
+%h1 {
+	font-weight: $fw-black;
 }
 
-.small-3 {
-	@include breakpoint($small) {
-		max-width: 30%;
+h2,
+.h2,
+%h2 {
+	font-weight: $fw-extra-bold;
+}
+
+h3,
+.h3,
+%h3 {
+	font-weight: $fw-extra-bold;
+}
+
+h4,
+.h4,
+%h4 {
+	font-weight: $fw-extra-bold;
+}
+
+h5,
+.h5,
+%h5 {
+	font-weight: $fw-extra-bold;
+}
+
+h6,
+.h6,
+%h6 {
+	font-weight: $fw-extra-bold;
+}
+
+.h6-alt,
+%h6-alt {
+	@extend %h6;
+	font-weight: $fw-bold;
+}
+
+
+.hero-headline,
+%hero-headline {
+	font-weight: $fw-black;
+	font-family: $header-font;
+	text-transform: uppercase;
+	font-size: $hero-header-font-size;
+	line-height: $hero-header-line-height;
+	letter-spacing: $hero-header-letter-spacing;
+	@include breakpoint($screen-small) {
+		font-size: $hero-header-tablet-font-size;
+		line-height: $hero-header-tablet-line-height;
+		letter-spacing: $hero-header-tablet-letter-spacing;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $hero-header-desktop-font-size;
+		line-height: $hero-header-desktop-line-height;
+		letter-spacing: $hero-header-desktop-letter-spacing;
 	}
 }
+
+.h1-alt,
+%h1-alt {
+	font-weight: $fw-black;
+	font-family: $header-font;
+	text-transform: uppercase;
+	font-size: $h1-alt-font-size;
+	line-height: $h1-alt-line-height;
+	letter-spacing: $h1-alt-letter-spacing;
+	@include breakpoint($screen-small) {
+		font-size: $h1-alt-tablet-font-size;
+		line-height: $h1-alt-tablet-line-height;
+		letter-spacing: $h1-alt-tablet-letter-spacing;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $h1-alt-desktop-font-size;
+		line-height: $h1-alt-desktop-line-height;
+		letter-spacing: $h1-alt-desktop-letter-spacing;
+	}
+}
+
+.h2-alt,
+%h2-alt {
+	font-weight: $fw-extra-bold;
+	font-family: $header-font;
+	text-transform: uppercase;
+	font-size: $h2-alt-font-size;
+	line-height: $h2-alt-line-height;
+	letter-spacing: $h2-alt-letter-spacing;
+	@include breakpoint($screen-small) {
+		font-size: $h2-alt-tablet-font-size;
+		line-height: $h2-alt-tablet-line-height;
+		letter-spacing: $h2-alt-tablet-letter-spacing;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $h2-alt-desktop-font-size;
+		line-height: $h2-alt-desktop-line-height;
+		letter-spacing: $h2-alt-desktop-letter-spacing;
+	}
+}
+
+.h3-alt,
+%h3-alt {
+	font-weight: $fw-extra-bold;
+	font-family: $header-font;
+	text-transform: uppercase;
+	font-size: $h3-alt-font-size;
+	line-height: $h3-alt-line-height;
+	letter-spacing: $h3-alt-letter-spacing;
+	@include breakpoint($screen-small) {
+		font-size: $h3-alt-tablet-font-size;
+		line-height: $h3-alt-tablet-line-height;
+		letter-spacing: $h3-alt-tablet-letter-spacing;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $h3-alt-desktop-font-size;
+		line-height: $h3-alt-desktop-line-height;
+		letter-spacing: $h3-alt-desktop-letter-spacing;
+	}
+}
+
+.h7,
+%h7,
+.metadata,
+%metadata {
+	font-family: $header-font;
+	font-weight: $fw-bold;
+	text-transform: uppercase;
+	display: block;
+	[data-scroll-target="typography"] & {
+		margin-bottom: 2rem;
+	}
+}
+
+.h7,
+%h7 {
+	font-size: $h7-font-size;
+	line-height: $h7-line-height;
+	letter-spacing: $h7-letter-spacing;
+	@include breakpoint($screen-small) {
+		font-size: $h7-tablet-font-size;
+		line-height: $h7-tablet-line-height;
+		letter-spacing: $h7-tablet-letter-spacing;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $h7-desktop-font-size;
+		line-height: $h7-desktop-line-height;
+		letter-spacing: $h7-desktop-letter-spacing;
+	}
+}
+
+.h7-alt,
+%h7-alt {
+	font-weight: $fw-semibold;
+	letter-spacing: $h7-alt-letter-spacing;
+
+	@include breakpoint($screen-small) {
+		letter-spacing: $h7-alt-tablet-letter-spacing;
+	}
+
+	@include breakpoint($screen-medium) {
+		letter-spacing: $h7-alt-desktop-letter-spacing;
+	}
+}
+
+.metadata,
+%metadata {
+	font-size: $metadata-font-size;
+	line-height: $metadata-line-height;
+	letter-spacing: $metadata-letter-spacing;
+	@include breakpoint($screen-small) {
+		font-size: $metadata-tablet-font-size;
+		line-height: $metadata-tablet-line-height;
+		letter-spacing: $metadata-tablet-letter-spacing;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $metadata-desktop-font-size;
+		line-height: $metadata-desktop-line-height;
+		letter-spacing: $metadata-desktop-letter-spacing;
+	}
+}
+
+.divider,
+%divider {
+	color: $light-grey;
+	margin: 0 1rem;
+	letter-spacing: -0.08rem;
+}
+
+/////////////////////////////////
+// Paragraph Styles
+/////////////////////////////////
+
+%plp-tiles-copy {
+	font-size: $plp-tiles-copy-font-size;
+	line-height: $plp-tiles-copy-line-height;
+	letter-spacing: $plp-tiles-copy-letter-spacing;
+	font-weight: $fw-semibold;
+	@include breakpoint($screen-small) {
+		font-size: $plp-tiles-copy-tablet-font-size;
+		line-height: $plp-tiles-copy-tablet-line-height;
+		letter-spacing: $plp-tiles-copy-tablet-letter-spacing;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $plp-tiles-copy-desktop-font-size;
+		line-height: $plp-tiles-copy-desktop-line-height;
+		letter-spacing: $plp-tiles-copy-desktop-letter-spacing;
+	}
+}
+
+%hero-blog-copy {
+	font-size: $hero-blog-copy-font-size;
+	line-height: $hero-blog-copy-line-height;
+	letter-spacing: $hero-blog-copy-letter-spacing;
+	@include breakpoint($screen-small) {
+		font-size: $hero-blog-copy-tablet-font-size;
+		line-height: $hero-blog-copy-tablet-line-height;
+		letter-spacing: $hero-blog-copy-tablet-letter-spacing;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $hero-blog-copy-desktop-font-size;
+		line-height: $hero-blog-copy-desktop-line-height;
+		letter-spacing: $hero-blog-copy-desktop-letter-spacing;
+	}
+}
+
+p {
+	font-size: $paragraph-font-size;
+	line-height: $paragraph-line-height;
+	letter-spacing: $paragraph-letter-spacing;
+
+	@include breakpoint($screen-small) {
+		font-size: $paragraph-tablet-font-size;
+		line-height: $paragraph-tablet-line-height;
+		letter-spacing: $paragraph-tablet-letter-spacing;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $paragraph-desktop-font-size;
+		line-height: $paragraph-desktop-line-height;
+		letter-spacing: $paragraph-desktop-letter-spacing;
+	}
+}
+
+.plp-tiles-copy {
+	@extend %plp-tiles-copy;
+
+	&--alt {
+		font-weight: $fw-medium;
+	}
+}
+
+%plp-tiles-copy-alt,
+.plp-tiles-copy-alt {
+
+	@extend %plp-tiles-copy;
+
+	font-size: $plp-tiles-copy-alt-font-size;
+
+	@include breakpoint($screen-small) {
+		font-size: $plp-tiles-copy-alt-tablet-font-size;
+	}
+	@include breakpoint($screen-medium) {
+		font-size: $plp-tiles-copy-alt-desktop-font-size;
+	}
+}
+
+.hero-blog-copy {
+	@extend %hero-blog-copy;
+}
+
+/////////////////////////////////
+// Font Weights
+/////////////////////////////////
+
+%fw-regular,
+.fw-regular {
+	font-weight: $fw-regular;
+}
+
+%fw-medium,
+.fw-medium {
+	font-weight: $fw-medium;
+}
+
+%fw-semibold,
+.fw-semibold {
+	font-weight: $fw-semibold;
+}
+
+%fw-bold,
+.fw-bold {
+	font-weight: $fw-bold;
+}
+
+%fw-extra-bold,
+.fw-extra-bold {
+	font-weight: $fw-extra-bold;
+}
+
+%fw-black,
+.fw-black {
+	font-weight: $fw-black;
+}
+
+/////////////////////////////////

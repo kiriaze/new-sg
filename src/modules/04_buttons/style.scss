@@ -1,76 +1,35 @@
-$btn-width: 170px;
-$btn-height: 50px;
-$btn-border-width: 2px;
+@import "button";
 
-.btn {
+// styleguide button display
+// add a little breathing room
+
+.module[data-scroll-target="buttons"] .btn {
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+	vertical-align: top;
+}
+
+/* global button styles */
+
+button {
+	border: none;
+	outline: none;
+	background: transparent;
 	cursor: pointer;
+}
+
+/* a styles */
+
+a {
+
 	text-decoration: none;
-	display: inline-block;
-	font-family: $body-font;
-	font-weight: 700;
-	letter-spacing: 1.5px;
-	text-transform: uppercase;
-	text-align: center;
-	color: $white;
-	width: $btn-width;
-	height: $btn-height;
-	line-height: $btn-height;
-	@include font-size($small-font-size);
-	transition: all 0.3s,opacity 0.3s;
+	color: $black;
 
-	&.btn-black {
-		background: $black;
-		&:hover {
-			background-color: $primary-color;
-			color: $white;
-		}
-	}
+	@include transition(color);
+	transition-duration: 0.2s;
 
-	&.btn-light {
-		background: $light-grey;
-		color: $dark-grey;
-		&:hover {
-			background-color: $black;
-			color: $white;
-		}
-	}
-
-	&.btn-primary {
-		background: $secondary-color;
-		color: $white;
-		&:hover {
-			background-color: darken($secondary-color, 10);
-			color: $white;
-		}
-	}
-
-	&.btn-invert {
-		background: $primary-color;
-		color: $white;
-		&:hover {
-			background-color: $black;
-			color: $white;
-		}
-	}
-
-	&.btn-ghost {
-		background: transparent;
+	&:hover {
 		color: $black;
-		border: $btn-border-width solid $black;
-		line-height: $btn-height - ($btn-border-width * 2);
-		&:hover {
-			background-color: $black;
-			border-color: $black;
-			color: $white;
-		}
-		&.btn-invert {
-			border-color: $primary-color;
-			color: $primary-color;
-			&:hover {
-				background-color: $primary-color;
-				border-color: $primary-color;
-				color: $white;
-			}
-		}
 	}
+
 }

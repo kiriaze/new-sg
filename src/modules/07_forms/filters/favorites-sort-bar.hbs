@@ -1,0 +1,39 @@
+<div class="favorites-sort-bar {{{classes}}}" {{{params}}}>
+	<div class="container overflow-visible">
+		<div class="row">
+			<div class="inner-row">
+				<div class="col cols-2 text-align-left pull-left-abs">
+					<span class="metadata title">{{{title}}}</span>
+					<figure class="vert-divider"></figure>
+					<a href="#modal-share-favorites" class="btn-share" data-inline-popup>
+						{{svg 'icon-share' classes='svg icon-share'}}
+						<span class="metadata">Share Favorites</span>
+					</a>
+				</div>
+			
+				<div class="col cols-2 text-align-right pull-right-abs">
+
+					{{#parseJSON
+						'{"items":[
+							{"key": "newest", "label": "Newest" },
+							{"key": "most-popular", "label": "Most Popular" },
+							{"key": "highest-rated", "label": "Highest Rated" },
+							{"key": "price-low-high", "label": "Price (Low-High)" },
+							{"key": "price-high-low", "label": "Price (High-Low)" }
+						]}'
+					}}
+						
+						{{> 07_forms/selects/select-dd-swap-label
+							this.classes
+							classes = 'is-inline-block'
+							title = 'Sort by'
+							items = this.items
+						}}
+
+					{{/parseJSON}}
+
+				</div>			
+			</div>
+		</div>
+	</div>
+</div>

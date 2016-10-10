@@ -1,0 +1,28 @@
+html:not(.skrollex-disabled) {
+
+	[data-skrollex] {
+		opacity: 1;
+	}
+
+	@include breakpoint($screen-medium) {
+
+		[data-skrollex] {
+			opacity: 0;
+		}
+	}
+}
+
+html.skrollex-disabled {
+
+	[data-skrollex] {
+		opacity: 1;
+	}
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}

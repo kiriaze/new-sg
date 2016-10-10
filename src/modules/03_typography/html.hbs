@@ -1,19 +1,23 @@
 <h2 class="styleguide-module__title">{{name}}</h2>
 
-{{#if items.paragraphs}}
-	{{#each items.paragraphs}}
-		<p class="styleguide-module__paragraph">{{text}}</p>
-	{{/each}}
-{{/if}}
-
 <div class="titles">
 	{{#each items.fonts}}
 		<span class="styleguide-module__title--light">{{fontName}} - {{fontSize}}</span>
 		<h{{heading}} class="{{className}}" contenteditable="true">{{title}}</h{{heading}}>
 	{{/each}}
 </div>
+
 <br>
+
+{{#each items.other}}
+	<span class="styleguide-module__title--light">{{fontName}} - {{fontSize}}</span>
+	<span class="{{className}}" contenteditable="true">{{text}}</span>
+{{/each}}
+
+<br>
+
 <h5 class="styleguide-module__title--small">{{items.paragraphsName}}</h5>
+
 {{#each items.paragraphs}}
 	<span class="styleguide-module__title--light">{{fontName}} - {{fontSize}}</span>
 	<p class="{{className}}" contenteditable="true">{{text}}</p>

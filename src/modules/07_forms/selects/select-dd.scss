@@ -1,0 +1,17 @@
+.select-dd {
+	text-align: left;
+	margin-bottom: 2rem;
+
+	.custom-select .selectize-input.items {
+		border: 1px solid $line-color;
+	}
+
+	.selectize-control.single .selectize-input input {
+		width: 100% !important;
+		padding: 0 1.5rem !important;
+	}
+
+	.selectize-control.single .selectize-input.input-active input {
+		// display: none !important;
+	}
+}

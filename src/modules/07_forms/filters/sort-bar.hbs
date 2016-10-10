@@ -1,0 +1,47 @@
+<div class="sort-bar {{{classes}}}" {{{params}}}>
+	<div class="container overflow-visible">
+		<div class="row">
+			<div class="inner-row">
+				<div class="col cols-2 text-align-left pull-left-abs">
+					<{{#if titleTag}}{{{titleTag}}}{{else}}h5{{/if}} class="title desktop-inline-content">{{{title}}} <span class="grey">{{{titleDetail}}}</span></{{#if titleTag}}{{{titleTag}}}{{else}}h5{{/if}}>
+
+					{{> 04_buttons/button-filters
+						this.classes
+						classes = 'tablet-inline-content'
+						params = 'data-toggle-class="is-active" data-tc-target=".product-grid-filtered .col--filter-bar, .product-grid-filtered .veil"'
+					}}
+
+					{{> 20_ui/compare-counter/compare-counter 
+						this.classes
+						classes = ''
+						small = this.smallCompare
+					}}
+
+				</div>
+			
+				<div class="col cols-2 text-align-right pull-right-abs">
+
+					{{#parseJSON
+						'{"items":[
+							{"key": "newest", "label": "Newest" },
+							{"key": "most-popular", "label": "Most Popular" },
+							{"key": "highest-rated", "label": "Highest Rated" },
+							{"key": "price-low-high", "label": "Price (Low-High)" },
+							{"key": "price-high-low", "label": "Price (High-Low)" }
+						]}'
+					}}
+						
+						{{> 07_forms/selects/select-dd-swap-label
+							this.classes
+							classes = 'is-inline-block'
+							title = 'Sort by'
+							items = this.items
+						}}
+
+					{{/parseJSON}}
+
+				</div>			
+			</div>
+		</div>
+	</div>
+</div>

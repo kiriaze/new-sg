@@ -1,5 +1,5 @@
 // Iframe scripts
-var prism        = require('./plugins/prism.js');
+var prism = require('./plugins/prism.js');
 
 (function($){
 
@@ -25,7 +25,7 @@ var prism        = require('./plugins/prism.js');
 			var $this     = $(this),
 				title     = $this.data('tooltip'),
 				position  = $this.data('tooltip-position') ? $this.data('tooltip-position') : 'bottom',
-				tooltip   = $( '<div class="tooltip '+position+'"><div class="tooltip-arrow"></div><div class="tooltip-inner">'+title+'</div></div>' );
+				tooltip   = $( '<div class="sg-tooltip '+ position +'"><div class="sg-tooltip-arrow"></div><div class="sg-tooltip-inner">'+ title +'</div></div>' );
 
 			$this.append( $( tooltip ) );
 
@@ -59,42 +59,46 @@ var prism        = require('./plugins/prism.js');
 			tooltip.addClass('in');
 
 		}, function() {
-			$( this ).find( ".tooltip" ).removeClass('in').remove();
+			$( this ).find( '.sg-tooltip' ).removeClass('in').remove();
 		}
 	);
 
-	// overwrite scrollspy of simpleAnchors for iframe
-	var scrollTimer = null;
-	var $scrollTargets = $('[data-scroll-target]');
+	////////////////////////////////////////
+	/// This fucks up scrolling on styleguide
+	////////////////////////////////////////
 
-	$(window).scroll(function(e) {
-		if ( scrollTimer ) {
-			clearTimeout(scrollTimer);   // clear any previous pending timer
-		}
-		scrollTimer = setTimeout(scrollSpry, 20);   // set new timer
-	});
+	// // overwrite scrollspy of simpleAnchors for iframe
+	// var scrollTimer    = null,
+	// 	$scrollTargets = $('[data-scroll-target]');
 
-	function scrollSpry(){
+	// $(window).scroll(function(e) {
+	// 	if ( scrollTimer ) {
+	// 		clearTimeout(scrollTimer);   // clear any previous pending timer
+	// 	}
+	// 	scrollTimer = setTimeout(scrollSpry, 20);   // set new timer
+	// });
 
-		var scrollPos = $(window).scrollTop();
-		scrollTimer = null;
+	// function scrollSpry(){
 
-		$scrollTargets.each(function(e) {
+	// 	var scrollPos	= $(window).scrollTop();
+	// 	scrollTimer		= null;
 
-			var currLink = $(this).data('scroll-target');
+	// 	$scrollTargets.each(function(e) {
 
-			if (
-				( $(this).position().top <= scrollPos ) &&
-				( $(this).position().top + $(this).outerHeight() > scrollPos )
-			) {
-				$('[data-scroll-to="'+ currLink +'"]', parent.document.body).addClass('active');
-			} else {
-				$('[data-scroll-to="'+ currLink +'"]', parent.document.body).removeClass('active');
-			}
+	// 		var currLink = $(this).data('scroll-target');
 
-		});
+	// 		if (
+	// 			( $(this).position().top <= scrollPos ) &&
+	// 			( $(this).position().top + $(this).outerHeight() > scrollPos )
+	// 		) {
+	// 			$('[data-scroll-to="'+ currLink +'"]', parent.document.body).addClass('active');
+	// 		} else {
+	// 			$('[data-scroll-to="'+ currLink +'"]', parent.document.body).removeClass('active');
+	// 		}
 
-	}
+	// 	});
+
+	// }
 
 	var codeSnippets = function(){
 		var codeToCreateSnippetClass = '.snippet',
@@ -127,15 +131,19 @@ var prism        = require('./plugins/prism.js');
 
 		$.each($(codeToCreateSnippetClass), function(index, val) {
 			// console.log($(val), val);
-			var snippetClassName = codeToCreateSnippetClass.substr(1);
-			var snippet = $(val)[0].outerHTML;
-			$(val).before('<a href="javascript:;" class="' + codeSnippetsClass.replace('.', '') + '"></a>');
+
+			var snippetClassName	= codeToCreateSnippetClass.substr(1);
+			var snippet				= $(val)[0].outerHTML;
+
+			$(val).prev('.styleguide-module__header').append('<a href="javascript:;" class="' + codeSnippetsClass.replace('.', '') + '"></a>');
+
 			$(val).after('<pre class="language-markup"><code>' + $('<p/>').text(snippet).html() + '</code></pre>').next().hide();
+
 		});
 
 		$(codeSnippetsClass).click(function(e) {
 			e.preventDefault();
-			var $code = $(this).next().next();
+			var $code = $(this).parents('.styleguide-module__header').next().next();
 			// console.log($code);
 			$code.toggle();
 		});
@@ -143,6 +151,9 @@ var prism        = require('./plugins/prism.js');
 		Prism.highlightAll();
 	};
 
-	codeSnippets();
+	// modernizr detect if touch, disable if true
+	if ( ! Modernizr.touch ) {
+		codeSnippets();
+	}
 
 })(window.jQuery);

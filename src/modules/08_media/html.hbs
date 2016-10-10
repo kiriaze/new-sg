@@ -9,7 +9,7 @@
 			{{#if videos.length}}
 				{{#each videos}}
 					<div class="columns-{{counter @../index}}">
-						<figure class="aspect video">
+						<figure class="aspect" data-lazy-video>
 							<a href="{{url}}" class="video-player"></a>
 							<img src="" alt="" class="video-thumb">
 							<span class="play-button"></span>
@@ -28,3 +28,5 @@
 	</div>
 	{{/each}}
 </div>
+
+

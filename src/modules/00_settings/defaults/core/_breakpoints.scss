@@ -1,0 +1,78 @@
+/************************
+BREAKPOINTS - getsimple.io
+************************/
+@mixin breakpoint($point, $direction: 'up') {
+
+	$value: $point;
+
+	@if($direction == 'up'){
+
+		@media ( min-width: #{$value} + 1px) {
+			@content;
+		}
+
+	}
+	@else if($direction == 'down'){
+
+		@media ( min-width: #{$value} - 1px) {
+			@content;
+		}
+
+	}
+	@else {
+
+		@media ( min-width: $point ) {
+			@content;
+		}
+	}
+}
+
+// @mixin breakpoint($minWidth, $maxWidth: null, $orientation: null) {
+// 	@if ( $minWidth ) {
+// 		@media ( min-width: $minWidth ) {
+// 			@content;
+// 		}
+// 	}
+// 	@if ( $minWidth and $maxWidth ) {
+// 		@media ( min-width: $minWidth ) and ( max-width: $maxWidth ) {
+// 			@content;
+// 		}
+// 	}
+// }
+// Example usage:
+//
+// @include breakpoint($large) {
+//  background: purple;
+// }
+
+
+
+
+// $breakpoints: (
+// 	'tiny'     : $screen-tiny,
+// 	'small'    : $screen-small,
+// 	'medium'   : $screen-medium,
+// 	'large'    : $screen-large,
+// 	'xlarge'   : $screen-xlarge,
+// 	'xxlarge'  : $screen-xxlarge,
+// 	'xxxlarge' : $screen-xxxlarge,
+// );
+
+// @mixin respond-to($breakpoint) {
+// 	// Retrieves the value from the key
+// 	$value: map-get($breakpoints, $breakpoint);
+
+// 	// If the key exists in the map
+// 	@if $value != null {
+// 		// Prints a media query based on the value
+// 		@media (min-width: $value) {
+// 			@content;
+// 		}
+// 	}
+
+// 	// If the key doesn't exist in the map
+// 	@else {
+// 		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+// 		+ "Please make sure it is defined in `$breakpoints` map.";
+// 	}
+// }

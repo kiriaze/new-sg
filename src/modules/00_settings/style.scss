@@ -1,144 +1,390 @@
-// Site Global Dimensions - Issue: ems are messing up if parent element is set to a font-size, cascades to child container and affects width. Weird.
-$tiny:							480px; // 30em
-$small:							768px; // 45em
-$medium:						960px; // 60em
-$large:							1280px; // 80em
-$xlarge:						1440px; // 90em
-$xxlarge:						1680px; // 105em
+////////////////////////////////////////////////////////
+// Site Global Dimensions
+////////////////////////////////////////////////////////
 
-// Base Typography Values
-$rem-base:						10px !default; //
-$base-font-size:				62.5% !default; // $base-font-size is 16px, or 10px incase users have browser settings set to specific font size, not default
-$base-line-height:				125% !default; // $base-line-height is 24px if 150%
+$screen-tiny:							480px;
+$screen-small:							640px;
+$screen-medium:							1024px;
+$screen-large:							1280px;
+$screen-xlarge:							1480px;
+$screen-xxlarge:						1700px;
 
-// Heading Values
-$header-line-height:			1.25 !default;
-$header-top-margin:				0rem !default;
-$header-bottom-margin:			0rem !default;
+////////////////////////////////////////////////////////
+// font stacks - core/_fonts.scss
+////////////////////////////////////////////////////////
 
-// px value to rem
-$h1-font-size:					40 !default;
-$h2-font-size:					34 !default;
-$h3-font-size:					30 !default;
-$h4-font-size:					26 !default;
-$h5-font-size:					22 !default;
-$h6-font-size:					16 !default;
-
-// Paragraph Values
-$small-font-size:				10 !default;
-$paragraph-font-size:			16 !default;
-$paragraph-lead-font-size:		20 !default;
-$paragraph-bottom-margin:		0 !default;
-$paragraph-lead-bottom-margin:	1rem !default;
-$paragraph-line-height:			1.8 !default;
-
-// List Values
-$list-bottom-margin:			0rem !default;
-$list-disc-left-margin:			.5rem !default;
-$list-line-height:				1.6 !default;
-
-// Blockquotes
-$blockquotes-font-size:			21 !default;
-
-// fonts - core/_fonts.scss
-$body-font:						Open Sans, helvetica, sans-serif; // bourbon font stacks
-$header-font:					Open Sans, $body-font; // theme specific
+$body-font:								'proxima-nova', helvetica, sans-serif;
+$header-font:							$body-font;
 
 // alt
-$regular: 						400;
-$bold: 							600;
-$sans:							$body-font;
-$slab:							$header-font;
 
+$sans:									$body-font;
+$slab:									$header-font;
+
+
+////////////////////////////////////////////////////////
+// Base Typography Values
+////////////////////////////////////////////////////////
+
+$rem-base:								10px !default; //
+$base-font-size:						62.5% !default; // $base-font-size is 16px, or 10px incase users have browser settings set to specific font size, not default
+$base-line-height:						125% !default; // $base-line-height is 24px if 150%
+
+////////////////////////////////////////////////////////
+// Font Weights
+////////////////////////////////////////////////////////
+
+$fw-regular:                    		400;
+$fw-medium:                     		500;
+$fw-semibold:                     		600;
+$fw-bold: 								700;
+$fw-extra-bold: 						800;
+$fw-black: 								900;
+
+// Heading Values
+
+$header-line-height:					1.25 !default;
+$header-top-margin:						0rem !default;
+$header-bottom-margin:					0rem !default;
+
+////////////////////////////////////////////////////////
+// Mobile Heading Font Sizes
+////////////////////////////////////////////////////////
+
+$hero-header-font-size:					4.0rem !default;
+$h1-font-size:							2.5rem !default;
+$h1-alt-font-size:						3.5rem !default;
+$h2-font-size:							2.2rem !default;
+$h2-alt-font-size:						2.4rem !default;
+$h3-font-size:							1.8rem !default;
+$h3-alt-font-size:						2.0rem !default;
+$h4-font-size:							1.6rem !default;
+$h5-font-size:							1.4rem !default;
+$h6-font-size:							1.3rem !default;
+$h7-font-size:							1.2rem !default;
+$metadata-font-size:					1.1rem !default;
+
+////////////////////////////////////////////////////////
+// Mobile Heading Letter Spacing
+////////////////////////////////////////////////////////
+
+$hero-header-letter-spacing:			0.02rem !default;
+$h1-letter-spacing:						0.02rem !default;
+$h1-alt-letter-spacing:					0.02rem !default;
+$h2-letter-spacing:						0.02rem !default;
+$h2-alt-letter-spacing:					0.02rem !default;
+$h3-letter-spacing:						0.02rem !default;
+$h3-alt-letter-spacing:					0.02rem !default;
+$h4-letter-spacing:						0.02rem !default;
+$h5-letter-spacing:						0.02rem !default;
+$h6-letter-spacing:						0.02rem !default;
+$h7-letter-spacing:						0.02rem !default;
+$h7-alt-letter-spacing:					0.00rem !default;
+$metadata-letter-spacing:				0.02rem !default;
+
+////////////////////////////////////////////////////////
+// Mobile Heading Line Height
+////////////////////////////////////////////////////////
+
+$hero-header-line-height:				3.4rem !default;
+$h1-line-height:						2.5rem !default;
+$h1-alt-line-height:					2.5rem !default;
+$h2-line-height:						2.2rem !default;
+$h2-alt-line-height:					2.2rem !default;
+$h3-line-height:						1.8rem !default;
+$h3-alt-line-height:					1.8rem !default;
+$h4-line-height:						1.8rem !default;
+$h5-line-height:						1.4rem !default;
+$h6-line-height:						1.4rem !default;
+$h7-line-height:						1.2rem !default;
+$metadata-line-height:					1.1rem !default;
+
+////////////////////////////////////////////////////////
+// Tablet Heading Font Sizes
+////////////////////////////////////////////////////////
+
+$hero-header-tablet-font-size:			5.3rem !default;
+$h1-tablet-font-size:					4.0rem !default;
+$h1-alt-tablet-font-size:				4.0rem !default;
+$h2-tablet-font-size:					4.0rem !default;
+$h2-alt-tablet-font-size:				3.5rem !default;
+$h3-tablet-font-size:					2.8rem !default;
+$h3-alt-tablet-font-size:				2.8rem !default;
+$h4-tablet-font-size:					2.0rem !default;
+$h5-tablet-font-size:					1.6rem !default;
+$h6-tablet-font-size:					1.3rem !default;
+$h7-tablet-font-size:					1.2rem !default;
+$metadata-tablet-font-size:				1.1rem !default;
+
+////////////////////////////////////////////////////////
+// Tablet Header Letter Spacing
+////////////////////////////////////////////////////////
+
+$hero-header-tablet-letter-spacing:		0.02rem !default;
+$h1-tablet-letter-spacing:				0.02rem !default;
+$h1-alt-tablet-letter-spacing:			0.02rem !default;
+$h2-tablet-letter-spacing:				0.02rem !default;
+$h2-alt-tablet-letter-spacing:			0.02rem !default;
+$h3-tablet-letter-spacing:				0.02rem !default;
+$h3-alt-tablet-letter-spacing:			0.02rem !default;
+$h4-tablet-letter-spacing:				0.02rem !default;
+$h5-tablet-letter-spacing:				0.02rem !default;
+$h6-tablet-letter-spacing:				0.02rem !default;
+$h7-tablet-letter-spacing:				0.02rem !default;
+$h7-alt-tablet-letter-spacing:			0.00rem !default;
+$metadata-tablet-letter-spacing:		0.02rem !default;
+
+////////////////////////////////////////////////////////
+// Tablet Header Letter Spacing
+////////////////////////////////////////////////////////
+
+$hero-header-tablet-line-height:		4.3rem !default;
+$h1-tablet-line-height:					4.0rem !default;
+$h1-alt-tablet-line-height:				4.0rem !default;
+$h2-tablet-line-height:					3.5rem !default;
+$h2-alt-tablet-line-height:				3.5rem !default;
+$h3-tablet-line-height:					2.8rem !default;
+$h3-alt-tablet-line-height:				2.8rem !default;
+$h4-tablet-line-height:					2.0rem !default;
+$h5-tablet-line-height:					1.6rem !default;
+$h6-tablet-line-height:					1.3rem !default;
+$h7-tablet-line-height:					1.2rem !default;
+$metadata-tablet-line-height:			1.1rem !default;
+
+////////////////////////////////////////////////////////
+// Desktop Header Letter Spacing
+////////////////////////////////////////////////////////
+
+$hero-header-desktop-font-size:			8.5rem !default;
+$h1-desktop-font-size:					6.5rem !default;
+$h1-alt-desktop-font-size:				5.5rem !default;
+$h2-desktop-font-size:					6.5rem !default;
+$h2-alt-desktop-font-size:				5.5rem !default;
+$h3-desktop-font-size:					4.5rem !default;
+$h3-alt-desktop-font-size:				3.0rem !default;
+$h4-desktop-font-size:					2.4rem !default;
+$h5-desktop-font-size:					1.8rem !default;
+$h6-desktop-font-size:					1.4rem !default;
+$h7-desktop-font-size:					1.2rem !default;
+$metadata-desktop-font-size:			1.1rem !default;
+
+////////////////////////////////////////////////////////
+// Desktop Header Letter Spacing
+////////////////////////////////////////////////////////
+
+$hero-header-desktop-letter-spacing:	0.02rem !default;
+$h1-desktop-letter-spacing:				0.02rem !default;
+$h1-alt-desktop-letter-spacing:			0.02rem !default;
+$h2-desktop-letter-spacing:				0.02rem !default;
+$h2-alt-desktop-letter-spacing:			0.02rem !default;
+$h3-desktop-letter-spacing:				0.02rem !default;
+$h3-alt-desktop-letter-spacing:			0.02rem !default;
+$h4-desktop-letter-spacing:				0.02rem !default;
+$h5-desktop-letter-spacing:				0.02rem !default;
+$h6-desktop-letter-spacing:				0.02rem !default;
+$h7-desktop-letter-spacing:				0.04rem !default;
+$h7-alt-desktop-letter-spacing:			0.00rem !default;
+$metadata-desktop-letter-spacing:		0.04rem !default;
+
+////////////////////////////////////////////////////////
+// Desktop Header Letter Spacing
+////////////////////////////////////////////////////////
+
+$hero-header-desktop-line-height:		7rem !default;
+$h1-desktop-line-height:				6.1rem !default;
+$h1-alt-desktop-line-height:			5.1rem !default;
+$h2-desktop-line-height:				6.1rem !default;
+$h2-alt-desktop-line-height:			5.1rem !default;
+$h3-desktop-line-height:				4.5rem !default;
+$h3-alt-desktop-line-height:			3.5rem !default;
+$h4-desktop-line-height:				2.4rem !default;
+$h5-desktop-line-height:				2.0rem !default;
+$h6-desktop-line-height:				1.4rem !default;
+$h7-desktop-line-height:				1.3rem !default;
+$h7-desktop-line-height:				1.3rem !default;
+$metadata-desktop-line-height:			1.1rem !default;
+
+////////////////////////////////////////////////////////
+// Paragraphs
+////////////////////////////////////////////////////////
+
+$small-font-size:								1.0rem !default;
+$small-line-height:								1.0rem !default;
+$small-letter-spacing:							0.02rem !default;
+
+// paragraph-lead
+
+$paragraph-lead-font-size:						2.0rem !default;
+$paragraph-lead-line-height:					2.0rem !default;
+$paragraph-lead-letter-spacing:					0.02rem !default;
+
+// paragraph
+
+$paragraph-font-size:							1.3rem !default;
+$paragraph-line-height:							1.7rem !default;
+$paragraph-letter-spacing:						0.02rem !default;
+
+$paragraph-tablet-font-size:					1.3rem !default;
+$paragraph-tablet-line-height:					2.1rem !default;
+$paragraph-tablet-letter-spacing:				0.02rem !default;
+
+$paragraph-desktop-font-size:					1.5rem !default;
+$paragraph-desktop-line-height:					2.2rem !default;
+$paragraph-desktop-letter-spacing:				0.02rem !default;
+
+// %hero-blog-copy
+
+$hero-blog-copy-font-size:						1.4rem !default;
+$hero-blog-copy-line-height:					1.4rem !default;
+$hero-blog-copy-letter-spacing:					0.02rem !default;
+
+$hero-blog-copy-tablet-font-size:				1.5rem !default;
+$hero-blog-copy-tablet-line-height:				2.0rem !default;
+$hero-blog-copy-tablet-letter-spacing:			0.02rem !default;
+
+$hero-blog-copy-desktop-font-size:				1.8rem !default;
+$hero-blog-copy-desktop-line-height:			2.4rem !default;
+$hero-blog-copy-desktop-letter-spacing:			0.02rem !default;
+
+// %plp-tiles-copy
+
+$plp-tiles-copy-font-size:						1.2rem !default;
+$plp-tiles-copy-alt-font-size:					1.2rem !default;
+$plp-tiles-copy-line-height:					1.9rem !default;
+$plp-tiles-copy-letter-spacing:					0.02rem !default;
+
+$plp-tiles-copy-tablet-font-size:				1.3rem !default;
+$plp-tiles-copy-alt-tablet-font-size:			1.2rem !default;
+$plp-tiles-copy-tablet-line-height:				1.8rem !default;
+$plp-tiles-copy-tablet-letter-spacing:			0.02rem !default;
+
+$plp-tiles-copy-desktop-font-size:				1.3rem !default;
+$plp-tiles-copy-alt-desktop-font-size:			1.3rem !default;
+$plp-tiles-copy-desktop-line-height:			1.9rem !default;
+$plp-tiles-copy-desktop-letter-spacing:			0.02rem !default;
+
+//
+
+$paragraph-bottom-margin:						0rem !default;
+$paragraph-lead-bottom-margin:					0rem !default;
+$paragraph-line-height:							1.8 !default;
+$paragraph-font-weight:							$fw-medium;
+
+////////////////////////////////////////////////////////
+// Lists
+////////////////////////////////////////////////////////
+
+$list-bottom-margin:							0rem !default;
+$list-disc-left-margin:							.5rem !default;
+$list-line-height:								1.6 !default;
+
+////////////////////////////////////////////////////////
+// Blockquotes
+////////////////////////////////////////////////////////
+
+$blockquotes-font-size:							2.1rem !default;
+
+////////////////////////////////////////////////////////
+// Spacers
 // Spacing Vars - _spacing.scss
-// Spacing Scale - based on a ratio of 1:2
-$spacing-none:					0;
-$spacing-xsmall:				.25rem;
-$spacing-small:					.5rem;
-$spacing-medium:				1rem;
-$spacing-large:					2rem;
-$spacing-xlarge:				4rem;
-$spacing-xxlarge:				8rem;
-$spacing-xxxlarge:				16rem;
+// Spacing Scale - based on 10px increments
+////////////////////////////////////////////////////////
 
-//
-//
-// Grid Layout - core/_grid.scss
-//
-//
+$spacing-scale : 1rem;
+$spacing-count : 20;
 
+
+////////////////////////////////////////////////////////
+// Grid
+// - core/_grid.scss
 // Container and Column classes for simplegrid
+////////////////////////////////////////////////////////
+
 $container-class:				'container'; // defaults to [data-layout = "container"]
 $row-class:						'row'; // defaults to [data-layout = "grid"]
-$column-class:					'columns'; // defaults to [data-columns = "$"]
+$column-class:					'col'; // defaults to [data-columns = "$"]
 $number-of-columns:				12; // max number of columns
-// $gridDebug:						true; // grid colors
-// $gutter:						0;
+$gridDebug:						true; // grid colors
+$gutter:						2rem;
 
 
 
-//
-//
-// COLOR VARIABLES - patterns/_colors.scss
+////////////////////////////////////////////////////////
+// Colors
+// - asses/scss/colors.scss
+// - 00_settings/script.js - SS.colors
 //
 // - Cool
 // - Warm
 // - Gray Scale
 //
+////////////////////////////////////////////////////////
 
-// Cool
-$aqua:                          #4fc1e9;
-$blue:                          #3498db;
-$navy:                          #001F3F;
-$teal:                          #39CCCC;
+// // Cool
 $green:                         #2ECC40;
-$seafoam:						#2ecc71;
-$olive:                         #3D9970;
-$lime:                          #01FF70;
 
 // Warm
 $yellow:                        #fff200;
-$orange:                        #FF851B;
-$red:							#FF4136;
-$fuchsia:                       #F012BE;
-$purple:                        #B10DC9;
-$maroon:                        #85144B;
+$red:							#d42a2a;
 
 // Gray Scale
 $white:                         #fff;
-$silver:                        #ddd;
-$gray:                          #aaa;
-$black:                         #111;
-$default:						#ebebeb;
-$light-grey:                    #f5f5f5;
-$dark-grey:                     #333;
+$offwhite: 						#e2e5e4;
+$line-color:					#d8d8d8;
+$light-grey:                    #b9b9b9;
+$med-grey:                      #797979;
+$dark-grey:                     #4f4f4f;
+$black:                         #373737;
 
-// Project colors
-$primary-color:                 $red; // greens: #6CBD5B, #70D35B, $red, $aqua
-$accent-color:                  darken($primary-color, 10); // That is, 10% darker than the primary-color.
-$secondary-color:               $navy;
-$tertiary-color:                $accent-color;
+// Social Colors
+$fb-blue:						#3c599b;
+$twitter-blue:					#3d99fb;
 
-// dark class
-$dark:							#434d5a;
+// Project Colors
+$primary-color:                 #fdd02f;
+$accent-color:                  #edad02;
+
+// Selection Colors
+$selection-bg-color:            $yellow;
+$selection-text-color:          $black-alt;
+
+// .Highlight/.text-highlight Colors
+$highlight-bg-color:            transparent;
+$highlight-text-color:          $primary-color;
+
+// UI Colors
+$success-color:                 #31aa51;
+$error-color:                   #d42a2a;
 
 
+// Video Settings
+$video-aspect-ratio:            56.25%;
+
+////////////////////////////////////////////////////////
 // Styleguide Sidebar Width
+////////////////////////////////////////////////////////
+
 $sidebar-width:					240px;
 
 
-//
-//
+////////////////////////////////////////////////////////
+// Animations
 // Animations - vendor/_animate.scss
-//
-//
+// Animation Class Variables Setup
+////////////////////////////////////////////////////////
 
 // Animation Property Variables
-$duration:						.35s; // was .15, upped for hero transition - or change via js
-$delay:							.2s;
-$transition:					all $duration cubic-bezier(0.2, .4, .1, 1); // thumbnail animations
 
-// Animation Class Variables Setup
+$duration:			            .36s;
+$delay:				            .2s;
+$timingFunction:                cubic-bezier(.52, .01, .16, 1);
+
+@mixin transition($properties...) {
+	transition-property: $properties;
+	transition-duration: $duration;
+	transition-timing-function: $timingFunction;
+}
+
 $fadeIn:						true;
 $fadeInDown:					true;
 $fadeInLeft:					true;
@@ -156,10 +402,15 @@ $fadeOutScaleBig:				true;
 $slideOutUp:					true;
 $slideInDown:					true;
 
-@import '../vendor/s-grid/breakpoints',
-		'../vendor/s-grid/grid',
+////////////////////////////////////////////////////////
+// Imports
+////////////////////////////////////////////////////////
+
+@import 'defaults/core/breakpoints',
+		'defaults/core/grid',
 		'../vendor/s-animate/animate/animate';
 
 @import	'defaults/mixins/mixins',
 		'defaults/core/core',
-		'defaults/patterns/patterns';
+		'defaults/patterns/patterns',
+		'colors';

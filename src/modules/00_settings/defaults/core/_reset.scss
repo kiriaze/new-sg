@@ -7,8 +7,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, main, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -19,7 +19,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, main {
 	display: block;
 }
@@ -38,7 +38,8 @@ body {
 	line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
 	list-style: none;
 }
 
@@ -46,8 +47,10 @@ blockquote, q {
 	quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }

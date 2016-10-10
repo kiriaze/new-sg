@@ -1,132 +1,236 @@
 /* Helper classes
 ----------------------------------------- */
-.ir {
+
+%ir {
 	background-color: transparent;
 	border: 0;
 	overflow: hidden;
 	*text-indent: -9999px;
+
+	&:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 150%;
+	}
 }
 
-.ir:before {
-	content: "";
-	display: block;
-	width: 0;
-	height: 150%;
-}
-
-.hidden {
-	display: none !important;
-	visibility: hidden;
-}
-
-.visuallyhidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-}
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-	clip: auto;
-	height: auto;
-	margin: 0;
-	overflow: visible;
-	position: static;
-	width: auto;
-}
-
-.invisible {
-	visibility: hidden;
-}
-
-.float-left {
-	float: left;
-}
-
-.float-right {
-	float: right;
-}
-
-.float-none {
-	float: none;
-}
-
-.is-block {
-	display: block;
-}
-
-.is-inline {
-	display: inline;
-}
-
-.is-disabled {
-	pointer-events: none;
-}
-
-.clearfix:before,
-.clearfix:after {
-	content: " ";
-	display: table;
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-.clearfix {
-	*zoom: 1;
-}
-
-
-/* From BASIC (Davids)
------------------------------------------ */
+.ir { @extend %ir; }
 
 // visibility
-.hidden,
-.invisible {
+
+%display-none,
+%is-hidden {
+	display: none !important;
+}
+
+%is-invisible {
 	visibility: hidden !important;
 	opacity: 0;
 }
 
-.display-none {
-	display: none !important;
+.display-none { @extend %display-none; }
+.is-hidden { @extend %is-hidden; }
+.is-invisible { @extend %is-invisible; }
+
+// float
+
+%float-left {
+	float: left !important;
 }
 
-.coming-soon a,
-.disabled {
+%float-right {
+	float: right !important;
+}
+
+%float-none {
+	float: none !important;
+}
+
+%pull-left-abs {
+	position: absolute !important;
+	right: auto !important;
+	left: 0 !important;
+}
+
+%pull-right-abs {
+	position: absolute !important;
+	left: auto !important;
+	right: 0 !important;
+}
+
+.float-left { @extend %float-left; }
+.float-right { @extend %float-right; }
+.float-none { @extend %float-none; }
+.pull-left-abs { @extend %pull-left-abs; }
+.pull-right-abs { @extend %pull-right-abs; }
+
+// display types
+
+%is-block {
+	display: block !important;
+	position: relative;
+}
+
+%is-inline {
+	display: inline !important;
+	position: relative;
+}
+
+%is-inline-block {
+	display: inline-block !important;
+	position: relative;
+}
+
+%is-relative {
+	position: relative !important;
+}
+
+%is-fixed {
+	position: fixed !important;
+	position: relative;
+}
+
+%is-absolute {
+	position: absolute !important;
+}
+
+.is-block { @extend %is-block; }
+.is-inline { @extend %is-inline; }
+.is-inline-block { @extend %is-inline-block; }
+.is-relative { @extend %is-relative; }
+.is-fixed { @extend %is-fixed; }
+.is-absolute { @extend %is-absolute; }
+
+// disabled
+
+%is-disabled {
+	pointer-events: none !important;
 	cursor: default !important;
 }
 
+.is-disabled { @extend %is-disabled; }
+
+// clearfix
+
+.clearfix { @extend %clearfix; }
+
 // scroll vs no-scroll
-.scroll {
-	overflow: auto;
+
+%scroll {
+	overflow: auto !important;
 }
 
-.scroll-x {
-	overflow-x: auto;
-	overflow-y: hidden;
+%scroll-x {
+	overflow-x: auto !important;
+	overflow-y: hidden !important;
 }
 
-.scroll-y {
-	overflow-x: hidden;
-	overflow-y: auto;
+%scroll-y {
+	overflow-x: hidden !important;
+	overflow-y: auto !important;
 }
 
-.no-scroll {
-	overflow: hidden;
+%no-scroll {
+	overflow: hidden !important;
 }
 
-.overflow {
-	overflow: visible;
+.scroll { @extend %scroll; }
+.scroll-x { @extend %scroll-x; }
+.scroll-y { @extend %scroll-y; }
+.no-scroll { @extend %no-scroll; }
+
+// overflow
+
+%overflow {
+	overflow: visible !important;
 }
 
-.overflow-hidden {
-	overflow: hidden;
+%overflow-hidden {
+	overflow: hidden !important;
+}
+
+%overflow-visible {
+	overflow: visible !important;
+}
+
+.overflow { @extend %overflow; }
+.overflow-hidden { @extend %overflow-hidden; }
+.overflow-visible { @extend %overflow-visible; }
+
+//
+
+%desktop-content {
+
+	display: none !important;
+
+	@include breakpoint($screen-medium) {
+		display: block !important;
+	}
+}
+
+%desktop-inline-content {
+
+	display: none !important;
+
+	@include breakpoint($screen-medium) {
+		display: inline-block !important;
+	}
+}
+
+%desktop-hidden {
+
+	@include breakpoint($screen-medium) {
+		display: none !important;
+	}
+}
+
+%tablet-content {
+
+	display: block !important;
+
+	@include breakpoint($screen-medium) {
+		display: none !important;
+	}
+}
+
+%tablet-inline-content {
+
+	display: inline-block !important;
+
+	@include breakpoint($screen-medium) {
+		display: none !important;
+	}
+}
+
+%tablet-hidden {
+
+	@media (max-width: $screen-medium) {
+		display: none !important;
+	}
+}
+
+.desktop-content { @extend %desktop-content; }
+.desktop-inline-content { @extend %desktop-inline-content; }
+.desktop-hidden { @extend %desktop-hidden; }
+.tablet-content { @extend %tablet-content; }
+.tablet-inline-content { @extend %tablet-inline-content; }
+.tablet-hidden { @extend %tablet-hidden; }
+
+// remove width restrictions
+
+%full-bleed {
+	max-width: none !important;
+}
+
+.full-bleed { @extend %full-bleed; }
+
+// misc
+
+.hr {
+	width: 100%;
+	height: 1px;
+	background-color: 1px solid $light-grey;
 }
 
 

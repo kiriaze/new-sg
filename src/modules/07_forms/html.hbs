@@ -1,161 +1,150 @@
-<h2 class="styleguide-module__title">{{name}}</h2>
+<h2 class="styleguide-module__title">{{{name}}}</h2>
 
-<div id="{{id}}">
-	<h5>Default Form</h5>
-	<form action="" class="snippet">
+<div class="container container--small">
+
+	<div class="styleguide-module__header">
+		<code>form</code>
+		<h5 class="styleguide-module__title--small">Form</h5>
+	</div>
+
+	<form action="" class="snippet" data-validate>
 		<fieldset>
+
 			<div class="row">
-				<div class="columns-1">
-					<input type="text" placeholder="Placeholder">
+				<div class="col">
+					{{> 07_forms/fields/input-labeled
+						this.classes
+						error		= 'Invalid First Name'
+						title		= 'First Name'
+						type		= 'text'
+						name		= 'first-name'
+						required	= true
+						placeholder = '* First Name'
+						tooltip     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
+					}}
 				</div>
-				<div class="columns-1">
-					<input type="text" value={{items.disabled}} disabled="">
+				<div class="col">
+					{{> 07_forms/fields/input-labeled
+						this.classes
+						error		= 'Invalid Last Name'
+						title		= 'Last Name'
+						type		= 'text'
+						name		= 'last-name'
+						required	= true
+						placeholder = '* Last Name'
+						tooltip     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
+					}}
 				</div>
 			</div>
+
 			<div class="row">
-				<div class="columns-1">
-					<input type="email" placeholder="Enter email addresss" required>
+				<div class="col">
+					{{> 07_forms/fields/input-labeled
+						this.classes
+						error		= 'Invalid Email Address'
+						title		= 'Email Address'
+						type		= 'email'
+						name		= 'email'
+						required	= true
+						placeholder = '* Email Address'
+						tooltip     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
+					}}
 				</div>
-				<div class="columns-1">
-					<input type="password" value="password" placeholder="Enter password" required>
+				<div class="col">
+					{{#parseJSON
+						'{"items":[
+							{"key":"select","label":"Select..."},
+							{"key":"comfortable","label":"Comfortable"},
+							{"key":"waterproof","label":"Waterproof"},
+							{"key":"stylish","label":"Stylish"}
+						]}'
+					}}
+						{{> 07_forms/selects/select-dd
+							this
+							title       = 'Select Something'
+							tooltip     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
+						}}
+					{{/parseJSON}}
 				</div>
 			</div>
+
 			<div class="row">
-				<div class="columns-1">
-					<textarea name="" id="" cols="30" rows="5" placeholder="Textarea text"></textarea>
+				<div class="col">
+					{{> 07_forms/fields/input-labeled
+						this.classes
+						error		= 'Please enter a password.'
+						title		= 'Password'
+						type		= 'password'
+						name		= 'password'
+						required	= true
+						placeholder = '* Password'
+						tooltip     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
+					}}
 				</div>
-				<div class="columns-1">
-					<label for="">Select Field</label>
-					<select name="" id="">
-						<option value="">Option 1</option>
-						<option value="">Option 2</option>
-					</select>
-				</div>
-				<div class="columns-1">
-					<label for="">File Input</label>
-					<input type="file">
+				<div class="col">
+					{{> 07_forms/fields/textarea-labeled
+						this.classes
+						error		= 'Please enter a message.'
+						title		= 'Textarea'
+						name		= 'textarea'
+						required	= true
+						placeholder = '* Message'
+						tooltip     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
+					}}
 				</div>
 			</div>
+
 			<div class="row">
-				<div class="columns-1">
-					<label for=""><input type="radio" name="radio">Radio Input</label>
-					<label for=""><input type="checkbox" name="checkbox">Checkbox Input</label>
+				<div class="col">
+					{{> 07_forms/toggle-buttons/checkbox-labeled
+						this.classes
+						title	= 'Yes, keep me updated.'
+						name	= 'subscribe'
+						checked	= true
+						tooltip	= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
+					}}
+				</div>
+				<div class="col">
+
 				</div>
 			</div>
+
 			<div class="row">
-				<button type="submit" class="btn btn-invert">Submit</button>
+				<div class="col">
+					{{> 07_forms/toggle-buttons/radio-labeled
+						this.classes
+						title	= 'Yes'
+						name	= 'radio-labeled'
+						checked	= true
+						tooltip	= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
+					}}
+					{{> 07_forms/toggle-buttons/radio-labeled
+						this.classes
+						title	= 'No'
+						name	= 'radio-labeled'
+						checked	= false
+						tooltip	= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
+					}}
+				</div>
+				<div class="col">
+					{{> 07_forms/fields/drag-drop-upload
+						title = 'Image uploader *'
+						label = 'Select or drag image'
+						maxFiles = 6
+						multipleFiles = true
+					}}
+				</div>
 			</div>
+
 		</fieldset>
+
+		{{> 04_buttons/button
+			this.classes
+			tag		= 'button'
+			type	= 'submit'
+			title	= 'Join Us'
+		}}
+
 	</form>
-</div>
 
-<hr>
-
-<div class="">
-  <h5>SimpleForms</h5>
-  <form action="" class="snippet simple-form row">
-
-    <fieldset>
-
-      <div class="columns-2">
-
-        <div class="simpleforms">
-          <input type="text" placeholder="Text Input" name="text-input">
-        </div>
-
-        <div class="simpleforms">
-          <textarea placeholder="Textarea"></textarea>
-        </div>
-
-        <div class="simpleforms">
-          <label for="password">Password:</label>
-          <input type="password" class="password" name="password" placeholder="Enter your password">
-        </div>
-
-      </div>
-
-      <div class="columns-2">
-
-        <div class="row">
-
-          <div class="columns-2">
-
-            <div class="simpleforms">
-              <input type="checkbox" name="checkbox-1" value="checkbox-1" id="checkbox-1">
-              <label for="checkbox-1">Checkbox 1</label>
-            </div>
-
-            <div class="simpleforms">
-              <input type="checkbox" name="checkbox-2" value="checkbox-2" id="checkbox-2">
-              <label for="checkbox-2">Checkbox 2</label>
-            </div>
-
-            <div class="simpleforms">
-              <input type="checkbox" name="checkbox-3" value="checkbox-3" id="checkbox-3">
-              <label for="checkbox-3">Checkbox 3</label>
-            </div>
-
-            <br>
-
-            <div class="simpleforms">
-              <select>
-                <option value="1">Select Option 1</option>
-                <option value="2">Select Option 2</option>
-                <option value="3">Select Option 3</option>
-              </select>
-            </div>
-
-            <br>
-
-            <div class="simpleforms">
-              <label for="file" class="file-label">
-                <input type="file" class="file-input" name="file">
-                <a class="file-select btn btn-light" href="javascript:;"><i class="fa fa-upload"></i>Upload file</a>
-                <span class="file-name"></span>
-                <a href="javascript:;" class="remove-file">Remove File</a>
-                <img class="preview-file" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="preview image" />
-              </label>
-            </div>
-          </div>
-
-          <div class="columns-2">
-
-            <div class="simpleforms">
-              <input type="radio" name="radio" value="radio-1" id="radio-1">
-              <label for="radio-1">Radio 1</label>
-            </div>
-
-            <div class="simpleforms">
-              <input type="radio" name="radio" value="radio-2" id="radio-2">
-              <label for="radio-2">Radio 2</label>
-            </div>
-
-            <div class="simpleforms">
-              <input type="radio" name="radio" value="radio-3" id="radio-3">
-              <label for="radio-3">Radio 3</label>
-            </div>
-
-            <br>
-
-            <div class="simpleforms">
-              <input type="checkbox" name="toggler" value="toggler" class="toggler">
-            </div>
-
-            <br>
-
-            <div class="simpleforms">
-              <label for="submit">
-                <a class="btn btn-primary" href="javascript:;">Submit</a>
-              </label>
-            </div>
-
-          </div>
-
-        </div><!-- /row -->
-
-      </div><!-- /columns-2 -->
-
-    </fieldset>
-
-  </form>
 </div>

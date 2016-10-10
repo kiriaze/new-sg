@@ -8,51 +8,44 @@
 
 */
 
-// $vars set in _base.scss
+// $vars set in _settings.scss
 $colors: (
-	'aqua'				$aqua,
-	'blue'				$blue,
-	'navy'				$navy,
-	'teal'				$teal,
-	'green'				$green,
-	'seafoam'			$seafoam,
-	'olive'				$olive,
-	'lime'				$lime,
-	'yellow'			$yellow,
-	'orange'			$orange,
-	'red'				$red,
-	'fuchsia'			$fuchsia,
-	'purple'			$purple,
-	'maroon'			$maroon,
-	'white'				$white,
-	'light-grey'		$light-grey,
-	'dark-grey'			$dark-grey,
-	'black'				$black,
-	'primary-color'		$primary-color,
-	'secondary-color'	$secondary-color,
-	'tertiary-color'	$tertiary-color
+	'primary-color'			$primary-color,
+	'accent-color'			$accent-color,
+	'white'					$white,
+	'offwhite'				$offwhite,
+	'light-grey'			$light-grey,
+	'med-grey'				$med-grey,
+	'dark-grey'				$dark-grey,
+	'black'					$black,
+	'line-color'			$line-color,
+	'fb-blue'       	    $fb-blue,
+	'success-color'	     	$success-color,
+	'error-color'   	    $error-color,
+	'yellow'            	$yellow,
+	'red'               	$red
 );
 
 @each $newColor, $color in $colors {
 	.bg-#{$newColor} {
-		background-color: $color;
+		background-color: $color !important;
 	}
 	.text-#{$newColor} {
-		color: $color;
+		color: $color !important;
 	}
 	.link-#{$newColor} {
-		color: $color;
+		color: $color !important;
 		&:hover {
-			color: $dark-grey;
+			color: $dark-grey !important;
 		}
 	}
 	.stroke-#{$newColor} {
-		stroke: $color;
+		stroke: $color !important;
 	}
 	.fill-#{$newColor} {
-		fill: $color;
+		fill: $color !important;
 	}
 	.border-#{$newColor} {
-		border-color: $color;
+		border-color: $color !important;
 	}
 }

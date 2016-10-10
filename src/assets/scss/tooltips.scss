@@ -3,7 +3,7 @@
 	position: relative;
 }
 
-.tooltip {
+.sg-tooltip {
 	position: absolute;
 	z-index: 1030;
 	display: block;
@@ -17,34 +17,34 @@
 	transform: translate3d(0, 0, 0);
 }
 
-.tooltip.in {
+.sg-tooltip.in {
 	opacity: .9;
 	filter: alpha(opacity=90);
 }
 
-.tooltip.top {
+.sg-tooltip.top {
 	left: 50%;
 	padding: 5px 0 0;
 	margin-top: -3px;
 }
 
-.tooltip.right {
+.sg-tooltip.right {
 	padding: 0 5px;
 	margin-left: 3px;
 }
 
-.tooltip.bottom {
+.sg-tooltip.bottom {
 	left: 50%;
 	padding: 5px 0;
 	margin-top: 3px;
 }
 
-.tooltip.left {
+.sg-tooltip.left {
 	padding: 0 5px;
 	margin-left: -3px;
 }
 
-.tooltip-inner {
+.sg-tooltip-inner {
 	max-width: 200px;
 	padding: 10px 15px;
 	color: #fff;
@@ -55,7 +55,7 @@
 	white-space: nowrap;
 }
 
-.tooltip-arrow {
+.sg-tooltip-arrow {
 	position: absolute;
 	width: 0;
 	height: 0;
@@ -63,7 +63,7 @@
 	border-style: solid;
 }
 
-.tooltip.top .tooltip-arrow {
+.sg-tooltip.top .sg-tooltip-arrow {
 	bottom: -5px;
 	left: 50%;
 	margin-left: -5px;
@@ -71,21 +71,21 @@
 	border-width: 5px 5px 0;
 }
 
-.tooltip.top-left .tooltip-arrow {
+.sg-tooltip.top-left .sg-tooltip-arrow {
 	bottom: 0;
 	left: 5px;
 	border-top-color: #000;
 	border-width: 5px 5px 0;
 }
 
-.tooltip.top-right .tooltip-arrow {
+.sg-tooltip.top-right .sg-tooltip-arrow {
 	right: 5px;
 	bottom: 0;
 	border-top-color: #000;
 	border-width: 5px 5px 0;
 }
 
-.tooltip.right .tooltip-arrow {
+.sg-tooltip.right .sg-tooltip-arrow {
 	top: 50%;
 	left: 0;
 	margin-top: -5px;
@@ -93,7 +93,7 @@
 	border-width: 5px 5px 5px 0;
 }
 
-.tooltip.left .tooltip-arrow {
+.sg-tooltip.left .sg-tooltip-arrow {
 	top: 50%;
 	right: 0;
 	margin-top: -5px;
@@ -101,7 +101,7 @@
 	border-width: 5px 0 5px 5px;
 }
 
-.tooltip.bottom .tooltip-arrow {
+.sg-tooltip.bottom .sg-tooltip-arrow {
 	top: 0;
 	left: 50%;
 	margin-left: -5px;
@@ -109,14 +109,14 @@
 	border-width: 0 5px 5px;
 }
 
-.tooltip.bottom-left .tooltip-arrow {
+.sg-tooltip.bottom-left .sg-tooltip-arrow {
 	top: 0;
 	left: 5px;
 	border-bottom-color: #000;
 	border-width: 0 5px 5px;
 }
 
-.tooltip.bottom-right .tooltip-arrow {
+.sg-tooltip.bottom-right .sg-tooltip-arrow {
 	top: 0;
 	right: 5px;
 	border-bottom-color: #000;

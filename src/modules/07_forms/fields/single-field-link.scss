@@ -1,0 +1,17 @@
+.single-field-link {
+	position: relative;
+
+	&--smaller {
+		height: 4rem;
+	}
+
+	button {
+		position: absolute;
+		right: 2rem;
+		text-transform: uppercase;
+		font-weight: $fw-bold;
+		text-decoration: none !important;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}

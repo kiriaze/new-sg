@@ -1,0 +1,39 @@
+// vertical alignment aka pain in the ass
+
+@mixin vert-aligner($height:100%) {
+
+	height: $height;
+	white-space: nowrap;
+
+	&:before {
+		content: '';
+		display: inline-block;
+		position: relative;
+		height: $height;
+		min-height: 100%;
+		margin-right: -5px;
+		vertical-align: middle;
+		width: 1px;
+	}
+}
+
+.valign,
+%valign {
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+
+	@include vert-aligner(100%);
+
+	// first elem
+	> * {
+		position: relative !important;
+		display: inline-block !important;
+		float: none !important;
+		white-space: normal !important;
+		vertical-align: middle !important;
+	}
+}

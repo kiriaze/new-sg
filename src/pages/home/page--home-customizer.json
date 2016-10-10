@@ -1,0 +1,22 @@
+{
+  "blocks": [
+    {
+      "id": "0",
+      "type": "banner",
+      "count": "0",
+      "name": "Banners"
+    },
+    {
+      "id": "9",
+      "type": "spacer",
+      "count": "0",
+      "name": "Spacers"
+    },
+    {
+      "id": "10",
+      "type": "divider",
+      "count": "1",
+      "name": "Dividers"
+    }
+  ]
+}

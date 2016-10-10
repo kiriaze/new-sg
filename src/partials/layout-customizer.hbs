@@ -1,0 +1,223 @@
+<!doctype html>
+<html class="no-js skrollex-disabled" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+		<title>{{name}}</title>
+		<link href="../assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+		<!-- modernizr -->
+		{{> modernizr }}
+
+		{{#block "head"}}
+			<link rel="stylesheet" href="../assets/css/vendor.css" />
+			<link rel="stylesheet" href="../assets/css/styleguide.css" />
+
+			<link rel="stylesheet" href="../assets/css/customizer.css" />
+
+			<link rel="stylesheet" href="../assets/css/modules.css" />
+			<link rel="stylesheet" href="../assets/css/pages.css" />
+		{{/block}}
+
+		<!-- fb/opengraph/twitter/g+/schema -->
+		{{> social }}
+
+		<!-- iOS/safari/homescreen/android -->
+		{{> browser }}
+
+	</head>
+
+	<body class="{{bodyClass}}">
+
+		<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+		<!-- hidden by default for customizer to clone from -->
+		<main id="main" class="hidden">
+
+			{{#block "header-partials"}}
+
+				{{> 10_header/header }}
+
+			{{/block}}
+
+			<div class="main-inner-wrapper">
+
+				{{#block "body"}}
+
+				{{/block}}
+
+				{{#block "footer"}}
+					{{> 11_footer/partials/footer }}
+				{{/block}}
+
+			</div>
+
+		</main>
+		<!-- /main -->
+
+		<!-- customizer -->
+
+		<!-- Sidebar -->
+		<div class="cck-hidden" id="cck-menu">
+
+			<div id="cck-side-menu">
+
+				<!-- Generated Dynamically from node or from json+hbs ? -->
+				<ul id="cck-mod-menu"></ul>
+
+				<!--- Small Menu -->
+				<div class="cck-about-menu">
+					<ul>
+						<li>
+							<a class="about unseen customizer--how" href="javascript:;">How it works</a>
+						</li>
+						<li>
+							<a class="about customizer--about" href="javascript:;">About</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+			<!--- Sub-menu -->
+			<div class="cck-hidden" id="cck-sub-menu"></div>
+
+		</div>
+		<!-- /Sidebar -->
+
+		<!--- Sidebar Toggle -->
+		<div class="cck-toggle"></div>
+
+		<!-- Editable Toggle -->
+		{{!-- <div class="editable-toggle"></div> --}}
+
+		<!--- Content -->
+		<div class="cck-hide-ui" id="cck-blocks-holder">
+			<span id="cck-clear" class="cck-clear"></span>
+			<div class="cck-container">
+				<div class="cck-browser">
+					<ul id="cck-blocks"></ul>
+				</div>
+			</div>
+			<!--- Footer -->
+			<div class="cck-footer">
+				<a href="javascript:;" class="btn customizer--share">Share Page</a>
+				<a href="javascript:;" class="btn customizer--download">Export HTML</a>
+			</div>
+		</div>
+		<!-- /Content -->
+
+		<!-- video -->
+		<div id="customizer--video" class="mfp-hide mfp-with-anim modal modal-950 pb4 text-align-center">
+			<div class="modal-header">
+				<h4>Video URL</h4>
+			</div>
+			<div class="modal-body">
+				<input type="text" class="cck-input" placeholder="Video URL">
+			</div>
+			<div class="modal-footer">
+				<a href="javascript:;" class="btn">Update</a>
+			</div>
+		</div>
+		<!-- /video -->
+
+		<!-- clear -->
+		<div id="customizer--clear" class="mfp-hide mfp-with-anim modal modal-950 text-align-center">
+			<div class="modal-header">
+				<h4>Are you sure, bud?</h4>
+			</div>
+			<div class="modal-body">
+				<p>You are about to clear your page. Continue?</p>
+			</div>
+			<div class="modal-footer">
+				<a href="javascript:;" class="btn btn--success btn--flip"><span data-text="Do It!">Do It!</span></a>
+				<a href="javascript:;" class="btn btn--error btn--flip"><span data-text="Nvm">Nevermind!</span></a>
+			</div>
+		</div>
+		<!-- /clear -->
+
+		<!--- Share -->
+		<div id="customizer--share" class="mfp-hide mfp-with-anim modal modal-950 text-align-center">
+			<div class="modal-header">
+				<h4>Share Page</h4>
+			</div>
+			<div class="modal-body">
+				<p>Send this prototype to your friend, business partner or
+				developer.</p>
+			</div>
+			<div class="modal-footer">
+				<input class="notgenerated cck-input" id="shareurl"
+				onclick="this.focus();this.select()" type="url">
+			</div>
+		</div>
+		<!-- /Share -->
+
+		<!-- how it works -->
+		<div id="customizer--how" class="mfp-hide mfp-with-anim modal modal-950">
+			<div class="modal-header text-align-center">
+				<h4>How it works</h4>
+			</div>
+			<div class="modal-body">
+				<ul class="disc">
+					<li>Drag and drop a module from the left into the outline pane.</li>
+					<li>To remove the component, simply click and drag it back to the left sidebar.</li>
+					<li>If you want to quickly prototype, you can simply click on a module to quickly add it to the page.</li>
+					<li>Rearrange modules as you want.</li>
+					<li>Click on preview mode ( eyeball icon in the top left ) to see the actual rendered components.</li>
+					<li>Here you can hover over components to see if they're editable; such as copy, images and video.</li>
+					<li>If you want to go back and remove, add or rearrange any components, simply click the hamburger icon in the top left to get back to edit mode.</li>
+					<li>When you're happy, you can either share the link with your team, or export the html for the page you've built to hand off to your developer team - if need be.</li>
+					<li>Want to start over? Click on the big "x" in the top left to clear you page.</li>
+					<li>Rinse &amp; Repeat.</li>
+				</ul>
+			</div>
+			<div class="modal-footer text-align-center">
+				<a href="javascript:;" class="btn btn--flip" close-modal>
+					<span data-text="Got it!">Got it!</span>
+				</a>
+			</div>
+		</div>
+		<!-- /how it works -->
+
+		<!-- about -->
+		<div id="customizer--about" class="mfp-hide mfp-with-anim modal modal-950 pb4">
+			<div class="modal-header text-align-center">
+				<h4>About</h4>
+			</div>
+			<div class="modal-body">
+				<p>This is a very BETA of BASIC's customizer used to quickly mock up pages with drag and drop modules, rearrange components, and the ability to edit copy, swap media such as images and video - all inline without leaving this view - and when you're done, go ahead and share the link with others for easy prototyping and collaberation with your team.</p>
+				<br>
+				<p>Altough currently there is no way to save the customized prototype other than the layout composition, in other words any copy or media you edit wont be seen by other when shared due to this lacking a server to sync with, it is still simply a BETA as well as a proof of concept.</p>
+			</div>
+		</div>
+		<!-- /about -->
+
+		<!-- /customizer -->
+
+	{{#block "foot"}}
+
+		<!-- gmaps on store-locator, content-detail, and toolkits -->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKKIK1vckSeHz9c53Nfbik-W8mDwrh1jI" type="text/javascript"></script>
+
+		<script src="../assets/js/bundle.js"></script>
+
+		<script src="../assets/js/customizer.js"></script>
+
+		<script>
+			// add in global js vars
+			var pageName  = '{{{name}}}'.replace(/\s+/g, '-').toLowerCase();
+			var bodyClass = '{{{bodyClass}}}';
+		</script>
+		<!-- /customizer -->
+
+		{{> typekit }}
+
+		<script src="../assets/js/plugins.js"></script>
+		<script src="../assets/js/modules.js"></script>
+
+	{{/block}}
+
+{{> foot }}

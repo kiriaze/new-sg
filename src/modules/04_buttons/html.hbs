@@ -1,8 +1,27 @@
 <h2 class="styleguide-module__title">{{name}}</h2>
-<ul class="styleguide-list--buttons snippet">
-	{{#each items}}
-		<li>
-			<a href="javascript:;" class="{{className}}">{{buttonName}}</a>
-		</li>
-	{{/each}}
-</ul>
+
+<section class="button-preview pa-3 pa-sm-3">
+
+	{{> 04_buttons/button
+		title = 'Button'
+	}}
+
+	{{> 04_buttons/button
+		classes	= 'secondary'
+		title	= 'Button'
+	}}
+
+</section>
+
+<section class="button-preview pa-3 pa-sm-3 dark bg-black">
+
+	{{> 04_buttons/button
+		title= 'Button'
+	}}
+
+	{{> 04_buttons/button
+		classes	= 'secondary'
+		title	= 'Button'
+	}}
+
+</section>

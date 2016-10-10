@@ -1,6 +1,6 @@
 .module[data-scroll-target='introduction'] {
-	background-color: $light-grey;
-	@include breakpoint($small) {
+	background-color: $section-bg;
+	@include breakpoint($screen-small) {
 		text-align: center;
 		p {
 			margin: 0 auto 1rem;

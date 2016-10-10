@@ -1,11 +1,16 @@
-@import 'colors';
+
+//////////////////////////////
+// Styleguide Color Grid
+//////////////////////////////
 
 #colors {
-	@include grid();
+	@include breakpoint($screen-small) {
+		@include grid();
+	}
 	li {
 		position: relative;
 		padding: 0;
-		margin: 0 0 1rem 0;
+		margin: 0 0 5rem 0;
 		.minimal & {
 			position: relative;
 			padding: 0;
@@ -15,7 +20,7 @@
 		.designer & {
 			box-shadow: 0px 0px 3px darken($light-grey,10);
 		}
-		@include breakpoint($small) {
+		@include breakpoint($screen-small) {
 			@include columns(3);
 		}
 		.color {

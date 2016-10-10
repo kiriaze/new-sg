@@ -1,0 +1,59 @@
+.arrow-button-field-tiny {
+
+	display: inline-block;
+	position: relative;
+	width: 9rem;
+	height: 3rem;
+
+	form {
+
+	}
+
+	input {
+
+		@extend %h7;
+		color: $med-grey !important;
+		padding: 0 1rem !important;
+		line-height: 3rem !important;
+		height: 3rem !important;
+		margin: 0 !important;
+
+		&::placeholder {
+			@extend %input-placeholder;
+			font-size: 1.1rem;
+		}
+
+		&::-moz-placeholder {
+			@extend %input-placeholder;
+			font-size: 1.1rem;
+		}
+
+		&::-ms-input-placeholder {
+			@extend %input-placeholder;
+			font-size: 1.1rem;
+		}
+	}
+
+	button {
+		
+		position: absolute;
+		top: 0px;
+		left: auto;
+		right: 1rem;
+		width: 1.4rem;
+		height: 100%;
+		z-index: 1;
+
+		.arrow {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 1.5rem;
+			height: 100%;
+
+			* {
+				fill: $light-grey !important;
+			}
+		}
+	}	
+}

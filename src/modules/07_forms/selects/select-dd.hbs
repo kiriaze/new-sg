@@ -1,0 +1,31 @@
+{{!--
+Params:
+	classes
+	params
+	title
+	name
+	required
+--}}
+<div class="select-dd {{{classes}}}" {{{params}}} data-select-dd>
+	{{#if title}}
+		<label class="metadata h7" for="{{{name}}}">
+			{{{title}}}
+			{{#if tooltip}}
+				{{> 20_ui/tooltip/tooltip
+					copy	= this.tooltip
+					classes	= this.tooltipClasses
+				}}
+			{{/if}}
+		</label>
+	{{/if}}
+	<select class="custom-select"
+	{{{childParams}}}
+	{{#if placeholder}}placeholder="{{{placeholder}}}"{{/if}}
+	{{#if required}}required{{/if}}
+	{{#if error}}data-msg-required="{{{error}}}"{{/if}}>
+		{{#if placeholder}}<option value="">{{{placeholder}}}</option>{{/if}}
+		{{#each items}}
+			<option value="{{key}}" class="h7" {{#if_eq @index compare=../is-active}} selected{{/if_eq}}>{{{label}}}</option>
+		{{/each}}
+	</select>
+</div>

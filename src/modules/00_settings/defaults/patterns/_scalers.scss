@@ -1,0 +1,181 @@
+
+/* child scales proportionally to container */
+
+.scaler-child {
+
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+/* containers set to specific aspect ratio */
+
+@mixin scaler-1x1(){
+	position: relative;
+	padding: 100% 0 0 0;
+}
+
+%scaler-1x1,
+.scaler-1x1 {
+	@include scaler-1x1;
+}
+
+// 4x3
+
+@mixin scaler-4x3(){
+	position: relative;
+	padding: 75% 100% 0 0;
+}
+
+%scaler-4x3,
+.scaler-4x3 {
+	@include scaler-4x3;
+}
+
+// 16x9
+
+@mixin scaler-16x9(){
+	position: relative;
+	padding: 56.25% 100% 0 0;
+}
+
+%scaler-16x9,
+.scaler-16x9 {
+	@include scaler-16x9;
+}
+
+// 1620x650
+
+@mixin scaler-1620x650(){
+	position: relative;
+	padding: 40.1234568% 100% 0 0;
+}
+
+%scaler-1620x650,
+.scaler-1620x650 {
+	@include scaler-1620x650;
+}
+
+// 16x6
+
+@mixin scaler-16x6(){
+	position: relative;
+	padding: 37.5% 100% 0 0;
+}
+
+%scaler-16x6,
+.scaler-16x6 {
+	@include scaler-16x6;
+}
+
+// 5x2
+
+@mixin scaler-5x2(){
+	position: relative;
+	padding: 40% 100% 0 0;
+}
+
+%scaler-5x2,
+.scaler-5x2 {
+	@include scaler-5x2;
+}
+
+// 1700x800
+
+@mixin scaler-1700x800(){
+	position: relative;
+	padding: 47.0588235% 100% 0 0;
+}
+
+%scaler-1700x800,
+.scaler-1700x800 {
+	@include scaler-1700x800;
+}
+
+// 293x221
+
+@mixin scaler-293x221(){
+	position: relative;
+	padding: 75.4266212% 100% 0 0;
+}
+
+%scaler-293x221,
+.scaler-293x221 {
+	@include scaler-293x221;
+}
+
+// 700x470
+
+@mixin scaler-700x470(){
+	position: relative;
+	padding: 67.1428571% 100% 0 0;
+}
+
+%scaler-700x470,
+.scaler-700x470 {
+	@include scaler-700x470;
+}
+
+// 640x540
+
+@mixin scaler-640x540(){
+	position: relative;
+	padding: 84.375% 100% 0 0;
+}
+
+%scaler-640x540,
+.scaler-640x540 {
+	@include scaler-640x540;
+}
+
+// 560x700
+
+@mixin scaler-560x700(){
+	position: relative;
+	padding: 125% 100% 0 0;
+}
+
+%scaler-560x700,
+.scaler-560x700 {
+	@include scaler-560x700;
+}
+
+// 560x350
+
+@mixin scaler-560x350(){
+	position: relative;
+	padding: 62.5% 100% 0 0;
+}
+
+%scaler-560x350,
+.scaler-560x350 {
+	@include scaler-560x350;
+}
+
+// responsive aspect-ratio mixin
+// stolen lovingly from @jacobfisher
+
+/*
+
+	Examples
+
+	.class-1 { @include aspect-ratio(); } 				No arguments defaults to a 1:1 ratio
+	.class-2 { @include aspect-ratio(16, 9); } 			Width and height
+	.class-3 { @include aspect-ratio(1.777778); } 		Ratio (calculated width/height)
+	.class-4 { @include aspect-ratio(4px, 3px); } 		Comparable units
+	.class-5 { @include aspect-ratio($ratio: 1.2); } 	Keywords
+*/
+
+@mixin aspect-ratio($arglist...) {
+
+	$map : keywords($arglist);
+	$height: map-get($map, height) or nth-or-null($arglist, 2);
+	$width:  map-get($map, width)  or nth-or-null($arglist, 1);
+	$ratio:  map-get($map, ratio)  or if($width and $height, $width/$height, nth-or-null($arglist, 1)) or 1;
+	$padding: 1 / $ratio * 100%;
+
+	&:before { content: ' '; float:left; padding-top: $padding;  }
+	&:after  { content: ' '; display:table; clear: both; }
+}

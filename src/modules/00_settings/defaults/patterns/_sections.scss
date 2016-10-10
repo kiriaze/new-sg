@@ -1,16 +1,15 @@
 section {
 	position: relative;
-	padding-top: 3rem;
-	padding-bottom: 3rem;
 	background-repeat: no-repeat;
 	background-position: center;
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
 
 	// hack for gutters in grid/row of full width sections
-	overflow: hidden;
+	// overflow: hidden;
 
-	@include breakpoint($small) {
-		padding-top: 5rem;
-		padding-bottom: 5rem;
+	@include breakpoint($screen-small) {
 		&.half-width-left {
 			.container {
 				padding-right: 50%;

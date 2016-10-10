@@ -1,0 +1,48 @@
+.sort-bar {
+
+	position: relative;
+	height: 6rem;
+	border-bottom: 1px solid $light-grey;
+	background: $module-bg;
+	z-index: 1;
+	white-space: nowrap;
+
+	.title {
+		
+		display: inline-block;
+		position: relative;
+		color: $black;
+		height: 6rem;
+		line-height: 6.5rem;
+
+		.grey { 
+			color: $med-grey;
+		}
+	}
+
+	.select-dd-swap-label {
+
+		height: 6rem;
+		line-height: 6rem;
+
+		> label {
+			line-height: 6.5rem;
+		}
+
+		.selectize-input {
+			height: 6rem;
+
+			&:after {
+				height: 6.4rem !important;
+			}
+		}
+	}
+
+	.custom-select .selectize-input.items.input-active {
+		border-color: rgba($light-grey, 0.6);
+	}
+
+	.button-filters {
+		margin-top: 1rem;
+	}
+}

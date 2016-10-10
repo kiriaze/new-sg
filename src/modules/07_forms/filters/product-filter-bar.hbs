@@ -1,0 +1,365 @@
+<aside class="product-filter-bar {{{classes}}}" {{{params}}} data-product-filter-menu data-desc-z>
+
+	<div class="cat-filters filter-groups">
+
+		<div class="cat-filters--header filter-groups--header">
+			<h5>Categories</h5>
+			<hr />
+		</div>
+
+		<div class="cat-filters--group filter-group">
+			<h6>Footwear</h6>
+			<ul>
+				<li><a href="javascript:;" class="plp-tiles-copy">Boots (23)</a></li>
+				<li><a href="javascript:;" class="plp-tiles-copy">Shoes (23)</a></li>
+				<li><a href="javascript:;" class="plp-tiles-copy">Sandals (23)</a></li>
+				<li><a href="javascript:;" class="plp-tiles-copy">Casual (23)</a></li>
+				<li><a href="javascript:;" class="plp-tiles-copy">Hiking Boots (23)</a></li>
+				<li><a href="javascript:;" class="plp-tiles-copy">Work Boots (23)</a></li>
+			</ul>
+		</div>
+
+		<div class="cat-filters--group filter-group">
+			<h6>Accessories</h6>
+			<ul>
+				<li><a href="javascript:;" class="plp-tiles-copy">Bags (23)</a></li>
+				<li><a href="javascript:;" class="plp-tiles-copy">Socks (23)</a></li>
+				<li><a href="javascript:;" class="plp-tiles-copy">Hats (23)</a></li>
+				<li><a href="javascript:;" class="plp-tiles-copy">Drinkware (23)</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<div class="term-filters filter-groups">
+
+		<div class="term-filters--header filter-groups--header">
+			<h5>Filters</h5>
+			<hr />
+		</div>
+		
+		<ul class="accordion" data-accordion>
+
+			<li class="term-filters--group filter-group colors">
+				<div class="accordion--toggle">
+					<h6>Color</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content"">
+					{{> 20_ui/color-picker/color-picker
+						this.classes
+					}}
+				</div>
+				<hr />
+			</li>
+
+			<li class="term-filters--group filter-group sizes">
+
+				<div class="accordion--toggle">
+					<h6>Size</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content size-selector" data-size-selector>
+					{{> 20_ui/size-selector/size-selector
+						this.classes
+						advanced = false
+						multiselect = true
+						showOutOfStock = true
+					}}
+				</div>
+				<hr />
+			</li>
+
+			<li class="term-filters--group filter-group gender">
+
+				<div class="accordion--toggle">
+					<h6>Gender</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content checkboxes">
+					<ul>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Mens'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Womens'
+							}}
+						</li>
+					</ul>
+				</div>
+				<hr />
+			</li>
+
+			<li class="term-filters--group filter-group shoe-type">
+
+				<div class="accordion--toggle">
+					<h6>Shoe Type</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content checkboxes">
+					<ul>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'High Top Boot'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Mid Top Boot'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Shoe'
+							}}
+						</li>
+					</ul>
+				</div>
+				<hr />
+			</li>
+
+			<li class="term-filters--group filter-group shoe-width">
+
+				<div class="accordion--toggle">
+					<h6>Width</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content checkboxes">
+					<ul>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Narrow'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Regular'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Wide'
+							}}
+						</li>
+					</ul>
+				</div>
+				<hr />
+			</li>
+
+			<li class="term-filters--group filter-group shoe-style">
+
+				<div class="accordion--toggle">
+					<h6>Style</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content checkboxes">
+					<ul>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Lace Up'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Slip On'
+							}}
+						</li>
+					</ul>
+				</div>
+				<hr />
+			</li>
+
+			<li class="term-filters--group filter-group duty-type">
+
+				<div class="accordion--toggle">
+					<h6>Duty Type</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content checkboxes">
+					<ul>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Light Duty'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Medium Duty'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Heavy Duty'
+							}}
+						</li>
+					</ul>
+				</div>
+				<hr />
+			</li>
+
+			<li class="term-filters--group filter-group protective-toe">
+
+				<div class="accordion--toggle">
+					<h6>Protective Toe</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content checkboxes">
+					<ul>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Soft Toe'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Composite Toe'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Aluminium Toe'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Steel Toe'
+							}}
+						</li>
+					</ul>
+				</div>
+				<hr />
+			</li>
+
+			<li class="term-filters--group filter-group safety">
+
+				<div class="accordion--toggle">
+					<h6>Safety</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content checkboxes">
+					<ul>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Electrical Hazard (EH)'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Static Dissipative (ESD)'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Certified Slip Resistant (Mark II)'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Oil Resistant'
+							}}
+						</li>
+					</ul>
+				</div>
+				<hr />
+			</li>
+
+			<li class="term-filters--group filter-group protective-toe">
+
+				<div class="accordion--toggle">
+					<h6>Technology</h6>
+					{{svg 'icon-plus' classes='plus'}}
+				</div>
+				<div class="accordion--content checkboxes">
+					<ul>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Welted'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Metatarsal Guard'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Insulated'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'Waterproof'
+							}}
+						</li>
+						<li>
+							{{> 07_forms/toggle-buttons/checkbox-labeled
+								this.classes
+								classes = 'light'
+								title = 'American Built'
+							}}
+						</li>
+					</ul>
+				</div>
+				<hr />
+			</li>
+
+		</ul>
+
+	</div>
+
+	<figure class="bg-panel"></figure>
+
+</aside>

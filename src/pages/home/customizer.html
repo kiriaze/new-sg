@@ -1,0 +1,20 @@
+{{#extend "layout-customizer"}}
+
+	{{#content "body"}}
+
+		<!-- banners -->
+
+		{{> 10_header/header
+			params = "data-name='header' data-number='1'"
+		}}
+
+		<!-- spacers -->
+		<div class="spacer pv-md-4 pv-lg-6" data-name="spacer" data-number="1"></div>
+
+		<!-- dividers -->
+		<hr class="pv-md-4 pv-lg-6 data-name="divider" data-number="1" />
+		<hr class="pv-md-4 pv-lg-6 data-name="divider" data-number="2" />
+
+	{{/content}}
+
+{{/extend}}

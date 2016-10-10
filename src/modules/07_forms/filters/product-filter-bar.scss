@@ -1,0 +1,127 @@
+
+.product-filter-bar {
+
+	position: relative;
+	height: 100%;
+	padding: 3.7rem 4rem 2rem;
+	
+	@include breakpoint($screen-large) {
+		padding: 3.7rem 6rem 2rem;
+	}
+
+	.filter-groups {
+
+		position: relative;
+		z-index: 1;
+
+		hr {
+			border-color: $light-grey;
+		}
+
+		&--header {
+
+			h5 {
+				padding-bottom: 1.6rem;
+			}
+
+			margin-bottom: 2.2rem;
+		}
+
+		&:first-child {
+			margin-bottom: 5rem;
+		}
+
+		.filter-group {
+
+			position: relative;
+
+			> h6 {
+				margin-bottom: 1.2rem;
+			}
+
+			> ul {
+				margin-bottom: 2.3rem;
+
+				li {
+
+					margin-bottom: 0.9rem;
+					padding-left: 1.9rem;
+
+					a { 
+						color: $black; 
+						line-height: 1.5rem;
+						@extend %link-underline;
+					}
+				}
+			}
+
+			.accordion--toggle {
+				
+				position: relative;
+				cursor: pointer;
+				
+				h6 {
+					height: 5rem;
+					line-height: 5rem;
+				}
+
+				svg {
+					position: absolute;
+					top: 2rem;
+					left: auto;
+					width: 0.9rem;
+					height: 0.9rem;
+					right: 0;
+				}
+			}
+
+			.accordion--content {
+
+				&.checkboxes {
+					ul {
+						padding-bottom: 1.9rem;
+
+						li {
+							margin-bottom: 1.4rem;
+
+							&:last-child {
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+
+			// specific filters
+
+			.size-selector {
+
+				margin-bottom: 1rem;
+
+				ul li {
+					width: 25%;
+				}
+			}
+
+			//
+
+			&:last-child {
+				hr {
+					display: none;
+				}
+			}
+
+		} // .filter-group
+	}
+
+	.term-filters {
+		
+		&--header {
+			margin-bottom: 0;
+		}
+	}
+
+	>.bg-panel {
+		background: $section-bg;
+	}
+}

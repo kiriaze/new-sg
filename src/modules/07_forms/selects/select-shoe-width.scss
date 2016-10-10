@@ -1,0 +1,116 @@
+.select-shoe-width {
+
+	position: relative;
+	height: 4rem;
+	line-height: 4rem;
+	background: $section-bg;
+
+	> label {
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0 0 0 1.9rem;
+		line-height: 4.2rem;
+		color: $med-grey;
+		z-index: 10;
+		white-space: nowrap;
+		pointer-events: none;
+		font-weight: $fw-semibold;
+		text-transform: none;
+
+		strong {
+			font-weight: $fw-bold;
+			color: $black;
+		}
+	}
+
+	.selectize-input {
+
+		position: relative;
+		height: 4.9rem;
+		padding: 0;
+		box-shadow: none;
+		border: 1px solid $line-color;
+		border-radius: 0;
+		background: transparent;
+
+		&:after {
+			line-height: 4.9rem;
+			right: 1.8rem !important;
+		}
+
+		div,
+		input {
+			visibility: hidden;
+			// color: $med-grey;
+			// height: 5rem !important;
+			// padding: 0 2rem !important;
+			// line-height: 5rem !important;
+			// letter-spacing: .05rem !important;
+		}
+	}
+
+	.selectize-dropdown {
+		top: auto !important;
+		bottom: 3.9rem !important;
+		box-shadow: none;
+	}
+
+	.selectize-dropdown .selectize-dropdown-content {
+		
+		position: relative;
+		background: $section-bg;
+		padding: 1rem 0.5rem 0;
+		border-top: 1px solid $line-color;
+		border-bottom: none;
+		box-shadow: none;
+
+		@include clearfix();
+
+		div {
+			position: relative;
+			float: left;
+			width: calc(50% - 1rem);
+			height: 4.5rem;
+			font-size: 1.2rem;
+			line-height: 4.5rem;
+			padding: 0;
+			margin: 0 0.5rem 1rem;
+			border: 1px solid $line-color;
+			background: $white;
+			text-align: center;
+		}
+	}
+
+	.selectize-control.single .selectize-input {
+		
+		background: rgba(#fff, 0);
+		// border-color: rgba($light-grey, 0);
+
+		@include transition(background, border-color);
+		transition-duration: 0.12s;
+
+		&.input-active {
+			// background: rgba(#fff, 1);
+		}
+	}
+
+	.option {
+
+		@extend %h7;
+
+		height: 3.5rem;
+		line-height: 3.5rem;
+		padding: 0 2rem;
+		color: $med-grey;
+		background-color: $section-bg;
+		white-space: nowrap;
+
+		&:hover {
+			color: $black;
+			// background-color: $white;
+		}
+	}
+
+}

@@ -1,0 +1,127 @@
+////////////////////////////
+// global layout items
+///////////////////////////
+
+body {
+
+}
+
+#main {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	max-width: $screen-xxlarge;
+}
+
+#content,
+#sidebar {
+
+}
+
+#content {
+	margin-right: 2rem;
+
+	@include breakpoint($screen-medium) {
+		width: calc(100% - 42rem - ( #{$gutter} * 2) );
+		float: left;
+	}
+}
+
+#sidebar {
+	margin-right: 2rem;
+
+	@include breakpoint($screen-medium) {
+		width: 42rem;
+		float: left;
+	}
+}
+
+////////////////////////////////////////////////////////
+/// Commented containe/row/columns grids out
+/// Using the _grid.scss system we already have in place
+/// If anything is needed from here, consider adding it
+/// to the grid system mixin
+////////////////////////////////////////////////////////
+
+.container {
+	// added this for consistency,
+	// if issues arise David, comment out and lemme know
+	@include container-fixed($padded:true);
+	//
+	position: relative;
+	z-index: 1;
+	max-width: $screen-xlarge;
+
+	.row {
+		.inner-row,
+		.float-right {
+			margin-right: 2rem;
+		}
+	}
+}
+
+// since the grid system doesnt have a non .col-# selector
+
+.col {
+	float: left;
+	position: relative;
+}
+
+//
+.inherit-height {
+	height: inherit !important;
+}
+
+.inherit-width {
+	width: inherit !important;
+}
+
+// max width scales
+
+$width-scale-units: 1rem;
+$width-scale: 1;
+$width-count: 100;
+
+$prefixes: (
+	'$screen-small': 'sm',
+	'$screen-medium': 'md',
+	'$screen-large': 'lg',
+	'$screen-xlarge': 'xl'
+);
+
+@for $size from 1 through $width-count {
+
+	$newSize: $size * $width-scale;
+
+	%mw-#{$size},
+	.mw-#{$size} {
+		max-width: $size * $width-scale-units !important;
+	}
+
+	@each $breakpoints, $bar in ($prefixes) {
+
+		@include breakpoint($breakpoints) {
+			%mw-#{$bar}-#{$size},
+			.mw-#{$bar}-#{$size} {
+				max-width: $size * $width-scale-units !important;
+			}
+		}
+	}
+}
+
+@each $breakpoints, $bar in ($prefixes) {
+
+	@include breakpoint($breakpoints) {
+		%mw-#{$bar}-none,
+		.mw-#{$bar}-none {
+			max-width: none !important;
+		}
+	}
+}
+
+%mw-none,
+.mw-none {
+	max-width: none !important;
+}
+
+//

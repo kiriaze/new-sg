@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js page--styleguide" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+		<title>{{@root._data.clientName}} Styleguide</title>
+
+		<link href="{{{ @root._data.assets }}}/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+		<!-- modernizr -->
+		{{> modernizr }}
+
+		{{#block "head"}}
+			<link rel="stylesheet" href="{{{ @root._data.assets }}}/css/vendor.css" />
+			<link rel="stylesheet" href="{{{ @root._data.assets }}}/css/styleguide.css" />
+			<link rel="stylesheet" href="{{{ @root._data.assets }}}/css/modules.css" />
+		{{/block}}
+
+	</head>
+
+	<body class="{{@root._data.theme}}">
+
+		<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+		{{#block "sg-sidebar"}}
+			<!-- to allow negating the sidebar on the index.html page since we are extending this template -->
+			{{> sg-sidebar }}
+		{{/block}}
+
+		{{#block "body"}}
+
+		{{/block}}
+
+		{{#block "foot"}}
+			<script src="{{{ @root._data.assets }}}/js/bundle.js"></script>
+			<script src="{{{ @root._data.assets }}}/js/plugins.js"></script>
+			<script src="{{{ @root._data.assets }}}/js/modules.js"></script>
+			<script src="{{{ @root._data.assets }}}/js/iframe.js"></script>
+		{{/block}}
+
+		{{> typekit }}
+
+	</body>
+</html>

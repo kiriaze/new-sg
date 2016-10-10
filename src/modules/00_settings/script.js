@@ -1,39 +1,63 @@
+let ScrollAnimations 	= require('./scroll-animations.js');
+let DomScan 			= require('./dom-scan.js');
+
+require('./polyfill.js');
+
 (function($){
 
 	/* jshint devel:true */
 	'use strict';
 
-	window.SETTINGS = {};
+	// global var buckets (public)
 
-	var SS = window.SETTINGS;
+	window.SETTINGS             = {};
 
-	var $window      = $(window),
-		$body        = $(document.body),
-		$html        = $(document.documentElement);
+	// global utility vars (private)
+
+	window.SETTINGS._scrollAnimations;
+	window.SETTINGS._domScan;
+
+	// internal vars
+
+	let $window						= $(window),
+		$body						= $(document.body),
+		$html						= $(document.documentElement),
+		SS 							= window.SETTINGS;
+
+	// global communications object
+
+	if ( typeof(window.$vent) === 'undefined' ) {
+		window.$vent = $('<div></div>');
+	}
+
+	//
 
 	SS.init = function(){
 
-		SS.setElements();
-		SS.colors();
+		SS.globalVars();
+		SS.globalObjects();
+		SS.globalElements();
 		SS.basics();
-		SS.forms();
-
+		SS.listeners();
 	};
 
-	SS.setElements = function(){
-		SS.elems               = {};
+	SS.globalVars = function(){
 
-		// defaults
-		SS.elems.html          =	$('html');
-		SS.elems.body          =	$('body');
-		SS.elems.scrollToTop   =	$('a[data-scroll-to="top"]');
+		// coords
 
-		SS.elems.exampleForm   = $('#example-form');
+		SS.coords = {};
+		SS.coords.breakpoints		= [480, 640, 1024, 1280, 1480, 1700];
 
-	};
+		SS.coords.screenTiny		= 480;
+		SS.coords.screenSmall		= 640;
+		SS.coords.screenMedium		= 1024;
+		SS.coords.screenLarge		= 1280;
+		SS.coords.screenXLarge		= 1480;
+		SS.coords.screenXXLarge		= 1700;
 
-	SS.colors = function() {
-		var colors = {
+		// colors
+
+		SS.colors = {
 			aqua    : '#7FDBFF',
 			blue    : '#0074D9',
 			lime    : '#01FF70',
@@ -52,8 +76,34 @@
 			black   : '#111',
 			silver  : '#ddd'
 		};
-		// console.log(colors);
-		// console.log(colors.blue);
+
+		// modals
+
+		SS.modals		= {};
+
+		// global variables (use sparingly)
+
+		SS.vars 		= {};
+	};
+
+	SS.globalObjects = function(){
+
+		SS._scrollAnimations 		= new ScrollAnimations();
+
+		// domscan
+
+		SS._domScan 				= new DomScan();
+		SS.addDomScanListener		= SS._domScan.addDomScanListener.bind(SS._domScan);
+		SS.initElement 				= SS._domScan.initElement.bind(SS._domScan);
+	}
+
+	SS.globalElements = function(){
+
+		SS.elems               = {};
+
+		// defaults
+		SS.elems.html          = $('html');
+		SS.elems.body          = $('body');
 	};
 
 	SS.basics = function() {
@@ -66,51 +116,35 @@
 
 	};
 
-	SS.forms = function() {
+	SS.listeners = function(){
 
-		if ( ! SS.elems.exampleForm.length ) return;
+		let triggerResizeEvent = ((e) => {
 
-		// debugging validator, prevents form submit
-		$.validator.setDefaults({
-			debug: true,
-			success: "valid"
+			var coords				= window.SETTINGS.coords;
+			coords.winWidth			= window.innerWidth;
+			coords.winHeight		= window.innerHeight;
+			coords.docWidth			= $('body').outerWidth();
+			coords.viewportWidth	= Math.min(coords.screenXXLarge, $('body').outerWidth());
+			coords.scrollbarWidth	= coords.winWidth - coords.docWidth;
+
+			window.$vent.triggerHandler('windowResize', {originalEvent:e});
 		});
 
-		// Form Validation
-		if ( $().validate ) {
+		// super duper throttled window resize event listener
 
-			SS.elems.exampleForm.validate({
-				rules: {
-					password: {
-						required: true,
-						minlength: 5
-					},
-					password2: {
-						required: true,
-						minlength: 5,
-						equalTo: "#password"
-					}
-				},
-			});
+		let resizeThrottler = _.throttle(triggerResizeEvent, 400);
 
-			SS.elems.exampleForm.removeAttr('novalidate');
+		$window.on('resize', resizeThrottler);
+		$window.on('orientationchange', resizeThrottler);
+		$window.on('load', resizeThrottler);
 
-		}
-
+		window.requestAnimationFrame(resizeThrottler);
 	};
 
-	$window.load(function() {
+	//////////
+	// init
+	//////////
 
-	});
-
-	$window.resize(function(event) {
-
-	});
-
-	$(document).ready(function(){
-
-		SS.init();
-
-	});
+	SS.init();
 
 })(window.jQuery);

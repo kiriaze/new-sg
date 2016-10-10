@@ -1,0 +1,12 @@
+{{!--
+Params:
+	linkURL
+	classes
+	params
+	title
+--}}
+<{{#if tag}}{{{tag}}}{{else}}a{{/if}} href="{{#if linkURL}}{{{linkURL}}}{{else}}javascript:;{{/if}}" class="btn {{{classes}}}" {{#if linkTarget}}target="{{{linkTarget}}}"{{/if}} {{{params}}} {{#if type}}type="{{{type}}}" {{/if}}data-mod="button">
+	<span data-text="{{{title}}}">{{{title}}}</span>
+	<figure class="bg-panel"></figure>
+	<figure class="outline"></figure>
+</{{#if tag}}{{{tag}}}{{else}}a{{/if}}>

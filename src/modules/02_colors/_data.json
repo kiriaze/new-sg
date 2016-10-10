@@ -5,22 +5,106 @@
         "intro": ["Brands has these colors below."],
         "colors": [
             {
-              "name": "Blue",
-              "className": "bg-blue",
-              "rgb": "rgb(52,152,219)",
-              "hex": "#3498db"
+              "name": "White",
+              "className": "bg-white",
+              "rgb": "rgb(255,255,255)",
+              "hex": "#ffffff"
             },
             {
-              "name": "Red",
-              "className": "bg-red",
-              "rgb": "rgb(255,65,54)",
-              "hex": "#FF4136"
+              "name": "Offwhite",
+              "className": "bg-offwhite",
+              "rgb": "rgb(255,255,255)",
+              "hex": "#e2e5e4"
+            },
+            {
+              "name": "Section Background",
+              "className": "bg-section-bg",
+              "rgb": "rgb(0,0,0)",
+              "hex": "#f2f2f2"
+            },
+            {
+              "name": "Canvas Background",
+              "className": "bg-canvas-bg",
+              "rgb": "rgb(0,0,0)",
+              "hex": "#f0f1f3"
+            },
+            {
+              "name": "Module Background",
+              "className": "bg-module-bg",
+              "rgb": "rgb(0,0,0)",
+              "hex": "#e1e1e1"
+            },
+            {
+              "name": "Line Color",
+              "className": "bg-line-color",
+              "rgb": "rgb(0,0,0)",
+              "hex": "#d8d8d8"
+            },
+            {
+              "name": "Light Grey",
+              "className": "bg-light-grey",
+              "rgb": "rgb(0,0,0)",
+              "hex": "#b9b9b9"
+            },
+            {
+              "name": "Med Grey",
+              "className": "bg-med-grey",
+              "rgb": "rgb(0,0,0)",
+              "hex": "#797979"
+            },
+            {
+              "name": "Dark Grey",
+              "className": "bg-dark-grey",
+              "rgb": "rgb(0,0,0)",
+              "hex": "#4f4f4f"
             },
             {
               "name": "Black",
               "className": "bg-black",
-              "rgb": "rgb(0,0,0)",
-              "hex": "#000000"
+              "rgb": "rgb(52,152,219)",
+              "hex": "#373737"
+            },
+            {
+              "name": "Alternate Black",
+              "className": "bg-black-alt",
+              "rgb": "rgb(255,65,54)",
+              "hex": "#2a2a2a"
+            },
+            {
+              "name": "Blacker",
+              "className": "bg-blacker",
+              "rgb": "rgb(255,65,54)",
+              "hex": "#1e1e1e"
+            },
+            {
+              "name": "Keen Yellow",
+              "className": "bg-primary-color",
+              "rgb": "rgb(52,152,219)",
+              "hex": "#fdd02f"
+            },
+            {
+              "name": "Alternate Yellow",
+              "className": "bg-accent-color",
+              "rgb": "rgb(52,152,219)",
+              "hex": "#edad02"
+            },
+            {
+              "name": "Success Color",
+              "className": "bg-success-color",
+              "rgb": "rgb(52,152,219)",
+              "hex": "#31aa51"
+            },
+            {
+              "name": "Error Color",
+              "className": "bg-error-color",
+              "rgb": "rgb(52,152,219)",
+              "hex": "#d42a2a"
+            },
+            {
+              "name": "Facebook Blue",
+              "className": "bg-fb-blue",
+              "rgb": "rgb(52,152,219)",
+              "hex": "#3c599b"
             }
         ]
     }

@@ -1,0 +1,32 @@
+{{> head }}
+
+	<main id="main">
+
+		{{#block "header-partials"}}
+
+		{{/block}}
+
+		<div class="main-inner-wrapper">
+
+			{{#block "body"}}{{/block}}
+
+			{{#block "footer"}}
+
+			{{/block}}
+
+		</div>
+
+	</main>
+
+	{{#block "foot"}}
+
+		<script src="../assets/js/bundle.js"></script>
+
+		{{> typekit }}
+
+		<script src="../assets/js/plugins.js"></script>
+		<script src="../assets/js/modules.js"></script>
+
+	{{/block}}
+
+{{> foot }}

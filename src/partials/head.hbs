@@ -1,27 +1,28 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="supports-no-js skrollex-enabled desktop" lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>{{@root._data.clientName}} Styleguide</title>
+		<title>{{name}}</title>
 
-		<link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<!-- modernizr -->
+		{{> modernizr }}
 
-		<!-- conditional stylesheets -->
-		{{{styles}}}
+		{{#block "head"}}
+			<link rel="stylesheet" href="../assets/css/vendor.css" />
+			<link rel="stylesheet" href="../assets/css/modules.css" />
+		{{/block}}
 
-		<!--[if (gte IE 6)&(lte IE 8)]>
-			<script type="text/javascript" src="/assets/js/lib/selectivizr.min.js"></script>
-		<![endif]-->
+		<!-- fb/opengraph/twitter/g+/schema -->
+		{{> social }}
 
-		<!-- fonts -->
-		<script src="https://use.typekit.net/nhs0gnx.js"></script>
-		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<!-- iOS/safari/homescreen/android -->
+		{{> browser }}
 
 	</head>
 
-	<body class="{{@root._data.theme}}" data-simpleforms-color="{{@root._data.forms}}">
+	<body class="{{bodyClass}} {{@root._data.theme}}">
 
 		<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->

@@ -1,0 +1,27 @@
+{{!--
+Params:
+	classes
+	params
+	title
+	name
+	placeholder
+	required
+--}}
+<div class="textarea-labeled {{{classes}}}" {{{params}}}>
+	{{#if title}}
+		<label class="metadata" for="{{{name}}}">{{{title}}}</label>
+	{{/if}}
+	{{#if tooltip}}
+		{{> 20_ui/tooltip/tooltip
+			copy = this.tooltip
+		}}
+	{{/if}}
+	<textarea
+	{{#if name}}name="{{{name}}}"{{/if}}
+	{{#if placeholder}}placeholder="{{{placeholder}}}"{{/if}}
+	{{#if required}}required{{/if}}
+	{{#if error}}data-msg-required="{{{error}}}"{{/if}}></textarea>
+	{{#if metadata}}
+		<p class="info">{{metadata}}</p>
+	{{/if}}
+</div>

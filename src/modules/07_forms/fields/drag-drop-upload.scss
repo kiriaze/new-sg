@@ -1,0 +1,100 @@
+.drag-drop-upload {
+	.wrapper {
+		width: 100%;
+		height: 10rem;
+		margin-top: 1rem;
+		position: relative;
+		overflow: hidden;
+	}
+
+	label {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		border: 1px dashed $line-color;
+		cursor: pointer;
+		position: absolute;
+		left: 0;
+		top: 0;
+		@include transition(border-color);
+
+		&:hover, &.hover {
+			border-color: $dark-grey;
+		}
+
+		svg {
+			width: 1.8rem;
+			height: 1.8rem;
+			position: absolute;
+			top: 2.8rem;
+			left: calc(50% - .9rem);
+			stroke: $med-light-grey;
+		}
+		span {
+			width: 8rem;
+			text-align: center;
+			position: absolute;
+			top: 5.8rem;
+			left: calc(50% - 4rem);
+		}
+	}
+	input[type="file"] {
+		position: absolute;
+		left: 0;
+		bottom: 100%;
+		outline: 0;
+		border: 0 none;
+		box-shadow: 0;
+		opacity: 0;
+	}
+	.preview-zone {
+		width: calc(100% + 1rem);
+		padding: .5rem 0;
+		position: relative;
+		left: -.5rem;
+
+		@include clearfix;
+
+		li {
+			width: calc(100% / 3);
+			padding: .5rem .5rem 2.5rem;
+			float: left;
+			position: relative;
+
+			div {
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				position: relative;
+				animation: fadeIn .25s linear;
+
+				&:before {
+					content: '';
+					padding-top: 100%;
+					display: block;
+				}
+				.delete {
+					@extend %link-underline-light;
+
+					font-size: 1.1rem;
+					line-height: 1rem;
+					font-weight: 700;
+					text-transform: uppercase;
+					color: $dark-grey;
+					position: absolute;
+					left: 0;
+					top: calc(100% + 1rem);
+					z-index: 1;
+				}
+			}
+			video {
+				width: 100%;
+				height: 100%;
+				background-color: black;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+	}
+}

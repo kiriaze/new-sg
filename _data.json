@@ -2,8 +2,9 @@
   "clientName": "Project",
   "version": "1",
   "logoImage": "./assets/images/logo_placeholder.png",
-  "theme": "default",
-  "forms": "green",
+  "theme": "designer",
+  "assets": "../../assets",
+  "analytics": "",
   "breakpoints": [
     {
       "id": "tiny",
@@ -26,5 +27,5 @@
       "size": "1280"
     }
   ],
-  "date": "04-22-2016"
+  "date": "010-10-2016"
 }

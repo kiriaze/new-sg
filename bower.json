@@ -1,6 +1,6 @@
 {
   "name": "styleguide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     "BASIC <hello@basicagency.com>"
   ],
@@ -25,11 +25,19 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": ">= 2.1.0",
+    "jquery": "2.2.4",
     "jquery-easing-original": "~1.3.2",
-    "simple-anchors": "*",
-    "s-grid": "~1.0.0",
     "s-animate": "~1.0.2",
-    "jquery-validation": "jquery.validate#^1.13.0"
-  }
+    "magnific-popup": "^1.1.0",
+    "typeahead.js": "^0.11.1",
+    "owl.carousel": "^2.1.1",
+    "fastclick": "^1.0.6",
+    "selectize": "^0.12.1",
+    "simple-anchors": "*",
+    "cheet.js": "^0.3.3",
+    "list.js": "^1.2.0",
+    "plyr": "^1.8.2",
+    "mixitup": "^2.1.11"
+  },
+  "overrides": {}
 }

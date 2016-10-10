@@ -16,8 +16,8 @@ module.exports = {
 		partials: src + '/partials/**/*.{js,json,hbs}',
 		helpers : src + '/assets/js/helpers/**/*.js',
 		data    : {
-			'_data.json', // global sg data
-			modules: src + '/modules/**/_data.json', // modules data
+			global  : '_data.json', // global sg data
+			modules : src + '/modules/**/_data.json' // modules data
 		},
 		modules : src + '/modules/**/*.hbs',
 

@@ -1,9 +1,29 @@
-{{> head styles='<link rel="stylesheet" href="./assets/css/styleguide.css" />'}}
+{{#extend "layout-sg"}}
 
-{{> header }}
+	{{#content "head"}}
+		<link rel="stylesheet" href="{{{ @root._data.assets }}}/css/styleguide.css" />
+	{{/content}}
 
-<div class="styleguide-iframe-wrapper">
-	<iframe src="./styleguide.html" frameborder="0" height="100%" width="100%"></iframe>
-</div>
+	{{#content "sg-sidebar"}}
+		<!-- negate the sg-sidebar here -->
+	{{/content}}
 
-{{> foot scripts='<script src="./assets/js/styleguide.js"></script>' }}
+	{{#content "body"}}
+
+		{{> sg-header }}
+
+		<div class="styleguide-iframe-wrapper">
+
+			<iframe src="./global/styleguide.html" frameborder="0" height="100%" width="100%"></iframe>
+
+		</div>
+
+		{{> sg-footer }}
+
+	{{/content}}
+
+	{{#content "foot"}}
+		<script src="{{{ @root._data.assets }}}/js/styleguide.js"></script>
+	{{/content}}
+
+{{/extend}}

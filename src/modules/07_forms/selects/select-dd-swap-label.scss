@@ -61,7 +61,7 @@
 	}
 
 	.selectize-control.single .selectize-input {
-		
+
 		background: rgba(#fff, 0);
 		border-color: rgba($light-grey, 0);
 
@@ -81,12 +81,11 @@
 		line-height: 3.5rem;
 		padding: 0 2rem;
 		color: $med-grey;
-		background-color: $section-bg;
 		white-space: nowrap;
+		background-color: $dark-grey;
 
 		&:hover {
 			color: $black;
-			// background-color: $white;
 		}
 	}
 

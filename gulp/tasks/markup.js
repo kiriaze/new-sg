@@ -137,8 +137,8 @@ gulp.task('modules', function(cb) {
 	// setup customizer, page and custom page links for each page
 	files.forEach(function(file){
 
-		// if not a hidden file & return files that dont start with 'm-'
-		if ( ! /^\..*/.test(file) && file.substring(0, 2) != 'm-' ) {
+		// if not a hidden file
+		if ( ! /^\..*/.test(file) ) {
 
 			if ( fileExists( 'src/pages/' + file + '/' + 'customizer.html' ) ) {
 				customizerLink = [

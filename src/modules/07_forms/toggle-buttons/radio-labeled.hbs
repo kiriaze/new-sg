@@ -2,10 +2,5 @@
 	<input type="radio" name="{{{name}}}" {{#if checked}}checked{{/if}} {{{childParams}}}>
 	<span class="metadata">
 		{{{title}}}
-		{{#if tooltip}}
-			{{> 20_ui/tooltip/tooltip
-				copy = this.tooltip
-			}}
-		{{/if}}
 	</span>
 </label>

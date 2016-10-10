@@ -8,18 +8,22 @@
 		{{#each this}}
 			{{#if videos.length}}
 				{{#each videos}}
-					<div class="columns-{{counter @../index}}">
-						<figure class="aspect" data-lazy-video>
-							<a href="{{url}}" class="video-player"></a>
-							<img src="" alt="" class="video-thumb">
-							<span class="play-button"></span>
-						</figure>
+					<div class="col-{{counter @../index}}">
+
+						{{> 20_ui/video/video-player
+							classes         = 'video-player--fw'
+							videoProvider	= provider
+							videoID			= url
+							posterURL		= ''
+							text            = text
+						}}
+
 					</div>
 				{{/each}}
 			{{/if}}
 			{{#if images}}
 				{{#each images}}
-					<div class="columns-{{../images.length}}">
+					<div class="col-{{../images.length}}">
 						<img src="{{src}}" />
 					</div>
 				{{/each}}
@@ -28,5 +32,3 @@
 	</div>
 	{{/each}}
 </div>
-
-

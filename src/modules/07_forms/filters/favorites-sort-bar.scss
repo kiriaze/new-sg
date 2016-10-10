@@ -2,12 +2,12 @@
 
 	position: relative;
 	height: 6rem;
-	border-bottom: 1px solid $light-grey;
-	background: $module-bg;
 	z-index: 1;
 	white-space: nowrap;
+	background: $dark-grey;
+	border-bottom: 1px solid $light-grey;
 
-	.title {	
+	.title {
 		display: inline-block;
 		position: relative;
 		color: $med-grey;
@@ -28,7 +28,7 @@
 	}
 
 	.btn-share {
-		
+
 		position: relative;
 		display: inline-block;
 		vertical-align: top;
@@ -49,7 +49,7 @@
 		}
 
 		.metadata {
-			@extend %link-underline;
+			// @extend %link-underline;
 			color: $black;
 			margin-left: 0.5rem;
 		}

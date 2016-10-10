@@ -12,8 +12,7 @@ gulp.task('sass', function() {
 
 	var files = [
 		config.srcPaths.styles + '/styleguide.scss',
-		config.srcPaths.styles + '/modules.scss',
-		config.srcPaths.styles + '/m-modules.scss'
+		config.srcPaths.styles + '/modules.scss'
 	];
 
 	return gulp.src(files)

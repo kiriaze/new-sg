@@ -1,0 +1,20 @@
+{
+  "name": "Global",
+  "pages": [
+    {
+      "pageName": "heros",
+      "pageURL": "/global/heros.html"
+    },
+    {
+      "pageName": "banners",
+      "pageURL": "/global/banners.html"
+    },
+    {
+      "pageName": "modals",
+      "pageURL": "/global/modals.html"
+    }
+  ],
+  "items": {
+
+  }
+}

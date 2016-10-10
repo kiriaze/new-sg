@@ -1,0 +1,29 @@
+.slider-image {
+	padding: 10rem 0;
+}
+
+.image-carousel {
+	margin-top: 5rem;
+	// custom transition
+	.owl-stage {
+		// needs to override owls
+		transition-timing-function: cubic-bezier(0.52, 0.01, 0.16, 1) !important;
+	}
+	&--item {
+		width: 50rem;
+		text-align: center;
+		margin: 0 auto;
+		opacity: .5;
+		transform: scale(0.8);
+		@include transition(opacity, transform);
+
+		@include breakpoint($screen-medium) {
+			width: 80rem;
+		}
+
+		.active.center & {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+}

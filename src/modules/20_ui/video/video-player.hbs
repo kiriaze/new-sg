@@ -1,0 +1,27 @@
+<div class="video-player {{{classes}}} {{#if text}}btn-text{{/if}}" {{{params}}}>
+
+	<div data-lazy-video data-video-provider="{{{videoProvider}}}" data-type="{{{videoProvider}}}" data-video-id="{{{videoID}}}"></div>
+
+	<div class="controls">
+
+		<button class="btn play-rect video-player--play-button play-btn">
+
+			<figure class="play-rect--icon-container">
+				{{svg 'icon-play-masked'
+					classes = 'play-rect--icon'
+				}}
+			</figure>
+
+			{{#if text}}
+				<span data-text="{{{text}}}">
+					{{{text}}}
+				</span>
+			{{/if}}
+
+		</button>
+
+	</div>
+
+	<figure class="video-player--poster bg-abs bg-cover bg-center" style="background-image: url('{{@root._data.assets}}{{{posterURL}}}')"></figure>
+
+</div>

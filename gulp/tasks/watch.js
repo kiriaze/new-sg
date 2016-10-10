@@ -7,48 +7,77 @@ var config        = require('../config'),
 	runSequence   = require('run-sequence'),
 	reload        = browserSync.reload;
 
-
 // Watchers
 gulp.task('watch', function() {
 
-	// utilizing browsersync.watch > gulp.watch
-
 	// scss
-	browserSync.watch(config.srcPaths.root + '/**/*.scss', function (event, file) {
+	browserSync.watch([config.srcPaths.root + '/**/*.scss'], function (event, file) {
 		if ( event === 'change' ) {
 			runSequence('sass')
-			browserSync.reload('*.css'); // for injection only
 		}
 	});
+
+	// customizer
+	browserSync.watch(config.srcPaths.root + '/assets/scss/customizer.scss', function (event, file) {
+		if ( event === 'change' ) {
+			runSequence('customizer-css')
+		}
+	});
+
+	/////////////////////////////////////
 
 	// js
 	browserSync.watch(config.srcPaths.root + '/**/*.js', function (event, file) {
 		if ( event === 'change' ) {
-			// required to run sequentially
-			runSequence('modules-js', 'styleguide-js', browserSync.reload)
+			// no longer running styleguide-js,
+			// issues with having to reload the page twice to see effects
+			// run gulp styleguide-js when you change styleguide.js/iframe.js?
+			runSequence('modules-js')
 		}
 	});
+
+	// required to avoide double reloading page by tying to runSquence above
+	gulp.watch([config.destPaths.root + '/assets/js/*.js']).on("change", function(file) {
+		reload(file.path);
+		// console.log(file,file.path);
+	});
+
+
+	// customizer
+	browserSync.watch(config.srcPaths.root + '/assets/js/customizer.js', function (event, file) {
+		if ( event === 'change' ) {
+			runSequence('customizer-js')
+		}
+	});
+
+	/////////////////////////////////////
 
 	// images
 	browserSync.watch(config.srcPaths.root + '/assets/images/**/*', function (event, file) {
 		if ( event === 'change' ) {
 			// required to run sequentially
-			runSequence('images', browserSync.reload)
+			runSequence('images', reload)
 		}
 	});
 
+	/////////////////////////////////////
+
 	// only modules
 	browserSync.watch([
-		config.srcPaths.root + '/partials/*.hbs',
 		config.srcPaths.root + '/modules/**/*.hbs',
-		config.srcPaths.root + '/modules/**/*.json'
+		config.srcPaths.root + '/modules/**/*.json',
+		// config.srcPaths.root + '/partials/*.hbs',
+		// ignore files that get written to prevent infinite loops
+		// '!src/partials/page-nav.hbs'
 	], function(event, file){
 		if ( event === 'change' ) {
-			console.log('watch mods');
+			// console.log('watch mods task');
 			// required to run hbs after for update of modules.html
-			runSequence('modules', 'styleguide', browserSync.reload)
+			runSequence('modules', 'styleguide', 'pages', reload)
 		}
 	});
+
+	/////////////////////////////////////
 
 	// styleguide structure
 	browserSync.watch([
@@ -56,17 +85,21 @@ gulp.task('watch', function() {
 		'_data.json'
 	], function(event, file){
 		if ( event === 'change' ) {
-			runSequence('styleguide', browserSync.reload)
+			// console.log('watch sg task');
+			runSequence('styleguide', reload)
 		}
 	});
+
+	/////////////////////////////////////
 
 	// pages
 	browserSync.watch([
 		config.srcPaths.root + '/pages/**/*.html',
-		'_data.json'
+		config.srcPaths.data.pages
 	], function(event, file){
 		if ( event === 'change' ) {
-			runSequence('pages', browserSync.reload)
+			// console.log('watch page task');
+			runSequence('pages', reload)
 		}
 	});
 

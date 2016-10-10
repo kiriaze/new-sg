@@ -1,0 +1,73 @@
+.heart-toggle {
+
+	position: relative;
+	width: 1.7rem;
+	height: 1.5rem;
+
+	&--full {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+
+		svg * {
+			
+			fill: rgba($primary-color, 0);
+			
+			@include transition(fill);
+			transition-duration: 0.24s;
+		}
+	}
+
+	&--empty {
+		position: relative;
+
+		svg * {
+			
+			fill: rgba($med-grey, 1);
+			
+			@include transition(fill);
+			transition-duration: 0.24s;
+		}
+	}
+
+	&--full,
+	&--empty {
+		width: inherit;
+		height: inherit;
+	}
+
+	&:hover {
+
+		.heart-toggle--empty {
+
+			svg * {
+				fill: rgba($black, 1);
+			}
+		}
+	}
+
+	&.is-active {
+
+		.heart-toggle--full {
+
+			svg * {
+				fill: rgba($primary-color, 1);
+			}
+		}
+
+		.heart-toggle--empty {
+
+			svg * {
+				fill: rgba($dark-grey, 1);
+			}
+		}
+	}
+
+	svg {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+	}
+}

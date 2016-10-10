@@ -1,0 +1,130 @@
+.video-player {
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	.controls {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	&--play-button {
+		z-index: 20;
+		top: calc(50% - 1.5rem);
+		left: calc(50% - 1.5rem);
+
+		.btn-text & {
+			@include breakpoint($screen-medium) {
+				top: auto;
+				left: auto;
+				right: 2rem;
+				bottom: 2rem;
+			}
+		}
+	}
+
+	&--poster {
+		background-color: $primary-color;
+	}
+
+	&--ambient {
+		overflow: hidden;
+		video {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 100;
+			transform: translateY(-50%);
+			&:after {
+				content: '';
+				padding-bottom: 37.5% 100% 0 0;
+			}
+		}
+	}
+
+	&--fw {
+
+		.play-rect {
+			width: 4rem;
+			height: 4rem;
+			line-height: 3.8rem;
+			border: 1px solid $white;
+
+			&--icon-container {
+				// width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+
+			&--icon {
+				width: 3.8rem;
+				height: 3.8rem;
+				fill: $white;
+			}
+
+			span {
+				color: $white;
+
+				&,
+				&:after {
+					padding: 0;
+					display: none;
+					background-color: transparent;
+					transition-property: background, transform;
+					transition-duration: .25s;
+
+					@include breakpoint($screen-medium) {
+						display: block;
+					}
+				}
+				&:after {
+					color: $black;
+				}
+			}
+
+			@include breakpoint($screen-medium) {
+				&:hover span {
+					&,
+					&:after {
+						background-color: $white;
+					}
+				}
+			}
+		}
+
+		&.btn-text {
+			.play-rect {
+				@include breakpoint($screen-medium) {
+					width: 15rem;
+					padding: 0 0 0 3.8rem;
+					top: calc(50% - 2rem);
+					right: auto;
+					bottom: auto;
+					left: calc(50% - 7.5rem);
+				}
+			}
+		}
+
+		&:after {
+			content: '';
+			padding-bottom: $video-aspect-ratio;
+			display: block;
+		}
+
+	}
+
+	// hell yeah
+	// let's break shit
+	[data-lazy-video] {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+}

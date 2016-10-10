@@ -6,30 +6,37 @@
         {
           "videos": [
               {
-                "url" : "https://vimeo.com/16544905"
+                "provider" : "vimeo",
+                "url" : "16544905",
+                "text" : "Play Video"
               }
           ]
         },
         {
           "videos": [
               {
-                "url" : "https://vimeo.com/53309511"
+                "provider" : "vimeo",
+                "url" : "53309511"
               },
               {
-                "url" : "https://www.youtube.com/watch?v=2P1W3xjUio8"
+                "provider" : "youtube",
+                "url" : "2P1W3xjUio8"
               }
           ]
         },
         {
           "videos": [
               {
-                "url" : "https://www.youtube.com/watch?v=ZUG9qYTJMsI"
+                "provider" : "youtube",
+                "url" : "ZUG9qYTJMsI"
               },
               {
-                "url" : "https://www.youtube.com/watch?v=0oMEuyhBkRo"
+                "provider" : "youtube",
+                "url" : "0oMEuyhBkRo"
               },
               {
-                "url" : "https://www.youtube.com/watch?v=-oRV9qLKSvo"
+                "provider" : "youtube",
+                "url" : "-oRV9qLKSvo"
               }
           ]
         },

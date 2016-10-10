@@ -1,0 +1,38 @@
+.bullet-nav {
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	padding-top: 14px;
+	padding-bottom: 14px;
+
+	li {
+		position: relative;
+		display: inline-block;
+		width: 25px;
+		height: 25px;
+		cursor: pointer;
+		+ li {
+			margin-left: .75rem;
+		}
+	}
+
+	li.active {
+		background-color: $primary-color;
+
+		svg {
+			opacity: 1;
+			transform: translateX(-50%) translateY(-50%) rotateZ(45deg);
+		}
+	}
+
+	li svg {
+		width: 10px;
+		height: 10px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		opacity: 0.2;
+		transform: translateX(-50%) translateY(-50%);
+		transition: transform $durationFast $easeOutExpo;
+	}
+}

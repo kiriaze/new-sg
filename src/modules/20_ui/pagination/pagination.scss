@@ -1,0 +1,23 @@
+.pagination {
+	width: 100%;
+	margin: 4rem 0;
+	text-align: center;
+	li {
+		display: inline-block;
+		margin: 0 1rem;
+		font-size: 1.4rem;
+		font-weight: $fw-bold;
+		a {
+			color: $med-grey;
+			fill: $med-grey;
+			&.is-active,
+			&:hover {
+				color: $black;
+				fill: $black;
+			}
+		}
+		svg {
+			width: 1rem;
+		}
+	}
+}

@@ -11,11 +11,6 @@ Params:
 	{{#if title}}
 		<label class="metadata" for="{{{name}}}">{{{title}}}</label>
 	{{/if}}
-	{{#if tooltip}}
-		{{> 20_ui/tooltip/tooltip
-			copy = this.tooltip
-		}}
-	{{/if}}
 	<textarea
 	{{#if name}}name="{{{name}}}"{{/if}}
 	{{#if placeholder}}placeholder="{{{placeholder}}}"{{/if}}

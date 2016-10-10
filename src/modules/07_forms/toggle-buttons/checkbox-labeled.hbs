@@ -2,11 +2,6 @@
 	<input type="checkbox" name="{{{name}}}" {{#if checked}}checked{{/if}} {{#if disabled}}disabled{{/if}} {{{childParams}}}>
 	<span class="metadata">
 		{{{title}}}
-		{{#if tooltip}}
-			{{> 20_ui/tooltip/tooltip
-				copy = this.tooltip
-			}}
-		{{/if}}
 	</span>
 	{{svg 'icon-check' classes='check svg' }}
 </label>

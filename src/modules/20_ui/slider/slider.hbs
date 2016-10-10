@@ -1,0 +1,24 @@
+<section class="slider-image {{{classes}}}" {{{params}}} data-mod="slider-image">
+
+	<div class="container">
+
+		<ul class="bullet-nav">
+			<script class="bullet-nav-template" type="text/x-handlebars-template">
+				<li>
+					{{svg 'slider-bullet'}}
+				</li>
+			</script>
+		</ul>
+
+	</div><!-- /container -->
+
+	<!-- slider -->
+	<div class="owl-carousel image-carousel" data-slider>
+		{{#times 6 }}
+			<div class="image-carousel--item">
+				<img src="http://unsplash.it/700/480" alt="">
+			</div>
+		{{/times}}
+	</div>
+
+</section>

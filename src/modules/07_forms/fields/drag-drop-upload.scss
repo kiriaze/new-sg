@@ -28,7 +28,7 @@
 			position: absolute;
 			top: 2.8rem;
 			left: calc(50% - .9rem);
-			stroke: $med-light-grey;
+			stroke: $med-grey;
 		}
 		span {
 			width: 8rem;
@@ -74,7 +74,7 @@
 					display: block;
 				}
 				.delete {
-					@extend %link-underline-light;
+					// @extend %link-underline-light;
 
 					font-size: 1.1rem;
 					line-height: 1rem;

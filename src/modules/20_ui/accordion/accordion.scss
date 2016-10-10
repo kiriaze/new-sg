@@ -1,0 +1,33 @@
+.accordion {
+	&--toggle {
+		position: relative;
+		display: block;
+		cursor: pointer;
+		.plus {
+			position: absolute;
+		}
+		line {
+			transform-origin: center;
+			@include transition(transform, opacity);
+			opacity: 1;
+		}
+	}
+	&--content {
+		height: 0;
+		opacity: 0;
+		overflow: hidden;
+		@include transition(height, opacity);
+	}
+	.is-open &--toggle + &--content {
+		opacity: 1;
+	}
+	.is-open &--toggle line {
+		&:nth-child(1) {
+			transform: rotateZ(-90deg);
+			opacity: 0;
+		}
+		&:nth-child(2) {
+			transform: rotateZ(-180deg);
+		}
+	}
+}

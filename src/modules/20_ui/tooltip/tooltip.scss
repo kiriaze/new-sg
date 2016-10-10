@@ -1,0 +1,98 @@
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+
+	> svg {
+		position: absolute;
+		top: -.2rem;
+		left: 0;
+		width: 1.4rem;
+		height: 1.4rem;
+		cursor: pointer;
+		overflow: hidden;
+		border-radius: 50%;
+		background: $primary-color;
+
+		path {
+			&:first-of-type {
+				fill: $primary-color;
+			}
+		}
+
+		&:hover ~ .tooltip--content {
+			z-index: 1;
+			visibility: visible;
+			opacity: 1;
+			transition: opacity .25s ease, z-index 0s, visibility 0s;
+		}
+	}
+	&--content {
+		width: 25rem;
+		padding: 2rem;
+		font-size: 1.3rem;
+		line-height: 1.7rem;
+		color: $dark-grey;
+		text-transform: none;
+		font-weight: $fw-medium;
+		position: absolute;
+		top: 0;
+		left: calc(-12.5rem + .7rem);
+		z-index: -1;
+		opacity: 0;
+		visibility: hidden;
+		background-color: $white;
+		box-shadow: 0 0 2px rgba(0,0,0,.5);
+		transform: translateY(calc(-100% - 1rem));
+		transition: opacity .25s .25s, z-index 0s .5s, visibility 0s .5s;
+
+		.left & {
+			left: calc(100% - .8rem);
+		}
+
+		.right & {
+			left: calc(-25rem + 1.6rem);
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 100%;
+			width: 0;
+			height: 0;
+			border-style: solid;
+		}
+
+		&:before {
+			left: calc(50% - .8rem);
+			border-width: .7rem .8rem 0 .8rem;
+			border-color: rgba(0,0,0,.25) transparent transparent transparent;
+			.left & {
+				left: calc(0% + .8rem);
+			}
+			.right & {
+				left: calc(100% - 1.8rem);
+			}
+		}
+
+		&:after {
+			left: calc(50% - .7rem);
+			border-width: .6rem .7rem 0 .7rem;
+			border-color: $white transparent transparent transparent;
+			.left & {
+				left: calc(0% + .9rem);
+			}
+			.right & {
+				left: calc(100% - 1.7rem);
+			}
+		}
+
+		&:hover {
+			z-index: 1;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}

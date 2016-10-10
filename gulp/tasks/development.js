@@ -15,7 +15,6 @@ gulp.task('default', function() {
 		'pages',
 		'sass',
 		'modules-js',
-		'pages-js',
 		'customizer-css',
 		'styleguide-js',
 		'customizer-js',

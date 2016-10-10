@@ -1,0 +1,47 @@
+.bullet-nav {
+	display: inline-block;
+	padding-top: 14px;
+	padding-bottom: 14px;
+
+	li {
+		float: left;
+		width: 25px;
+		height: 25px;
+		position: relative;
+
+		+ li {
+			margin-left: .75rem;
+		}
+	}
+
+	li.active {
+		background-color: $primary-color;
+
+		svg {
+			transform: translateX(-50%) translateY(-50%) rotateZ(45deg);
+			opacity: 1;
+		}
+	}
+
+	li svg {
+		width: 10px;
+		height: 10px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		opacity: 0.2;
+		transition: transform $durationFast $easeOutExpo;
+	}
+
+	&--light {
+		li:not(.active) svg {
+			#stroke {
+				stroke: #979797;
+			}
+			#fill {
+				fill: #979797;
+			}
+		}
+	}
+}

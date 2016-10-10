@@ -10,12 +10,6 @@ Params:
 	{{#if title}}
 		<label class="metadata h7" for="{{{name}}}">
 			{{{title}}}
-			{{#if tooltip}}
-				{{> 20_ui/tooltip/tooltip
-					copy	= this.tooltip
-					classes	= this.tooltipClasses
-				}}
-			{{/if}}
 		</label>
 	{{/if}}
 	<select class="custom-select"

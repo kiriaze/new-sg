@@ -2,6 +2,7 @@ var plyrHTML = require('./plyr-html')
 
 class LazyVideo {
 	constructor(domElement){
+
 		function parseVideoURL(url) {
 
 			function getParm(url, base) {

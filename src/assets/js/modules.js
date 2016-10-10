@@ -1,0 +1,13 @@
+require("../../modules/00_settings/script.js");
+require("../../modules/01_introduction/script.js");
+require("../../modules/04_buttons/script.js");
+require("../../modules/07_forms/script.js");
+require("../../modules/08_media/script.js");
+require("../../modules/09_layout/script.js");
+require("../../modules/10_header/script.js");
+require("../../modules/11_footer/script.js");
+require("../../modules/20_ui/script.js");
+require("../../modules/20_ui/slider/script.js");
+require("../../modules/90_utils/script.js");
+require("../../modules/997_bits/script.js");
+require("../../modules/999_shame/script.js");

@@ -3,7 +3,7 @@
 	position: relative;
 	height: 4rem;
 	line-height: 4rem;
-	background: $section-bg;
+	background: $dark-grey;
 
 	> label {
 
@@ -59,9 +59,9 @@
 	}
 
 	.selectize-dropdown .selectize-dropdown-content {
-		
+
 		position: relative;
-		background: $section-bg;
+		background: $dark-grey;
 		padding: 1rem 0 0.5rem;
 		border-top: 1px solid $line-color;
 		border-bottom: none;
@@ -85,7 +85,7 @@
 	}
 
 	.selectize-control.single .selectize-input {
-		
+
 		background: rgba(#fff, 0);
 		// border-color: rgba($light-grey, 0);
 
@@ -105,7 +105,7 @@
 		line-height: 3.5rem;
 		padding: 0 2rem;
 		color: $med-grey;
-		background-color: $section-bg;
+		background-color: $dark-grey;
 		white-space: nowrap;
 
 		&:hover {

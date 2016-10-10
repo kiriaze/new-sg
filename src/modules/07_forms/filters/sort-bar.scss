@@ -2,20 +2,20 @@
 
 	position: relative;
 	height: 6rem;
-	border-bottom: 1px solid $light-grey;
-	background: $module-bg;
 	z-index: 1;
 	white-space: nowrap;
+	background: $med-grey;
+	border-bottom: 1px solid $light-grey;
 
 	.title {
-		
+
 		display: inline-block;
 		position: relative;
 		color: $black;
 		height: 6rem;
 		line-height: 6.5rem;
 
-		.grey { 
+		.grey {
 			color: $med-grey;
 		}
 	}

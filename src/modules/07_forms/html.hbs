@@ -11,7 +11,7 @@
 		<fieldset>
 
 			<div class="row">
-				<div class="col">
+				<div class="col-2">
 					{{> 07_forms/fields/input-labeled
 						this.classes
 						error		= 'Invalid First Name'
@@ -23,7 +23,7 @@
 						tooltip     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
 					}}
 				</div>
-				<div class="col">
+				<div class="col-2">
 					{{> 07_forms/fields/input-labeled
 						this.classes
 						error		= 'Invalid Last Name'
@@ -38,7 +38,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col">
+				<div class="col-2">
 					{{> 07_forms/fields/input-labeled
 						this.classes
 						error		= 'Invalid Email Address'
@@ -50,7 +50,7 @@
 						tooltip     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
 					}}
 				</div>
-				<div class="col">
+				<div class="col-2">
 					{{#parseJSON
 						'{"items":[
 							{"key":"select","label":"Select..."},
@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col">
+				<div class="col-2">
 					{{> 07_forms/fields/input-labeled
 						this.classes
 						error		= 'Please enter a password.'
@@ -81,7 +81,7 @@
 						tooltip     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
 					}}
 				</div>
-				<div class="col">
+				<div class="col-2">
 					{{> 07_forms/fields/textarea-labeled
 						this.classes
 						error		= 'Please enter a message.'
@@ -95,7 +95,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col">
+				<div class="col-2">
 					{{> 07_forms/toggle-buttons/checkbox-labeled
 						this.classes
 						title	= 'Yes, keep me updated.'
@@ -104,13 +104,13 @@
 						tooltip	= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
 					}}
 				</div>
-				<div class="col">
+				<div class="col-2">
 
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col">
+				<div class="col-2">
 					{{> 07_forms/toggle-buttons/radio-labeled
 						this.classes
 						title	= 'Yes'
@@ -126,7 +126,7 @@
 						tooltip	= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem beatae aperiam tenetur consectetur error enim, accusamus hic ullam numquam ut deleniti mollitia voluptatem repellat distinctio fuga iure vel officia, recusandae.'
 					}}
 				</div>
-				<div class="col">
+				<div class="col-2">
 					{{> 07_forms/fields/drag-drop-upload
 						title = 'Image uploader *'
 						label = 'Select or drag image'

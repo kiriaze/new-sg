@@ -304,7 +304,7 @@ $container-class:				'container'; // defaults to [data-layout = "container"]
 $row-class:						'row'; // defaults to [data-layout = "grid"]
 $column-class:					'col'; // defaults to [data-columns = "$"]
 $number-of-columns:				12; // max number of columns
-$gridDebug:						true; // grid colors
+// $gridDebug:						true; // grid colors
 $gutter:						2rem;
 
 
@@ -341,8 +341,8 @@ $fb-blue:						#3c599b;
 $twitter-blue:					#3d99fb;
 
 // Project Colors
-$primary-color:                 #fdd02f;
-$accent-color:                  #edad02;
+$primary-color:                 $red;
+$accent-color:                  maroon;
 
 // Selection Colors
 $selection-bg-color:            $yellow;

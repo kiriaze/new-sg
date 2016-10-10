@@ -1,22 +1,64 @@
 <h2 class="styleguide-module__title">{{{name}}}</h2>
 <h5 class="styleguide-module__title--small">{{{items.notOrdenated}}}</h5>
 
-{{> 20_ui/accordion/accordion }}
+<div class="styleguide-module__header">
+	<h5 class="styleguide-module__title--small">Accordions</h5>
+</div>
+
+{{> 20_ui/accordion/accordions/accordion--questions }}
+
+<div class="styleguide-module__header">
+	<h5 class="styleguide-module__title--small">Alerts</h5>
+</div>
 
 {{> 20_ui/alerts/alert }}
 
+<div class="styleguide-module__header">
+	<h5 class="styleguide-module__title--small">Heart Toggles</h5>
+</div>
+
 {{> 20_ui/heart-toggle/heart-toggle }}
+
+<div class="styleguide-module__header">
+	<h5 class="styleguide-module__title--small">Pagination</h5>
+</div>
 
 {{> 20_ui/pagination/pagination }}
 
+<div class="styleguide-module__header">
+	<h5 class="styleguide-module__title--small">Bullet Nav</h5>
+</div>
+
 {{> 20_ui/pagination/bullet-nav }}
+
+<div class="styleguide-module__header">
+	<h5 class="styleguide-module__title--small">Slider</h5>
+</div>
 
 {{> 20_ui/slider/slider }}
 
+<div class="styleguide-module__header">
+	<h5 class="styleguide-module__title--small">Tabs</h5>
+</div>
+
 {{> 20_ui/tabs/tabs }}
 
-{{> 20_ui/toggle/toggle }}
+<div class="styleguide-module__header">
+	<h5 class="styleguide-module__title--small">Toggles</h5>
+</div>
 
-{{> 20_ui/tooltip/tooltip }}
+{{> 20_ui/toggle/toggle
+	value1 = 'yes'
+	label1 = 'Yes'
+	value2 = 'no'
+	label2 = 'No'
+}}
 
-{{> 20_ui/video/video-player }}
+<div class="styleguide-module__header">
+	<h5 class="styleguide-module__title--small">Tooltips</h5>
+</div>
+
+{{> 20_ui/tooltip/tooltip
+	classes = 'left'
+	copy    = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis deserunt ad aliquid consectetur tempora corporis iste consequatur earum doloremque corrupti, laudantium velit voluptatem, harum, non? Reiciendis aspernatur commodi expedita dolores!'
+}}
